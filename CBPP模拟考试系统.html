@@ -44,7 +44,7 @@
   .ch-btn:hover { border-color:var(--accent); background:var(--accent-soft); color:var(--accent); }
   .ch-btn.selected { border-color:var(--accent); background:var(--accent); color:#fff; }
   /* exam */
-  .exam-top { position:sticky; top:0; z-index:30; background:var(--panel); border-bottom:1px solid var(--border); padding:12px 20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; max-width:1000px; margin:0 auto; border-radius:0 0 12px 12px; box-shadow:0 2px 10px rgba(0,0,0,.05); }
+  .exam-top { position:sticky; top:46px; z-index:30; background:var(--panel); border-bottom:1px solid var(--border); padding:12px 20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; max-width:1000px; margin:0 auto; border-radius:0 0 12px 12px; box-shadow:0 2px 10px rgba(0,0,0,.05); }
   .timer { font-size:19px; font-weight:800; font-variant-numeric:tabular-nums; }
   .timer.warn { color:var(--bad); animation:pulse 1s infinite; }
   @keyframes pulse { 50% { opacity:.55; } }
@@ -87,50 +87,84 @@
   .hist-item { display:flex; justify-content:space-between; border:1px solid var(--border); border-radius:9px; padding:9px 14px; margin:8px 0; font-size:13px; flex-wrap:wrap; gap:6px; }
   .pass-tag { color:var(--ok); font-weight:700; } .fail-tag { color:var(--bad); font-weight:700; }
   .hidden { display:none !important; }
+  /* ============ 顶栏返回 / 双语 UI ============ */
+  .topbar { position:sticky; top:0; z-index:90; background:#0f172a; color:#fff; display:flex; align-items:center; gap:10px; padding:8px 32px; font-size:12.5px; flex-wrap:wrap; }
+  .topbar a.home, .topbar button.home { display:inline-flex; align-items:center; gap:7px; background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.3); color:#fff; text-decoration:none; padding:5px 13px; border-radius:8px; font-weight:600; font-size:12.5px; cursor:pointer; transition:.15s; }
+  .topbar a.home:hover, .topbar button.home:hover { background:#fff; color:#0f172a; }
+  .topbar a.home .e, .topbar button.home .e { font-size:10px; font-weight:500; opacity:.72; }
+  .topbar .tb-note { margin-left:auto; color:#cbd5e1; font-size:11.5px; }
+  .topbar .tb-note b { color:#fff; }
+  .ui-en { display:block; font-size:11px; line-height:1.4; color:#94a3b8; font-weight:500; letter-spacing:.2px; margin-top:1px; }
+  .ui-en.in { display:inline; margin-left:6px; font-size:10.5px; }
+  .btn .ui-en { font-size:10px; color:var(--muted); font-weight:500; margin-top:2px; }
+  .btn.primary .ui-en { color:rgba(255,255,255,.8); }
+  .btn.armed .ui-en { color:#b91c1c; }
+  .h-en { display:block; font-size:12.5px; font-weight:500; opacity:.86; margin-top:6px; letter-spacing:.3px; }
+  .badge-en { display:block; font-size:10px; font-weight:500; opacity:.8; margin-top:2px; }
+  .h4-en { font-size:10.5px; font-weight:500; color:#94a3b8; margin-left:7px; letter-spacing:.3px; }
+  .th-en { display:block; font-size:9.5px; font-weight:500; color:#94a3b8; letter-spacing:.2px; }
+  .mode-card .en-note { display:block; margin-top:6px; font-size:10.5px; color:#94a3b8; font-weight:500; line-height:1.45; }
+
+/* ---- 顶部导航（统一入口版）：固定 44px 单行，窄屏可横向滑动 ---- */
+.topbar { min-height:44px; box-sizing:border-box; }
+@media (max-width:780px){
+  .topbar { flex-wrap:nowrap; overflow-x:auto; padding:8px 12px; gap:7px; scrollbar-width:none; }
+  .topbar::-webkit-scrollbar { height:0; }
+  .topbar .tb-note { display:none; }
+  .topbar a.home, .topbar button.home { padding:5px 9px; font-size:11.5px; white-space:nowrap; }
+}
 </style>
 </head>
 <body>
 
+<div class="topbar">
+  <a class="home" href="index.html">🏠 ← 返回首页 <span class="e">Back to Home</span></a>
+  <a class="home" href="CBPP考点思维导图.html">🧭 思维导图 <span class="e">Knowledge Map</span></a>
+  <a class="home" href="CBPP备考中心.html#study">📖 精讲与练习 <span class="e">Study &amp; Drills</span></a>
+  <span class="tb-note">CBPP Prep Center · <b>全真模拟考试</b> / Mock Exams</span>
+</div>
+
 <header>
   <div>
-    <h1>CBPP 全真模拟考试系统</h1>
-    <div class="meta">严格对照官方考试：140 题 · 180 分钟 · 及格线 70%（98 题）· <b>全英文题面（与真题语言一致）</b>· 解析中英双语 · 错题自动入错题本</div>
+    <h1>CBPP 全真模拟考试系统
+      <span class="h-en">CBPP Full Mock Exam Simulator · 140 questions / 180 minutes / 70% to pass</span></h1>
+    <div class="meta">严格对照官方考试：140 题 · 180 分钟 · 及格线 70%（98 题）· <b>全英文题面（与真题语言一致）</b>· 解析中英双语 · 错题自动入错题本<span class="badge-en">Format identical to the real exam · English stems and options · bilingual explanations · wrong answers saved automatically</span></div>
   </div>
-  <div class="meta" id="headInfo">题库 311 题 · 五套全真卷 · 蓝图 9 大知识域</div>
+  <div class="meta" id="headInfo">题库 311 题 · 五套全真卷 · 蓝图 9 大知识域<span class="badge-en">311-question bank · 5 full mock papers · 9 domains</span></div>
 </header>
 
 <div class="wrap">
   <!-- 首页 -->
   <div id="viewHome">
     <div class="card">
-      <h3 style="font-size:16px">五套全真模拟卷（严格对照官方考试）</h3>
-      <p class="muted" style="margin-top:4px">与真实 CBPP 考试完全一致：<b>140 道单选题 · 180 分钟（3 小时）· 及格线 70%（答对 98 题）· 全英文题面</b>；各知识域题量严格按官方蓝图分配（9/17/14/15/15/14/17/19/20），题目随机乱序。真题为英文卷，本系统题干、选项均以英文呈现（保留英文术语原貌），答题时可用右上角「🌐 中英对照」叠加中文翻译辅助理解；交卷后的解析为中英双语。交卷后按知识域反馈成绩，错题自动入错题本；中途刷新可恢复进度。</p>
+      <h3 style="font-size:16px">五套全真模拟卷（严格对照官方考试）<span class="h4-en">FIVE FULL MOCK PAPERS</span></h3>
+      <p class="muted" style="margin-top:4px">与真实 CBPP 考试完全一致：<b>140 道单选题 · 180 分钟（3 小时）· 及格线 70%（答对 98 题）· 全英文题面</b>；各知识域题量严格按官方蓝图分配（9/17/14/15/15/14/17/19/20），题目随机乱序。真题为英文卷，本系统题干、选项均以英文呈现（保留英文术语原貌），答题时可用右上角「🌐 中英对照」叠加中文翻译辅助理解；交卷后的解析为中英双语。交卷后按知识域反馈成绩，错题自动入错题本；中途刷新可恢复进度。<span class="ui-en">Identical to the real exam: 140 single-choice questions · 180 minutes · pass mark 70% (98 correct) · all English. Domain counts follow the official blueprint (9/17/14/15/15/14/17/19/20) and questions are randomly ordered. Use “🌐 Bilingual” during the exam to overlay Chinese; score reports and explanations are bilingual.</span></p>
       <div class="mode-grid">
-        <div class="mode-card" data-p="1"><h3>📄 全真模拟卷 · 第一套</h3><p><b>140 题 · 180 分钟</b><br>蓝图组卷 · 随机乱序 · 70% 及格线</p></div>
-        <div class="mode-card" data-p="2"><h3>📄 全真模拟卷 · 第二套</h3><p><b>140 题 · 180 分钟</b><br>蓝图组卷 · 随机乱序 · 70% 及格线</p></div>
-        <div class="mode-card" data-p="3"><h3>📄 全真模拟卷 · 第三套</h3><p><b>140 题 · 180 分钟</b><br>蓝图组卷 · 随机乱序 · 70% 及格线</p></div>
-        <div class="mode-card" data-p="4"><h3>📄 全真模拟卷 · 第四套</h3><p><b>140 题 · 180 分钟</b><br>蓝图组卷 · 随机乱序 · 70% 及格线</p></div>
-        <div class="mode-card" data-p="5"><h3>📄 全真模拟卷 · 第五套</h3><p><b>140 题 · 180 分钟</b><br>蓝图组卷 · 随机乱序 · 70% 及格线</p></div>
+        <div class="mode-card" data-p="1"><h3>📄 全真模拟卷 · 第一套<span class="h4-en">MOCK PAPER 1</span></h3><p><b>140 题 · 180 分钟</b><br>蓝图组卷 · 随机乱序 · 70% 及格线<span class="en-note">140 items · 180 min · blueprint-based · random order · 70% to pass</span></p></div>
+        <div class="mode-card" data-p="2"><h3>📄 全真模拟卷 · 第二套<span class="h4-en">MOCK PAPER 2</span></h3><p><b>140 题 · 180 分钟</b><br>蓝图组卷 · 随机乱序 · 70% 及格线<span class="en-note">140 items · 180 min · blueprint-based · random order · 70% to pass</span></p></div>
+        <div class="mode-card" data-p="3"><h3>📄 全真模拟卷 · 第三套<span class="h4-en">MOCK PAPER 3</span></h3><p><b>140 题 · 180 分钟</b><br>蓝图组卷 · 随机乱序 · 70% 及格线<span class="en-note">140 items · 180 min · blueprint-based · random order · 70% to pass</span></p></div>
+        <div class="mode-card" data-p="4"><h3>📄 全真模拟卷 · 第四套<span class="h4-en">MOCK PAPER 4</span></h3><p><b>140 题 · 180 分钟</b><br>蓝图组卷 · 随机乱序 · 70% 及格线<span class="en-note">140 items · 180 min · blueprint-based · random order · 70% to pass</span></p></div>
+        <div class="mode-card" data-p="5"><h3>📄 全真模拟卷 · 第五套<span class="h4-en">MOCK PAPER 5</span></h3><p><b>140 题 · 180 分钟</b><br>蓝图组卷 · 随机乱序 · 70% 及格线<span class="en-note">140 items · 180 min · blueprint-based · random order · 70% to pass</span></p></div>
         <div class="mode-card" id="modeWrong">
-          <h3>🔁 错题重做</h3>
-          <p>集中攻克历史错题，答对自动移出错题本。<br><span id="wrongCountInfo" class="muted"></span></p>
+          <h3>🔁 错题重做<span class="h4-en">REDO WRONG ANSWERS</span></h3>
+          <p>集中攻克历史错题，答对自动移出错题本。<br><span id="wrongCountInfo" class="muted"></span><span class="en-note">Work through every past mistake — a correct answer removes it from the error bank.</span></p>
         </div>
         <div class="mode-card" id="modeBook">
-          <h3>📖 错题本 / 考试历史</h3>
-          <p>查看错题清单与历次考试成绩记录。</p>
+          <h3>📖 错题本 / 考试历史<span class="h4-en">ERROR BANK &amp; EXAM HISTORY</span></h3>
+          <p>查看错题清单与历次考试成绩记录。<span class="en-note">Review every wrong answer and all previous score records.</span></p>
         </div>
       </div>
       <div class="start-bar hidden" id="paperStartBar">
-        <button class="btn primary" id="paperStartBtn">开始考试</button>
+        <button class="btn primary" id="paperStartBtn">开始考试<span class="ui-en">Start exam</span></button>
         <span class="sel-note" id="paperSelNote"></span>
       </div>
     </div>
     <div class="card">
-      <h3 style="font-size:15px">单章模考（专项突破）</h3>
-      <p class="muted" style="margin-top:2px;font-size:12.5px">点击选择章节，再点下方"开始考试"进入。</p>
+      <h3 style="font-size:15px">单章模考（专项突破）<span class="h4-en">SINGLE-DOMAIN DRILL</span></h3>
+      <p class="muted" style="margin-top:2px;font-size:12.5px">点击选择章节，再点下方"开始考试"进入。<span class="ui-en">Pick a domain, then press “Start exam”.</span></p>
       <div class="ch-list" id="chList"></div>
       <div class="start-bar hidden" id="chStartBar">
-        <button class="btn primary" id="chStartBtn">开始考试</button>
+        <button class="btn primary" id="chStartBtn">开始考试<span class="ui-en">Start exam</span></button>
         <span class="sel-note" id="chSelNote"></span>
       </div>
     </div>
@@ -144,25 +178,26 @@
         <span class="muted" id="examPos"></span>
       </div>
       <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <button class="btn" id="backListBtn" title="返回考试列表（进度已保存）/ Back to exam list (progress saved)">← 列表<span class="ui-en">Exam list</span></button>
         <div class="timer" id="timer">--:--</div>
-        <button class="btn" id="langBtn" title="切换中文对照">🌐 中英对照：关</button>
-        <button class="btn flag-btn" id="flagBtn">🚩 标记本题</button>
-        <button class="btn primary" id="submitBtn">交卷</button>
+        <button class="btn" id="langBtn" title="切换中文对照 / Toggle Chinese overlay">🌐 中英对照：关<span class="ui-en">Bilingual: OFF</span></button>
+        <button class="btn flag-btn" id="flagBtn">🚩 标记本题<span class="ui-en">Flag for review</span></button>
+        <button class="btn primary" id="submitBtn">交卷<span class="ui-en">Submit</span></button>
       </div>
     </div>
     <div class="qcard" id="qCard"></div>
     <div class="nav-row">
-      <button class="btn" id="prevBtn">← 上一题</button>
-      <button class="btn" id="nextBtn">下一题 →</button>
+      <button class="btn" id="prevBtn">← 上一题<span class="ui-en">Previous</span></button>
+      <button class="btn" id="nextBtn">下一题 →<span class="ui-en">Next</span></button>
     </div>
     <div class="card" style="margin-top:18px">
-      <b style="font-size:13.5px">答题卡</b>
+      <b style="font-size:13.5px">答题卡<span class="h4-en">ANSWER SHEET</span></b>
       <div class="palette" id="palette" style="margin-top:10px"></div>
       <div class="legend2">
-        <span><span class="dot" style="background:var(--accent)"></span>已作答</span>
-        <span><span class="dot" style="background:#fff;border:1px solid var(--border)"></span>未作答</span>
-        <span><span class="dot" style="background:var(--warn)"></span>底部黄条=已标记复查</span>
-        <span><span class="dot" style="background:#1e3a8a"></span>深蓝框=当前题</span>
+        <span><span class="dot" style="background:var(--accent)"></span>已作答<span class="ui-en in">Answered</span></span>
+        <span><span class="dot" style="background:#fff;border:1px solid var(--border)"></span>未作答<span class="ui-en in">Unanswered</span></span>
+        <span><span class="dot" style="background:var(--warn)"></span>底部黄条=已标记复查<span class="ui-en in">Yellow bar = flagged</span></span>
+        <span><span class="dot" style="background:#1e3a8a"></span>深蓝框=当前题<span class="ui-en in">Navy border = current</span></span>
       </div>
     </div>
   </div>
@@ -948,11 +983,27 @@ function loadDB(){ try { return JSON.parse(localStorage.getItem(KEY)) || {wrong:
 function saveDB(db){ localStorage.setItem(KEY, JSON.stringify(db)); }
 let db = loadDB();
 
+const CH_EN = {
+  "1. 业务流程管理基础": "Business Process Management",
+  "2. 流程建模": "Process Modeling",
+  "3. 流程分析": "Process Analysis",
+  "4. 流程设计与转型": "Process Design &amp; Transformation",
+  "5. 流程绩效管理": "Process Performance Management",
+  "6. 流程改进": "Process Improvement",
+  "7. 流程管理组织": "Process Management Organization",
+  "8. 企业流程管理": "Enterprise Process Management",
+  "9. BPM 转型与技术": "BPM Transformation &amp; Technology"
+};
+function bankChapterEnOf(qid){ return CH_EN[bankChapterOf(qid)] || ""; }
 function bankChapterOf(qid){
   for (const b of BANK) if (b.qs.some(q => q.id === qid)) return b.ch;
   return "综合";
 }
 function shuffle(arr){ const a = arr.slice(); for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+/* 返回上一级：回到模拟考试首页（试卷选择列表） */
+function backToCenter(){ renderHome(); }
+window.backToCenter = backToCenter;
 
 const views = ["viewHome","viewExam","viewResult","viewReview","viewBook"];
 function show(id){ views.forEach(v => document.getElementById(v).classList.toggle("hidden", v !== id)); window.scrollTo(0,0); }
@@ -972,20 +1023,20 @@ function clearChSel(){
 function renderHome(){
   show("viewHome");
   clearPaperSel(); clearChSel();
-  document.getElementById("wrongCountInfo").textContent = Object.keys(db.wrong).length ? "当前错题 " + Object.keys(db.wrong).length + " 题" : "暂无错题，先做一次全真模拟吧";
+  document.getElementById("wrongCountInfo").textContent = Object.keys(db.wrong).length ? "当前错题 " + Object.keys(db.wrong).length + " 题 / " + Object.keys(db.wrong).length + " wrong to review" : "暂无错题，先做一次全真模拟吧 · No wrong answers yet — take a mock exam first";
   const list = document.getElementById("chList");
   list.innerHTML = "";
   BANK.forEach((b,i) => {
     const btn = document.createElement("button");
     btn.className = "ch-btn";
-    btn.textContent = b.ch + "（" + b.qs.length + "题 · 权重" + b.pct + "）";
+    btn.innerHTML = b.ch + "（" + b.qs.length + "题 · 权重" + b.pct + "）" + `<span class="ui-en">${b.qs.length} items · weight ${b.pct}</span>`;
     btn.addEventListener("click", () => {
       selCh = i;
       list.querySelectorAll(".ch-btn").forEach(x => x.classList.remove("selected"));
       btn.classList.add("selected");
       const bar = document.getElementById("chStartBar");
       bar.classList.remove("hidden");
-      document.getElementById("chSelNote").textContent = "已选择：" + b.ch + "（" + b.qs.length + " 题 · 按题量自动计时）";
+      document.getElementById("chSelNote").innerHTML = "已选择：" + b.ch + "（" + b.qs.length + " 题 · 按题量自动计时）" + `<span class="ui-en">Selected: ${b.ch} · ${b.qs.length} items</span>`;
     });
     list.appendChild(btn);
   });
@@ -997,14 +1048,14 @@ function renderHome(){
     banner.id = "resumeBanner";
     banner.className = "resume-banner";
     const span = document.createElement("span");
-    span.textContent = "检测到未完成的考试（" + db.active.title + "）";
+    span.innerHTML = "检测到未完成的考试（" + db.active.title + "）" + `<span class="ui-en">An unfinished exam was found: ${db.active.title}</span>`;
     const rb = document.createElement("button");
     rb.className = "btn primary";
-    rb.textContent = "继续作答";
+    rb.innerHTML = "继续作答<span class='ui-en'>Resume</span>";
     rb.addEventListener("click", () => { exam = db.active; show("viewExam"); renderQ(); renderPalette(); startTimer(); });
     const ab = document.createElement("button");
     ab.className = "btn";
-    ab.textContent = "放弃并清除";
+    ab.innerHTML = "放弃并清除<span class='ui-en'>Discard</span>";
     ab.addEventListener("click", () => { db.active = null; saveDB(db); renderHome(); });
     banner.appendChild(span); banner.appendChild(rb); banner.appendChild(ab);
     const home = document.getElementById("viewHome");
@@ -1016,7 +1067,7 @@ document.querySelectorAll(".mode-card[data-p]").forEach(c => c.addEventListener(
   document.querySelectorAll(".mode-card[data-p]").forEach(x => x.classList.remove("selected"));
   c.classList.add("selected");
   document.getElementById("paperStartBar").classList.remove("hidden");
-  document.getElementById("paperSelNote").textContent = "已选择：全真模拟卷 · 第" + selPaper + "套（140 题 · 180 分钟）";
+  document.getElementById("paperSelNote").innerHTML = "已选择：全真模拟卷 · 第" + selPaper + "套（140 题 · 180 分钟）" + `<span class="ui-en">Selected: Mock paper ${selPaper} · 140 items · 180 min</span>`;
 }));
 document.getElementById("paperStartBtn").addEventListener("click", () => { if (selPaper) startPaper(selPaper); });
 document.getElementById("chStartBtn").addEventListener("click", () => {
@@ -1027,7 +1078,7 @@ document.getElementById("chStartBtn").addEventListener("click", () => {
 document.getElementById("modeWrong").addEventListener("click", () => {
   const qs = [];
   BANK.forEach(b => b.qs.forEach(q => { if (db.wrong[q.id]) qs.push(q); }));
-  if (!qs.length) { document.getElementById("wrongCountInfo").textContent = "错题本为空，请先参加考试或章节练习"; return; }
+  if (!qs.length) { document.getElementById("wrongCountInfo").innerHTML = "错题本为空，请先参加考试或章节练习<span class='ui-en'>The error bank is empty — take an exam or a chapter drill first.</span>"; return; }
   startExam(null, "错题重做", shuffle(qs));
 });
 document.getElementById("modeBook").addEventListener("click", renderBook);
@@ -1038,8 +1089,8 @@ let exam = null, timerInt = null;
 function startExam(chapterIdxs, title, fixedList, minutesOverride){
   const sb = document.getElementById("submitBtn");   /* 重置交卷按钮的两步确认状态 */
   sb.dataset.arm = "0"; sb.classList.remove("armed");
-  if (!sb.dataset.orig) sb.dataset.orig = sb.textContent;
-  sb.textContent = sb.dataset.orig;
+  if (!sb.dataset.orig) sb.dataset.orig = sb.innerHTML;
+  sb.innerHTML = sb.dataset.orig;
   let qs = fixedList || [];
   if (!qs.length) {
     const pool = chapterIdxs ? BANK.filter((b,i) => chapterIdxs.includes(i)) : BANK;
@@ -1057,7 +1108,7 @@ function startExam(chapterIdxs, title, fixedList, minutesOverride){
   };
   db.active = exam; saveDB(db);
   show("viewExam");
-  document.getElementById("examTitle").textContent = title;
+  document.getElementById("examTitle").innerHTML = title + `<span class="h4-en">CBPP MOCK EXAM</span>`;
   renderQ(); renderPalette(); startTimer();
 }
 
@@ -1089,10 +1140,10 @@ function optText(q, i){
 }
 function renderQ(){
   const q = exam.qs[exam.idx];
-  document.getElementById("examPos").textContent = " · 第 " + (exam.idx+1) + " / " + exam.qs.length + " 题";
+  document.getElementById("examPos").textContent = " · 第 " + (exam.idx+1) + " / " + exam.qs.length + " 题 · Question " + (exam.idx+1) + " of " + exam.qs.length;
   const card = document.getElementById("qCard");
   card.innerHTML = `
-    <span class="qtag">${bankChapterOf(q.id)}</span>
+    <span class="qtag">${bankChapterOf(q.id)} · ${bankChapterEnOf(q.id)}</span>
     ${stemHtml(q, (exam.idx+1) + ". ")}
     ${q.o.map((o,i)=>`<div class="opt ${exam.answers[q.id]===i?'sel':''}" data-i="${i}"><span class="ol">${String.fromCharCode(65+i)}.</span>${optText(q,i)}</div>`).join("")}`;
   card.querySelectorAll(".opt").forEach(opt => {
@@ -1132,7 +1183,7 @@ document.getElementById("flagBtn").addEventListener("click", () => {
 });
 /* 语言切换：英文（默认，与真题一致）/ 中英对照 */
 const langBtn = document.getElementById("langBtn");
-function syncLangBtn(){ langBtn.textContent = langMode === "both" ? "🌐 中英对照：开" : "🌐 中英对照：关"; }
+function syncLangBtn(){ langBtn.innerHTML = langMode === "both" ? "🌐 中英对照：开<span class=\"ui-en\">Bilingual: ON</span>" : "🌐 中英对照：关<span class=\"ui-en\">Bilingual: OFF</span>"; }
 langBtn.addEventListener("click", () => {
   langMode = langMode === "both" ? "en" : "both";
   syncLangBtn();
@@ -1145,15 +1196,15 @@ document.getElementById("submitBtn").addEventListener("click", () => {
   const unanswered = exam.qs.filter(q => exam.answers[q.id] === undefined).length;
   if (btn.dataset.arm !== "1") {
     btn.dataset.arm = "1";
-    btn.dataset.orig = btn.textContent;
-    btn.textContent = unanswered ? "未答 " + unanswered + " 题 · 再点一次确认交卷" : "再点一次确认交卷";
+    btn.dataset.orig = btn.innerHTML;
+    btn.innerHTML = (unanswered ? "未答 " + unanswered + " 题 · 再点一次确认交卷" : "再点一次确认交卷") + `<span class="ui-en">Click again to submit</span>`;
     btn.classList.add("armed");
     window._submitArmTimer = setTimeout(() => {
-      btn.dataset.arm = "0"; btn.textContent = btn.dataset.orig; btn.classList.remove("armed");
+      btn.dataset.arm = "0"; btn.innerHTML = btn.dataset.orig; btn.classList.remove("armed");
     }, 4000);
   } else {
     clearTimeout(window._submitArmTimer);
-    btn.dataset.arm = "0"; btn.textContent = btn.dataset.orig; btn.classList.remove("armed");
+    btn.dataset.arm = "0"; btn.innerHTML = btn.dataset.orig; btn.classList.remove("armed");
     submitExam(false);
   }
 });
@@ -1183,55 +1234,59 @@ function submitExam(auto){
   const rows = Object.keys(perCh).map(ch => {
     const d = perCh[ch], p = Math.round(d.r/d.n*100);
     const color = p >= 70 ? "var(--ok)" : p >= 50 ? "var(--warn)" : "var(--bad)";
-    return `<tr><td>${ch}</td><td>${d.n}</td><td>${d.r}</td><td style="color:${color};font-weight:700">${p}%</td><td><span class="bar" style="width:${p*0.7}px;background:${color}"></span></td></tr>`;
+    return `<tr><td>${ch}<span class="th-en">${CH_EN[ch] || ""}</span></td><td>${d.n}</td><td>${d.r}</td><td style="color:${color};font-weight:700">${p}%</td><td><span class="bar" style="width:${p*0.7}px;background:${color}"></span></td></tr>`;
   }).join("");
   document.getElementById("viewResult").innerHTML = `
     <div class="card">
-      <h3>${exam.title} · 成绩单</h3>
-      <div class="muted">用时约 ${durMin} 分钟 ${auto ? "（时间到自动交卷）" : ""} · 及格线 70%</div>
+      <h3>${exam.title} · 成绩单<span class="h4-en">SCORE REPORT</span></h3>
+      <div class="muted">用时约 ${durMin} 分钟 ${auto ? "（时间到自动交卷）" : ""} · 及格线 70%<span class="ui-en">Time used: about ${durMin} min${auto ? " (auto-submitted at time-out)" : ""} · pass mark 70%</span></div>
       <div class="score-big">
         <div class="n ${pass?'pass':'fail'}">${pct}%</div>
-        <div style="font-size:15px">${pass ? "🎉 恭喜，达到及格线！" : "💪 未达及格线，错题已全部记入错题本"}</div>
-        <div class="muted" style="margin-top:4px">答对 ${right} / ${total} 题</div>
+        <div style="font-size:15px">${pass ? "🎉 恭喜，达到及格线！" : "💪 未达及格线，错题已全部记入错题本"}<span class="ui-en">${pass ? "Congratulations — you passed the 70% line." : "Below the 70% line — every wrong answer was saved to the error bank."}</span></div>
+        <div class="muted" style="margin-top:4px">答对 ${right} / ${total} 题<span class="ui-en in">${right} of ${total} correct</span></div>
       </div>
-      <table class="rtable"><tr><th>知识域</th><th>题量</th><th>答对</th><th>正确率</th><th>图示</th></tr>${rows}</table>
+      <table class="rtable"><tr><th>知识域<span class="th-en">Domain</span></th><th>题量<span class="th-en">Items</span></th><th>答对<span class="th-en">Correct</span></th><th>正确率<span class="th-en">Accuracy</span></th><th>图示<span class="th-en">Chart</span></th></tr>${rows}</table>
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-        <button class="btn primary" id="rvBtn">📋 查看全部解析</button>
-        <button class="btn" id="rvWrongBtn">🔁 只看错题解析（${wrongIds.length}）</button>
-        <button class="btn" id="backBtn">返回首页</button>
+        <button class="btn primary" id="rvBtn">📋 查看全部解析<span class="ui-en">All explanations</span></button>
+        <button class="btn" id="rvWrongBtn">🔁 只看错题解析（${wrongIds.length}）<span class="ui-en">Wrong answers only</span></button>
+        <button class="btn" id="centerBtn">← 返回模考列表<span class="ui-en">Back to exam list</span></button>
       </div>
     </div>`;
   show("viewResult");
   document.getElementById("rvBtn").addEventListener("click", () => renderReview(null));
   document.getElementById("rvWrongBtn").addEventListener("click", () => renderReview(wrongIds));
-  document.getElementById("backBtn").addEventListener("click", renderHome);
+  document.getElementById("centerBtn").addEventListener("click", backToCenter);
 }
 
 function renderReview(filterList){
   const list = filterList || exam.qs;
   document.getElementById("viewReview").innerHTML = `
     <div class="card">
-      <h3>📋 答案解析回顾</h3>
-      <p class="muted">绿色=正确答案，红色=你的错误选择。全部错题已记入错题本，重做答对后自动移出。</p>
-      <button class="btn" id="rvBack" style="margin-top:10px">← 返回成绩单</button>
+      <h3>📋 答案解析回顾<span class="h4-en">ANSWER REVIEW</span></h3>
+      <p class="muted">绿色=正确答案，红色=你的错误选择。全部错题已记入错题本，重做答对后自动移出。<span class="ui-en">Green = correct answer, red = your wrong pick. Every wrong answer is in the error bank and leaves it once re-answered correctly.</span></p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+        <button class="btn" id="rvBack">← 返回成绩单<span class="ui-en">Back to score report</span></button>
+        <button class="btn" id="rvCenter">← 返回模考列表<span class="ui-en">Back to exam list</span></button>
+      </div>
     </div>
     ${list.map((q, n) => {
       const my = exam.answers[q.id];
       const ok = my === q.a;
       return `<div class="rev-item ${ok?'ok':'bad'}">
-        <div class="muted">第 ${exam.qs.indexOf(q)+1} 题 · ${bankChapterOf(q.id)} ${filterList?`· <span class="verdict-bad">错题</span>`:""}</div>
+        <div class="muted">第 ${exam.qs.indexOf(q)+1} 题 · ${bankChapterOf(q.id)} · ${bankChapterEnOf(q.id)}${filterList?` · <span class="verdict-bad">错题 / Wrong</span>`:""}<span class="ui-en in">Question ${exam.qs.indexOf(q)+1}</span></div>
         <div class="qstem" style="font-size:14.5px">${n+1}. ${q.sEn || q.s}${q.sEn && langMode==='both' ? `<div class="zh-ref">${q.s}</div>` : ''}</div>
         ${q.o.map((o,i)=>{
           const en = (q.oEn && q.oEn[i]) || o;
           const zh = (q.oEn && langMode==='both') ? `<span class="zh-inline">${o}</span>` : '';
           return `<div class="opt ${i===q.a?'rc':(i===my?'rw':'')}" style="cursor:default">${i===q.a?'<span>✔</span>':(i===my?'<span>✘</span>':'<span></span>')}<span><b>${String.fromCharCode(65+i)}.</b> ${en}${zh}</span></div>`;
         }).join("")}
-        <div class="exp2"><span class="${ok?'verdict-ok':'verdict-bad'}">${ok?'✔ 答对':'✘ 答错'}</span> —— ${q.eEn || q.e}</div>
-        ${q.eEn ? `<div class="exp2 zh-ref" style="margin-top:6px">中文解析：${q.e}</div>` : ''}
+        <div class="exp2"><span class="${ok?'verdict-ok':'verdict-bad'}">${ok?'✔ 答对 / Correct':'✘ 答错 / Incorrect'}</span> —— ${q.eEn || q.e}</div>
+        ${q.eEn ? `<div class="exp2 zh-ref" style="margin-top:6px">中文解析 / CN：${q.e}</div>` : ''}
       </div>`;
     }).join("")}`;
   show("viewReview");
   document.getElementById("rvBack").addEventListener("click", () => show("viewResult"));
+  document.getElementById("rvCenter").addEventListener("click", backToCenter);
 }
 
 /* ============ 错题本 / 历史 ============ */
@@ -1239,40 +1294,46 @@ function renderBook(){
   const wrongQs = [];
   BANK.forEach(b => b.qs.forEach(q => { if (db.wrong[q.id]) wrongQs.push(q); }));
   const histHtml = db.hist.length
-    ? db.hist.map(h => `<div class="hist-item"><span>${h.date} · ${h.title}</span><span>用时${h.dur}分钟</span><span><b>${h.score}%</b>（${h.right}/${h.total}）<span class="${h.pass?'pass-tag':'fail-tag'}">${h.pass?'及格':'未及格'}</span></span></div>`).join("")
-    : '<div class="muted" style="padding:6px 0">暂无考试记录</div>';
+    ? db.hist.map(h => `<div class="hist-item"><span>${h.date} · ${h.title}</span><span>用时 ${h.dur} 分钟<span class="ui-en in">${h.dur} min</span></span><span><b>${h.score}%</b>（${h.right}/${h.total}）<span class="${h.pass?'pass-tag':'fail-tag'}">${h.pass?'及格 / PASS':'未及格 / FAIL'}</span></span></div>`).join("")
+    : '<div class="muted" style="padding:6px 0">暂无考试记录<span class="ui-en">No exam records yet.</span></div>';
   const wrongHtml = wrongQs.length
-    ? wrongQs.map(q => `<div class="wrong-item"><b>【${bankChapterOf(q.id)}】</b>${q.sEn || q.s}${q.sEn ? `<div class="zh-ref">${q.s}</div>` : ''}<div class="muted" style="margin-top:4px">正确答案：${String.fromCharCode(65+q.a)}. ${(q.oEn && q.oEn[q.a]) || q.o[q.a]}</div></div>`).join("")
-    : '<div class="muted" style="padding:6px 0">错题本是空的，太棒了！</div>';
+    ? wrongQs.map(q => `<div class="wrong-item"><b>【${bankChapterOf(q.id)} · ${bankChapterEnOf(q.id)}】</b>${q.sEn || q.s}${q.sEn ? `<div class="zh-ref">${q.s}</div>` : ''}<div class="muted" style="margin-top:4px">正确答案 / Correct：${String.fromCharCode(65+q.a)}. ${(q.oEn && q.oEn[q.a]) || q.o[q.a]}</div></div>`).join("")
+    : '<div class="muted" style="padding:6px 0">错题本是空的，太棒了！<span class="ui-en">The error bank is empty — well done!</span></div>';
   document.getElementById("viewBook").innerHTML = `
     <div class="card">
       <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
-        <h3 style="font-size:16px">📖 错题本与考试历史</h3>
+        <h3 style="font-size:16px">📖 错题本与考试历史<span class="h4-en">ERROR BANK &amp; EXAM HISTORY</span></h3>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <button class="btn primary" id="bkRedo" ${wrongQs.length?'':'disabled'}>🔁 重做错题（${wrongQs.length}）</button>
-          <button class="btn danger" id="bkClear">清空全部记录</button>
-          <button class="btn" id="bkBack">返回首页</button>
+          <button class="btn primary" id="bkRedo" ${wrongQs.length?'':'disabled'}>🔁 重做错题（${wrongQs.length}）<span class="ui-en">Redo wrong answers</span></button>
+          <button class="btn danger" id="bkClear">清空全部记录<span class="ui-en">Clear all records</span></button>
+          <button class="btn" id="bkCenter">← 返回模考列表<span class="ui-en">Back to exam list</span></button>
         </div>
       </div>
-      <h4 style="margin:14px 0 4px;font-size:13.5px">考试历史</h4>${histHtml}
-      <h4 style="margin:14px 0 4px;font-size:13.5px">错题清单</h4>${wrongHtml}
+      <h4 style="margin:14px 0 4px;font-size:13.5px">考试历史<span class="h4-en">EXAM HISTORY</span></h4>${histHtml}
+      <h4 style="margin:14px 0 4px;font-size:13.5px">错题清单<span class="h4-en">WRONG ANSWER LIST</span></h4>${wrongHtml}
     </div>`;
   show("viewBook");
-  document.getElementById("bkBack").addEventListener("click", renderHome);
+  document.getElementById("bkCenter").addEventListener("click", backToCenter);
   document.getElementById("bkRedo").addEventListener("click", () => { if (wrongQs.length) startExam(null, "错题重做", shuffle(wrongQs)); });
   document.getElementById("bkClear").addEventListener("click", () => {
     /* 两步确认替代 confirm */
     const b = document.getElementById("bkClear");
     if (b.dataset.arm !== "1") {
-      b.dataset.arm = "1"; b.dataset.orig = b.textContent;
-      b.textContent = "再点一次确认清空（不可恢复）";
-      setTimeout(() => { b.dataset.arm = "0"; b.textContent = b.dataset.orig; }, 4000);
+      b.dataset.arm = "1"; b.dataset.orig = b.innerHTML;
+      b.innerHTML = "再点一次确认清空（不可恢复）<span class=\"ui-en\">Click again to clear</span>";
+      setTimeout(() => { b.dataset.arm = "0"; b.innerHTML = b.dataset.orig; }, 4000);
     } else {
-      b.dataset.arm = "0"; b.textContent = b.dataset.orig;
+      b.dataset.arm = "0"; b.innerHTML = b.dataset.orig;
       db = {wrong:{}, hist:[], active:null}; saveDB(db); renderBook();
     }
   });
 }
+
+/* 答题页返回上一级：返回考试列表（进度已保存，可从横幅继续；计时不暂停） */
+(function(){
+  var bl = document.getElementById("backListBtn");
+  if (bl) bl.addEventListener("click", function(){ clearInterval(timerInt); renderHome(); });
+})();
 
 renderHome();
 </script>

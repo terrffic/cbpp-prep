@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CBPP 备考中心 · 考点思维导图 + 五套全真模拟考试</title>
+<title>CBPP 备考中心 · 考点思维导图 + 五套全真模拟考试 | Prep Center</title>
 <style>
 
   :root {
@@ -20,7 +20,24 @@
   .exam-badges { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
   .exam-badge { background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.3); border-radius:8px; padding:7px 13px; font-size:12.5px; }
   .exam-badge b { display:block; font-size:16px; }
-  .toolbar { display:flex; flex-wrap:wrap; gap:10px; align-items:center; padding:12px 32px; background:var(--panel); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:20; }
+  /* ============ 顶栏返回 / 双语 UI ============ */
+  .topbar { position:sticky; top:0; z-index:90; background:#0f172a; color:#fff; display:flex; align-items:center; gap:10px; padding:8px 32px; font-size:12.5px; flex-wrap:wrap; }
+  .topbar a.home { display:inline-flex; align-items:center; gap:7px; background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.3); color:#fff; text-decoration:none; padding:5px 13px; border-radius:8px; font-weight:600; font-size:12.5px; transition:.15s; }
+  .topbar a.home:hover { background:#fff; color:#0f172a; }
+  .topbar a.home .e { font-size:10px; font-weight:500; opacity:.72; }
+  .topbar .tb-note { margin-left:auto; color:#cbd5e1; font-size:11.5px; }
+  .topbar .tb-note b { color:#fff; }
+  .ui-en { display:block; font-size:11px; line-height:1.4; color:#94a3b8; font-weight:500; letter-spacing:.2px; margin-top:1px; }
+  .ui-en.in { display:inline; margin-left:6px; font-size:10.5px; }
+  .btn .ui-en { font-size:10px; color:var(--muted); font-weight:500; margin-top:2px; }
+  .btn.primary .ui-en { color:rgba(255,255,255,.78); }
+  .h-en { display:block; font-size:12.5px; font-weight:500; opacity:.86; margin-top:6px; letter-spacing:.3px; }
+  .p-en { display:block; font-size:11.5px; opacity:.82; margin-top:5px; line-height:1.55; }
+  .badge-en { display:block; font-size:10px; font-weight:500; opacity:.8; margin-top:2px; }
+  .h4-en { font-size:10.5px; font-weight:500; color:#94a3b8; margin-left:7px; letter-spacing:.3px; }
+  .tip-en { font-size:9.5px; font-weight:800; letter-spacing:.6px; color:#b45309; background:#fde68a; border-radius:4px; padding:1px 5px; margin-right:6px; vertical-align:1px; }
+  .th-en { display:block; font-size:9.5px; font-weight:500; color:#94a3b8; letter-spacing:.2px; }
+  .toolbar { display:flex; flex-wrap:wrap; gap:10px; align-items:center; padding:12px 32px; background:var(--panel); border-bottom:1px solid var(--border); position:sticky; top:46px; z-index:20; }
   .toolbar input { flex:1; min-width:200px; padding:8px 12px; border:1px solid var(--border); border-radius:8px; font-size:13px; outline:none; }
   .toolbar input:focus { border-color: var(--accent); }
   .btn { border:1px solid var(--border); background:#fff; border-radius:8px; padding:7px 14px; font-size:12.5px; cursor:pointer; color:var(--text); }
@@ -141,7 +158,7 @@
   .ch-btn:hover { border-color:var(--accent); background:var(--accent-soft); color:var(--accent); }
   .ch-btn.selected { border-color:var(--accent); background:var(--accent); color:#fff; }
   /* exam */
-  .exam-top { position:sticky; top:0; z-index:30; background:var(--panel); border-bottom:1px solid var(--border); padding:12px 20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; max-width:1000px; margin:0 auto; border-radius:0 0 12px 12px; box-shadow:0 2px 10px rgba(0,0,0,.05); }
+  .exam-top { position:sticky; top:46px; z-index:30; background:var(--panel); border-bottom:1px solid var(--border); padding:12px 20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; max-width:1000px; margin:0 auto; border-radius:0 0 12px 12px; box-shadow:0 2px 10px rgba(0,0,0,.05); }
   .timer { font-size:19px; font-weight:800; font-variant-numeric:tabular-nums; }
   .timer.warn { color:var(--bad); animation:pulse 1s infinite; }
   @keyframes pulse { 50% { opacity:.55; } }
@@ -184,49 +201,90 @@
   .hist-item { display:flex; justify-content:space-between; border:1px solid var(--border); border-radius:9px; padding:9px 14px; margin:8px 0; font-size:13px; flex-wrap:wrap; gap:6px; }
   .pass-tag { color:var(--ok); font-weight:700; } .fail-tag { color:var(--bad); font-weight:700; }
   .hidden { display:none !important; }
+  /* ============ 顶栏返回 / 双语 UI ============ */
+  .topbar { position:sticky; top:0; z-index:90; background:#0f172a; color:#fff; display:flex; align-items:center; gap:10px; padding:8px 32px; font-size:12.5px; flex-wrap:wrap; }
+  .topbar a.home, .topbar button.home { display:inline-flex; align-items:center; gap:7px; background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.3); color:#fff; text-decoration:none; padding:5px 13px; border-radius:8px; font-weight:600; font-size:12.5px; cursor:pointer; transition:.15s; }
+  .topbar a.home:hover, .topbar button.home:hover { background:#fff; color:#0f172a; }
+  .topbar a.home .e, .topbar button.home .e { font-size:10px; font-weight:500; opacity:.72; }
+  .topbar .tb-note { margin-left:auto; color:#cbd5e1; font-size:11.5px; }
+  .topbar .tb-note b { color:#fff; }
+  .ui-en { display:block; font-size:11px; line-height:1.4; color:#94a3b8; font-weight:500; letter-spacing:.2px; margin-top:1px; }
+  .ui-en.in { display:inline; margin-left:6px; font-size:10.5px; }
+  .btn .ui-en { font-size:10px; color:var(--muted); font-weight:500; margin-top:2px; }
+  .btn.primary .ui-en { color:rgba(255,255,255,.8); }
+  .btn.armed .ui-en { color:#b91c1c; }
+  .h-en { display:block; font-size:12.5px; font-weight:500; opacity:.86; margin-top:6px; letter-spacing:.3px; }
+  .badge-en { display:block; font-size:10px; font-weight:500; opacity:.8; margin-top:2px; }
+  .h4-en { font-size:10.5px; font-weight:500; color:#94a3b8; margin-left:7px; letter-spacing:.3px; }
+  .th-en { display:block; font-size:9.5px; font-weight:500; color:#94a3b8; letter-spacing:.2px; }
+  .mode-card .en-note { display:block; margin-top:6px; font-size:10.5px; color:#94a3b8; font-weight:500; line-height:1.45; }
 
-.tabnav { position:sticky; top:0; z-index:60; background:#fff; border-bottom:1px solid var(--border); display:flex; gap:10px; align-items:center; padding:10px 32px; box-shadow:0 2px 10px rgba(0,0,0,.05); flex-wrap:wrap; }
+.tabnav { position:sticky; top:44px; z-index:60; background:#fff; border-bottom:1px solid var(--border); display:flex; gap:10px; align-items:center; padding:10px 32px; box-shadow:0 2px 10px rgba(0,0,0,.05); flex-wrap:wrap; }
 .tabnav .tab { border:1px solid var(--border); background:#fff; border-radius:9px; padding:8px 20px; cursor:pointer; font-size:13.5px; font-weight:600; color:var(--muted); }
 .tabnav .tab:hover { border-color:var(--accent); color:var(--accent); }
 .tabnav .tab.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+.tabnav .tab .e { display:block; font-size:9.5px; font-weight:500; opacity:.7; margin-top:1px; letter-spacing:.2px; }
+.tabnav .tab.active .e { opacity:.85; }
+.tabnav a.tab { text-decoration:none; display:inline-flex; flex-direction:column; align-items:center; justify-content:center; }
+.tabnav a.tab.home-tab { border-style:dashed; color:#475569; }
 .tabnav .tnote { font-size:12px; color:var(--muted); margin-left:auto; }
-#tabMap .toolbar { top:58px; }
-#viewExam .exam-top { top:58px; }
+.tabnav .tnote .e { display:block; font-size:10.5px; color:#94a3b8; margin-top:2px; }
+:root { --stick-top:102px; }
+#tabMap .toolbar { top:var(--stick-top); }
+#viewExam .exam-top { top:var(--stick-top); }
+
+/* ---- 顶部导航（统一入口版）：固定 44px 单行，窄屏可横向滑动 ---- */
+.topbar { min-height:44px; box-sizing:border-box; }
+@media (max-width:780px){
+  .topbar { flex-wrap:nowrap; overflow-x:auto; padding:8px 12px; gap:7px; scrollbar-width:none; }
+  .topbar::-webkit-scrollbar { height:0; }
+  .topbar .tb-note { display:none; }
+  .topbar a.home, .topbar button.home { padding:5px 9px; font-size:11.5px; white-space:nowrap; }
+}
 </style>
 </head>
 <body>
+<div class="topbar">
+  <a class="home" href="index.html">🏠 ← 返回首页 <span class="e">Back to Home</span></a>
+  <a class="home" href="CBPP考点思维导图.html">🧭 思维导图 <span class="e">Knowledge Map</span></a>
+  <a class="home" href="CBPP模拟考试系统.html">🎯 全真模考 <span class="e">Mock Exams</span></a>
+  <span class="tb-note">CBPP Prep Center · <b>学习与练习</b> / Study &amp; Chapter Drills</span>
+</div>
 <header>
   <div>
-    <h1>CBPP 备考中心 · 业务流程管理专家认证</h1>
-    <p>依据 ABPMP《BPM CBOK®》4.0 与 2025 版《CBPP Examination Handbook》官方蓝图 · 学习地图（精讲+缩写速查+分章练习+错题本）与五套全真模拟考试一体化</p>
+    <h1>CBPP 备考中心 · 业务流程管理专家认证
+      <span class="h-en">CBPP Prep Center · Certified Business Process Professional (CBPP®)</span></h1>
+    <p>依据 ABPMP《BPM CBOK®》4.0 与 2025 版《CBPP Examination Handbook》官方蓝图 · 学习地图（精讲+缩写速查+分章练习+错题本）与五套全真模拟考试一体化
+      <span class="p-en">Built on the ABPMP BPM CBOK® 4.0 and the 2025 CBPP Examination Handbook blueprint · One place for the study map (notes, abbreviation tables, chapter drills, error bank) and five full mock exams.</span></p>
   </div>
   <div style="display:flex;gap:10px;flex-wrap:wrap">
-    <div class="exam-badge"><b>140 题</b>官方卷 · 70% 及格</div>
-    <div class="exam-badge"><b>311 题</b>模考题库</div>
-    <div class="exam-badge"><b>5 套</b>全真卷</div>
-    <div class="exam-badge"><b>36 题</b>分章练习</div>
+    <div class="exam-badge"><b>140 题</b>官方卷 · 70% 及格<span class="badge-en">140 Qs · pass 70%</span></div>
+    <div class="exam-badge"><b>311 题</b>模考题库<span class="badge-en">311-question bank</span></div>
+    <div class="exam-badge"><b>5 套</b>全真卷<span class="badge-en">5 mock papers</span></div>
+    <div class="exam-badge"><b>36 题</b>分章练习<span class="badge-en">36 chapter drills</span></div>
   </div>
 </header>
 <div class="tabnav">
-  <button class="tab active" id="tabBtnMap" onclick="switchTab('map')">📚 考点思维导图（学习）</button>
-  <button class="tab" id="tabBtnExam" onclick="switchTab('exam')">🎯 全真模拟考试（测验）</button>
-  <span class="tnote">先学后测：精讲 → 分章练习 → 五套全真模考 → 错题重做</span>
+  <button class="tab active" id="tabBtnMap" onclick="switchTab('map')">📖 学习地图 · 精讲与分章练习<span class="e">Study map &amp; chapter drills</span></button>
+  <button class="tab" id="tabBtnExam" onclick="switchTab('exam')">📝 模拟考试（五套全真卷）<span class="e">Mock exams · 5 full papers</span></button>
+  <a class="tab home-tab" href="index.html">🏠 返回首页<span class="e">Back to Home</span></a>
+  <span class="tnote">先学后测：精讲 → 分章练习 → 五套全真模考 → 错题重做<span class="e">Learn first, then test: notes → drills → 5 mock papers → redo mistakes</span></span>
 </div>
 <div id="tabMap">
 <div class="toolbar">
-  <input id="search" type="text" placeholder="搜索知识点，如：BPMN、六西格玛、流程治理、RPA…">
-  <button class="btn" id="expandAll">全部展开</button>
-  <button class="btn" id="collapseAll">全部收起</button>
-  <button class="btn primary" id="openStats">📊 练习统计 / 错题本</button>
+  <input id="search" type="text" placeholder="搜索知识点 / Search topics：BPMN、Six Sigma、Governance、RPA…">
+  <button class="btn" id="expandAll">全部展开<span class="ui-en">Expand all</span></button>
+  <button class="btn" id="collapseAll">全部收起<span class="ui-en">Collapse all</span></button>
+  <button class="btn primary" id="openStats">📊 练习统计 / 错题本<span class="ui-en">Drill stats &amp; error bank</span></button>
 </div>
 
 <div class="layout"><div class="tree" id="tree"></div></div>
 
 <div class="legend" style="padding:0 32px 40px">
-  <span>章节节点（含官方题量权重 + 练习入口）</span>
-  <span style="--accent:#64748b">子知识域</span>
-  <span style="--accent:#94a3b8">精讲卡（点击展开）</span>
-  <span style="--accent:#f59e0b">黄色条 = 考试提示</span>
+  <span>章节节点（含官方题量权重 + 练习入口）<span class="ui-en in">Chapter · blueprint weight · drill</span></span>
+  <span style="--accent:#64748b">子知识域<span class="ui-en in">Sub-domain</span></span>
+  <span style="--accent:#94a3b8">精讲卡（点击展开）<span class="ui-en in">Notes card (click to expand)</span></span>
+  <span style="--accent:#f59e0b">黄色条 = 考试提示<span class="ui-en in">Yellow = exam tip</span></span>
 </div>
 
 <div class="overlay" id="quizOverlay"><div class="modal" id="quizModal"></div></div>
@@ -238,34 +296,34 @@
   <!-- 首页 -->
   <div id="viewHome">
     <div class="card">
-      <h3 style="font-size:16px">五套全真模拟卷（严格对照官方考试）</h3>
-      <p class="muted" style="margin-top:4px">与真实 CBPP 考试完全一致：<b>140 道单选题 · 180 分钟（3 小时）· 及格线 70%（答对 98 题）· 全英文题面</b>；各知识域题量严格按官方蓝图分配（9/17/14/15/15/14/17/19/20），题目随机乱序。真题为英文卷，本系统题干、选项均以英文呈现（保留英文术语原貌），答题时可用右上角「🌐 中英对照」叠加中文翻译辅助理解；交卷后的解析为中英双语。交卷后按知识域反馈成绩，错题自动入错题本；中途刷新可恢复进度。</p>
+      <h3 style="font-size:16px">五套全真模拟卷（严格对照官方考试）<span class="h4-en">FIVE FULL MOCK PAPERS</span></h3>
+      <p class="muted" style="margin-top:4px">与真实 CBPP 考试完全一致：<b>140 道单选题 · 180 分钟（3 小时）· 及格线 70%（答对 98 题）· 全英文题面</b>；各知识域题量严格按官方蓝图分配（9/17/14/15/15/14/17/19/20），题目随机乱序。真题为英文卷，本系统题干、选项均以英文呈现（保留英文术语原貌），答题时可用右上角「🌐 中英对照」叠加中文翻译辅助理解；交卷后的解析为中英双语。交卷后按知识域反馈成绩，错题自动入错题本；中途刷新可恢复进度。<span class="ui-en">Identical to the real exam: 140 single-choice questions · 180 minutes · pass mark 70% (98 correct) · all English. Domain counts follow the official blueprint (9/17/14/15/15/14/17/19/20) and questions are randomly ordered. Use “🌐 Bilingual” during the exam to overlay Chinese; score reports and explanations are bilingual.</span></p>
       <div class="mode-grid">
-        <div class="mode-card" data-p="1"><h3>📄 全真模拟卷 · 第一套</h3><p><b>140 题 · 180 分钟</b><br>蓝图组卷 · 随机乱序 · 70% 及格线</p></div>
-        <div class="mode-card" data-p="2"><h3>📄 全真模拟卷 · 第二套</h3><p><b>140 题 · 180 分钟</b><br>蓝图组卷 · 随机乱序 · 70% 及格线</p></div>
-        <div class="mode-card" data-p="3"><h3>📄 全真模拟卷 · 第三套</h3><p><b>140 题 · 180 分钟</b><br>蓝图组卷 · 随机乱序 · 70% 及格线</p></div>
-        <div class="mode-card" data-p="4"><h3>📄 全真模拟卷 · 第四套</h3><p><b>140 题 · 180 分钟</b><br>蓝图组卷 · 随机乱序 · 70% 及格线</p></div>
-        <div class="mode-card" data-p="5"><h3>📄 全真模拟卷 · 第五套</h3><p><b>140 题 · 180 分钟</b><br>蓝图组卷 · 随机乱序 · 70% 及格线</p></div>
+        <div class="mode-card" data-p="1"><h3>📄 全真模拟卷 · 第一套<span class="h4-en">MOCK PAPER 1</span></h3><p><b>140 题 · 180 分钟</b><br>蓝图组卷 · 随机乱序 · 70% 及格线<span class="en-note">140 items · 180 min · blueprint-based · random order · 70% to pass</span></p></div>
+        <div class="mode-card" data-p="2"><h3>📄 全真模拟卷 · 第二套<span class="h4-en">MOCK PAPER 2</span></h3><p><b>140 题 · 180 分钟</b><br>蓝图组卷 · 随机乱序 · 70% 及格线<span class="en-note">140 items · 180 min · blueprint-based · random order · 70% to pass</span></p></div>
+        <div class="mode-card" data-p="3"><h3>📄 全真模拟卷 · 第三套<span class="h4-en">MOCK PAPER 3</span></h3><p><b>140 题 · 180 分钟</b><br>蓝图组卷 · 随机乱序 · 70% 及格线<span class="en-note">140 items · 180 min · blueprint-based · random order · 70% to pass</span></p></div>
+        <div class="mode-card" data-p="4"><h3>📄 全真模拟卷 · 第四套<span class="h4-en">MOCK PAPER 4</span></h3><p><b>140 题 · 180 分钟</b><br>蓝图组卷 · 随机乱序 · 70% 及格线<span class="en-note">140 items · 180 min · blueprint-based · random order · 70% to pass</span></p></div>
+        <div class="mode-card" data-p="5"><h3>📄 全真模拟卷 · 第五套<span class="h4-en">MOCK PAPER 5</span></h3><p><b>140 题 · 180 分钟</b><br>蓝图组卷 · 随机乱序 · 70% 及格线<span class="en-note">140 items · 180 min · blueprint-based · random order · 70% to pass</span></p></div>
         <div class="mode-card" id="modeWrong">
-          <h3>🔁 错题重做</h3>
-          <p>集中攻克历史错题，答对自动移出错题本。<br><span id="wrongCountInfo" class="muted"></span></p>
+          <h3>🔁 错题重做<span class="h4-en">REDO WRONG ANSWERS</span></h3>
+          <p>集中攻克历史错题，答对自动移出错题本。<br><span id="wrongCountInfo" class="muted"></span><span class="en-note">Work through every past mistake — a correct answer removes it from the error bank.</span></p>
         </div>
         <div class="mode-card" id="modeBook">
-          <h3>📖 错题本 / 考试历史</h3>
-          <p>查看错题清单与历次考试成绩记录。</p>
+          <h3>📖 错题本 / 考试历史<span class="h4-en">ERROR BANK &amp; EXAM HISTORY</span></h3>
+          <p>查看错题清单与历次考试成绩记录。<span class="en-note">Review every wrong answer and all previous score records.</span></p>
         </div>
       </div>
       <div class="start-bar hidden" id="paperStartBar">
-        <button class="btn primary" id="paperStartBtn">开始考试</button>
+        <button class="btn primary" id="paperStartBtn">开始考试<span class="ui-en">Start exam</span></button>
         <span class="sel-note" id="paperSelNote"></span>
       </div>
     </div>
     <div class="card">
-      <h3 style="font-size:15px">单章模考（专项突破）</h3>
-      <p class="muted" style="margin-top:2px;font-size:12.5px">点击选择章节，再点下方"开始考试"进入。</p>
+      <h3 style="font-size:15px">单章模考（专项突破）<span class="h4-en">SINGLE-DOMAIN DRILL</span></h3>
+      <p class="muted" style="margin-top:2px;font-size:12.5px">点击选择章节，再点下方"开始考试"进入。<span class="ui-en">Pick a domain, then press “Start exam”.</span></p>
       <div class="ch-list" id="chList"></div>
       <div class="start-bar hidden" id="chStartBar">
-        <button class="btn primary" id="chStartBtn">开始考试</button>
+        <button class="btn primary" id="chStartBtn">开始考试<span class="ui-en">Start exam</span></button>
         <span class="sel-note" id="chSelNote"></span>
       </div>
     </div>
@@ -279,25 +337,26 @@
         <span class="muted" id="examPos"></span>
       </div>
       <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <button class="btn" id="backListBtn" title="返回考试列表（进度已保存）/ Back to exam list (progress saved)">← 列表<span class="ui-en">Exam list</span></button>
         <div class="timer" id="timer">--:--</div>
-        <button class="btn" id="langBtn" title="切换中文对照">🌐 中英对照：关</button>
-        <button class="btn flag-btn" id="flagBtn">🚩 标记本题</button>
-        <button class="btn primary" id="submitBtn">交卷</button>
+        <button class="btn" id="langBtn" title="切换中文对照 / Toggle Chinese overlay">🌐 中英对照：关<span class="ui-en">Bilingual: OFF</span></button>
+        <button class="btn flag-btn" id="flagBtn">🚩 标记本题<span class="ui-en">Flag for review</span></button>
+        <button class="btn primary" id="submitBtn">交卷<span class="ui-en">Submit</span></button>
       </div>
     </div>
     <div class="qcard" id="qCard"></div>
     <div class="nav-row">
-      <button class="btn" id="prevBtn">← 上一题</button>
-      <button class="btn" id="nextBtn">下一题 →</button>
+      <button class="btn" id="prevBtn">← 上一题<span class="ui-en">Previous</span></button>
+      <button class="btn" id="nextBtn">下一题 →<span class="ui-en">Next</span></button>
     </div>
     <div class="card" style="margin-top:18px">
-      <b style="font-size:13.5px">答题卡</b>
+      <b style="font-size:13.5px">答题卡<span class="h4-en">ANSWER SHEET</span></b>
       <div class="palette" id="palette" style="margin-top:10px"></div>
       <div class="legend2">
-        <span><span class="dot" style="background:var(--accent)"></span>已作答</span>
-        <span><span class="dot" style="background:#fff;border:1px solid var(--border)"></span>未作答</span>
-        <span><span class="dot" style="background:var(--warn)"></span>底部黄条=已标记复查</span>
-        <span><span class="dot" style="background:#1e3a8a"></span>深蓝框=当前题</span>
+        <span><span class="dot" style="background:var(--accent)"></span>已作答<span class="ui-en in">Answered</span></span>
+        <span><span class="dot" style="background:#fff;border:1px solid var(--border)"></span>未作答<span class="ui-en in">Unanswered</span></span>
+        <span><span class="dot" style="background:var(--warn)"></span>底部黄条=已标记复查<span class="ui-en in">Yellow bar = flagged</span></span>
+        <span><span class="dot" style="background:#1e3a8a"></span>深蓝框=当前题<span class="ui-en in">Navy border = current</span></span>
       </div>
     </div>
   </div>
@@ -318,33 +377,33 @@
 const DATA = {
   t: "BPM CBOK® 9大知识域", en: "Certified Business Process Professional (CBPP®)", d: null, c: [
 
-  { t: "1. 业务流程管理基础", en: "Business Process Management", w: "6% · 9题", d:
-    "<h4>本章精讲</h4>本章是全卷地基：BPM 的定义、演进、流程分类与生命周期。官方仅 9 题但均为送分题，目标是全对。<ul><li>核心逻辑链：流程是价值创造载体 → BPM 是对流程全生命周期的<b>持续</b>管理学科 → 从 TQM/BPR 演进而来。</li></ul>", c: [
+  { t: "1. 业务流程管理基础", en: "Business Process Management", w: "6% · 9题 / 9Q", d:
+    "<h4>本章精讲<span class='h4-en'>CHAPTER OVERVIEW</span></h4>本章是全卷地基：BPM 的定义、演进、流程分类与生命周期。官方仅 9 题但均为送分题，目标是全对。<ul><li>核心逻辑链：流程是价值创造载体 → BPM 是对流程全生命周期的<b>持续</b>管理学科 → 从 TQM/BPR 演进而来。</li></ul>", c: [
     { t: "★ 英文缩写速查", en: "Key Abbreviations & Exam Points", d:
-      "<h4>本章专有缩写（记全称 + 考点）</h4><table><tr><th>缩写</th><th>英文全称</th><th>含义与考点</th></tr><tr><td><b>BPM</b></td><td>Business Process Management</td><td>业务流程管理：对流程全生命周期的<b>持续</b>管理 ★与 BPR 的区别是必考点</td></tr><tr><td><b>BPR</b></td><td>Business Process Reengineering</td><td>业务流程再造：根本性再思考、彻底性重设计 ★失败率约 70%，主因忽视人的因素/变革管理</td></tr><tr><td><b>TQM</b></td><td>Total Quality Management</td><td>全面质量管理：质量源于过程而非检验、全员参与 ★关联戴明/朱兰</td></tr><tr><td><b>PDCA</b></td><td>Plan-Do-Check-Act</td><td>戴明环：策划-执行-检查-处理 ★TQM 与持续改进的通用循环工具</td></tr><tr><td><b>As-Is / To-Be</b></td><td>As-Is / To-Be Model</td><td>现状模型 / 未来模型 ★先 As-Is 诊断、再 To-Be 设计，实施后须绩效验证</td></tr></table>" },
+      "<h4>本章专有缩写<span class='h4-en'>KEY ABBREVIATIONS — full name + exam point</span></h4><table><tr><th>缩写</th><th>英文全称</th><th>含义与考点</th></tr><tr><td><b>BPM</b></td><td>Business Process Management</td><td>业务流程管理：对流程全生命周期的<b>持续</b>管理 ★与 BPR 的区别是必考点</td></tr><tr><td><b>BPR</b></td><td>Business Process Reengineering</td><td>业务流程再造：根本性再思考、彻底性重设计 ★失败率约 70%，主因忽视人的因素/变革管理</td></tr><tr><td><b>TQM</b></td><td>Total Quality Management</td><td>全面质量管理：质量源于过程而非检验、全员参与 ★关联戴明/朱兰</td></tr><tr><td><b>PDCA</b></td><td>Plan-Do-Check-Act</td><td>戴明环：策划-执行-检查-处理 ★TQM 与持续改进的通用循环工具</td></tr><tr><td><b>As-Is / To-Be</b></td><td>As-Is / To-Be Model</td><td>现状模型 / 未来模型 ★先 As-Is 诊断、再 To-Be 设计，实施后须绩效验证</td></tr></table>" },
     { t: "BPM 的起源与演进", en: "Evolution", d:
-      "<h4>精讲：四阶段演进脉络</h4><ul><li><b>科学管理（20世纪初）</b>：泰勒，作业标准化，效率导向。</li><li><b>全面质量管理 TQM（1950s-80s）</b>：戴明、朱兰——质量源于过程而非检验，PDCA 循环，全员参与，持续渐进改善。</li><li><b>业务流程再造 BPR（1990s）</b>：哈默与钱皮——对流程进行<b>根本性再思考、彻底性重设计</b>，以 IT 为杠杆追求绩效数量级跃升；失败率约 70%，主因是忽视人的因素与变革管理。</li><li><b>BPM（2000s 至今）</b>：吸收 TQM 的持续性与 BPR 的流程视角，形成<b>端到端、全生命周期、可度量</b>的管理体系。</li></ul><div class='exam-tip'>★ 高频对比：BPR=一次性、激进、推倒重来；BPM=持续性、渐进与激进并存。题目常给一段描述让你判断属于 BPR 还是 BPM 思想。</div>", c: [
+      "<h4>精讲：四阶段演进脉络</h4><ul><li><b>科学管理（20世纪初）</b>：泰勒，作业标准化，效率导向。</li><li><b>全面质量管理 TQM（1950s-80s）</b>：戴明、朱兰——质量源于过程而非检验，PDCA 循环，全员参与，持续渐进改善。</li><li><b>业务流程再造 BPR（1990s）</b>：哈默与钱皮——对流程进行<b>根本性再思考、彻底性重设计</b>，以 IT 为杠杆追求绩效数量级跃升；失败率约 70%，主因是忽视人的因素与变革管理。</li><li><b>BPM（2000s 至今）</b>：吸收 TQM 的持续性与 BPR 的流程视角，形成<b>端到端、全生命周期、可度量</b>的管理体系。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 高频对比：BPR=一次性、激进、推倒重来；BPM=持续性、渐进与激进并存。题目常给一段描述让你判断属于 BPR 还是 BPM 思想。</div>", c: [
         { t: "① 科学管理与 TQM 时代", d:
-          "<h4>精讲</h4><ul><li><b>科学管理（1911，泰勒）</b>：作业分解、标准化、时间动作研究——效率革命的起点，但把人视为机器附件。</li><li><b>TQM（1950s-80s，戴明/朱兰）</b>：质量是过程制造出来的而非检验出来的；全员参与、以客户为中心、PDCA 持续改进；朱兰三部曲=策划-控制-改进。</li></ul><div class='exam-tip'>★ 考点：质量运动奠定了'过程思维'，是 BPM 的思想源头。</div>" },
+          "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>科学管理（1911，泰勒）</b>：作业分解、标准化、时间动作研究——效率革命的起点，但把人视为机器附件。</li><li><b>TQM（1950s-80s，戴明/朱兰）</b>：质量是过程制造出来的而非检验出来的；全员参与、以客户为中心、PDCA 持续改进；朱兰三部曲=策划-控制-改进。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 考点：质量运动奠定了'过程思维'，是 BPM 的思想源头。</div>" },
         { t: "② BPR 时代（1990s）", d:
-          "<h4>精讲</h4><ul><li><b>哈默与钱皮《企业再造》（1993）</b>：对流程进行根本性再思考与彻底性重设计，追求成本、质量、服务、速度的<b>戏剧性</b>改善。</li><li>典型手段：IT 消除中间层、并行工作、按流程而非职能重组。</li><li>失败率约 70%：忽视人的因素、变革管理缺位、把'自动化'误当'再造'。</li></ul><div class='exam-tip'>★ 考点：BPR 三关键词——根本性 / 彻底性 / 戏剧性。</div>" },
+          "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>哈默与钱皮《企业再造》（1993）</b>：对流程进行根本性再思考与彻底性重设计，追求成本、质量、服务、速度的<b>戏剧性</b>改善。</li><li>典型手段：IT 消除中间层、并行工作、按流程而非职能重组。</li><li>失败率约 70%：忽视人的因素、变革管理缺位、把'自动化'误当'再造'。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 考点：BPR 三关键词——根本性 / 彻底性 / 戏剧性。</div>" },
         { t: "③ BPM 的形成与智能化", d:
-          "<h4>精讲</h4><ul><li>BPM = BPR 的流程视角 + TQM 的持续改进 + 工作流自动化技术。</li><li>特征：端到端、全生命周期、持续闭环、流程资产沉淀为常态。</li><li>当代演进：流程挖掘、RPA、AI 融合（iBPMS 智能化）。</li></ul>" }
+          "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>BPM = BPR 的流程视角 + TQM 的持续改进 + 工作流自动化技术。</li><li>特征：端到端、全生命周期、持续闭环、流程资产沉淀为常态。</li><li>当代演进：流程挖掘、RPA、AI 融合（iBPMS 智能化）。</li></ul>" }
       ] },
     { t: "流程的定义与特征", en: "Process Definition", d:
-      "<h4>精讲：定义拆解</h4><ul><li>CBOK 定义：流程是为<b>特定客户</b>创造<b>价值</b>的一系列<b>相互关联的结构化活动</b>。</li><li>流程特征：有明确触发与结束、有输入→转换→输出、跨职能、可重复执行、可度量（时间/成本/质量）。</li><li><b>流程 vs 项目</b>：流程重复且持续；项目一次性且独特。流程改进常以项目形式实施——改进是项目，被改进对象是流程。</li><li><b>流程 vs 职能</b>：职能是纵向切分，流程是横向价值传递；BPM 的本质之一是打通<b>部门墙</b>。</li></ul><div class='exam-tip'>★ 易考：判断某描述是流程还是项目；流程的'客户'可能是内部客户。</div>" },
+      "<h4>精讲：定义拆解</h4><ul><li>CBOK 定义：流程是为<b>特定客户</b>创造<b>价值</b>的一系列<b>相互关联的结构化活动</b>。</li><li>流程特征：有明确触发与结束、有输入→转换→输出、跨职能、可重复执行、可度量（时间/成本/质量）。</li><li><b>流程 vs 项目</b>：流程重复且持续；项目一次性且独特。流程改进常以项目形式实施——改进是项目，被改进对象是流程。</li><li><b>流程 vs 职能</b>：职能是纵向切分，流程是横向价值传递；BPM 的本质之一是打通<b>部门墙</b>。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：判断某描述是流程还是项目；流程的'客户'可能是内部客户。</div>" },
     { t: "流程分类分层", en: "Process Taxonomy", d:
-      "<h4>精讲：三层分类</h4><ul><li><b>核心流程</b>：直接面向客户创造价值，如订单履行、产品开发、客户服务。</li><li><b>支持流程</b>：为核心流程供给资源与能力，如 IT、HR、财务、采购。</li><li><b>管理流程</b>：协调与治理，如战略规划、预算、绩效管理、风险管理。</li></ul><h4>精讲：五级分层粒度</h4><ul><li>价值链 → 流程组 → 流程 → 子流程/活动 → 任务/步骤。</li><li>建模先定层级再定粒度，同一张图内粒度必须一致。</li></ul><div class='exam-tip'>★ 易考：'设备维护''预算编制''订单交付'分别属于哪一类（支持/管理/核心）。</div>" },
+      "<h4>精讲：三层分类</h4><ul><li><b>核心流程</b>：直接面向客户创造价值，如订单履行、产品开发、客户服务。</li><li><b>支持流程</b>：为核心流程供给资源与能力，如 IT、HR、财务、采购。</li><li><b>管理流程</b>：协调与治理，如战略规划、预算、绩效管理、风险管理。</li></ul><h4>精讲：五级分层粒度</h4><ul><li>价值链 → 流程组 → 流程 → 子流程/活动 → 任务/步骤。</li><li>建模先定层级再定粒度，同一张图内粒度必须一致。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：'设备维护''预算编制''订单交付'分别属于哪一类（支持/管理/核心）。</div>" },
     { t: "BPM 生命周期框架", en: "BPM Lifecycle", d:
-      "<h4>精讲：七阶段闭环（必背）</h4><ul><li><b>1 流程规划</b>：与战略对齐、选择目标流程、定优先级与范围。</li><li><b>2 发现与建模</b>：As-Is 模型、流程清单、边界与角色。</li><li><b>3 分析</b>：诊断瓶颈、浪费、根因。</li><li><b>4 设计</b>：To-Be 方案，应用设计原则。</li><li><b>5 实施</b>：试点、推广、系统落地、培训。</li><li><b>6 监控</b>：KPI 采集、仪表盘、符合性审查。</li><li><b>7 优化</b>：基于度量回到改进，循环往复。</li></ul><div class='exam-tip'>★ 必考题型：把具体活动（'绘制泳道图''设置KPI基线''试点上线'）匹配到正确阶段；强调 BPM 是<b>闭环持续</b>而非一次性瀑布。</div>", c: [
+      "<h4>精讲：七阶段闭环（必背）</h4><ul><li><b>1 流程规划</b>：与战略对齐、选择目标流程、定优先级与范围。</li><li><b>2 发现与建模</b>：As-Is 模型、流程清单、边界与角色。</li><li><b>3 分析</b>：诊断瓶颈、浪费、根因。</li><li><b>4 设计</b>：To-Be 方案，应用设计原则。</li><li><b>5 实施</b>：试点、推广、系统落地、培训。</li><li><b>6 监控</b>：KPI 采集、仪表盘、符合性审查。</li><li><b>7 优化</b>：基于度量回到改进，循环往复。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 必考题型：把具体活动（'绘制泳道图''设置KPI基线''试点上线'）匹配到正确阶段；强调 BPM 是<b>闭环持续</b>而非一次性瀑布。</div>", c: [
         { t: "阶段①②：规划与发现建模", d:
-          "<h4>精讲</h4><ul><li><b>规划</b>：识别与战略对齐的流程清单、按优先级（战略重要性×绩效差距）选择目标流程、界定范围与目标。</li><li><b>发现建模</b>：绘制 As-Is 泳道图、确认触发与边界、访谈核实真实执行。</li></ul><div class='exam-tip'>★ 易考：'墙上流程（制度规定）vs 地上流程（实际执行）'的差异要靠走查与观察发现。</div>" },
+          "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>规划</b>：识别与战略对齐的流程清单、按优先级（战略重要性×绩效差距）选择目标流程、界定范围与目标。</li><li><b>发现建模</b>：绘制 As-Is 泳道图、确认触发与边界、访谈核实真实执行。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：'墙上流程（制度规定）vs 地上流程（实际执行）'的差异要靠走查与观察发现。</div>" },
         { t: "阶段③④：分析与设计", d:
-          "<h4>精讲</h4><ul><li><b>分析</b>：诊断瓶颈（TOC）、浪费（精益 VSM）、根因（RCA）、成本（ABC）。</li><li><b>设计</b>：应用设计原则产出 To-Be 方案，必要时仿真验证可行性。</li></ul>" },
+          "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>分析</b>：诊断瓶颈（TOC）、浪费（精益 VSM）、根因（RCA）、成本（ABC）。</li><li><b>设计</b>：应用设计原则产出 To-Be 方案，必要时仿真验证可行性。</li></ul>" },
         { t: "阶段⑤⑥：实施与监控", d:
-          "<h4>精讲</h4><ul><li><b>实施</b>：试点→验证→分阶段推广，配套培训、制度与系统落地。</li><li><b>监控</b>：KPI 采集与仪表盘、BAM 实时告警、符合性审查（可用流程挖掘 Conformance）。</li></ul>" },
+          "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>实施</b>：试点→验证→分阶段推广，配套培训、制度与系统落地。</li><li><b>监控</b>：KPI 采集与仪表盘、BAM 实时告警、符合性审查（可用流程挖掘 Conformance）。</li></ul>" },
         { t: "阶段⑦：优化闭环", d:
-          "<h4>精讲</h4><ul><li>基于度量数据选择改进程度（简化/持续改进/重设计/再造），回到规划——<b>闭环循环是 BPM 的本质</b>，不是一次性瀑布。</li></ul><div class='exam-tip'>★ 必考：把具体活动（'绘制泳道图''设KPI基线''试点上线'）匹配到正确阶段。</div>" }
+          "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>基于度量数据选择改进程度（简化/持续改进/重设计/再造），回到规划——<b>闭环循环是 BPM 的本质</b>，不是一次性瀑布。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 必考：把具体活动（'绘制泳道图''设KPI基线''试点上线'）匹配到正确阶段。</div>" }
       ] },
     { t: "BPM 专业人员角色与能力", en: "BPM Professionals", d:
       "<h4>精讲：能力三角与角色谱系</h4><ul><li>能力三支柱：流程方法与技术知识、变革管理技能、<b>人际沟通等软技能</b>（最常被低估但至关重要）。</li><li>角色谱系：流程分析师 → 流程工程师/设计师 → 流程架构师 → 流程项目经理 → 流程负责人(Process Owner) → CPO。</li><li>COE 提供方法论、培训与教练支持。</li></ul>" }
@@ -359,45 +418,45 @@ const DATA = {
       e:"流程规划阶段的任务：与战略对齐、选择目标流程、排定优先级、界定范围。发现建模是绘制 As-Is；分析是诊断问题；监控是度量运行绩效。" }
   ]},
 
-  { t: "2. 流程建模", en: "Process Modeling", w: "12% · 17题", d:
-    "<h4>本章精讲</h4>重点章节。BPMN 2.0 四类核心元素几乎必考，其次是建模目的/质量标准、流程仓库治理与各类符号的适用场景。", c: [
+  { t: "2. 流程建模", en: "Process Modeling", w: "12% · 17题 / 17Q", d:
+    "<h4>本章精讲<span class='h4-en'>CHAPTER OVERVIEW</span></h4>重点章节。BPMN 2.0 四类核心元素几乎必考，其次是建模目的/质量标准、流程仓库治理与各类符号的适用场景。", c: [
     { t: "★ 英文缩写速查", en: "Key Abbreviations & Exam Points", d:
-      "<h4>本章专有缩写（记全称 + 考点）</h4><table><tr><th>缩写</th><th>英文全称</th><th>含义与考点</th></tr><tr><td><b>BPMN 2.0</b></td><td>Business Process Model and Notation</td><td>业务流程建模标注标准 ★四类核心元素与网关语义几乎必考</td></tr><tr><td><b>XOR / AND / OR</b></td><td>Exclusive / Parallel / Inclusive Gateway</td><td>排他（多选一）/ 并行（全部同时）/ 包容（满足条件者都执行）★给场景选网关</td></tr><tr><td><b>EPC</b></td><td>Event-driven Process Chain</td><td>事件驱动流程链（ARIS/SAP）★事件-功能交替连接</td></tr><tr><td><b>DFD</b></td><td>Data Flow Diagram</td><td>数据流图 ★只表达数据流向、<b>不表达控制时序</b></td></tr><tr><td><b>UML</b></td><td>Unified Modeling Language</td><td>统一建模语言：活动图/时序图，面向系统交互</td></tr><tr><td><b>IDEF0</b></td><td>Integration Definition for Function Modeling</td><td>功能建模法 ★ICOM：输入-控制-机制-输出</td></tr><tr><td><b>SIPOC</b></td><td>Supplier-Input-Process-Output-Customer</td><td>高层流程范围图 ★六西格玛 Define 阶段标配、一页纸定范围</td></tr><tr><td><b>RACI</b></td><td>Responsible-Accountable-Consulted-Informed</td><td>职责矩阵：负责/批准/咨询/知会 ★每项活动<b>有且仅有一个 A</b></td></tr></table>" },
+      "<h4>本章专有缩写<span class='h4-en'>KEY ABBREVIATIONS — full name + exam point</span></h4><table><tr><th>缩写</th><th>英文全称</th><th>含义与考点</th></tr><tr><td><b>BPMN 2.0</b></td><td>Business Process Model and Notation</td><td>业务流程建模标注标准 ★四类核心元素与网关语义几乎必考</td></tr><tr><td><b>XOR / AND / OR</b></td><td>Exclusive / Parallel / Inclusive Gateway</td><td>排他（多选一）/ 并行（全部同时）/ 包容（满足条件者都执行）★给场景选网关</td></tr><tr><td><b>EPC</b></td><td>Event-driven Process Chain</td><td>事件驱动流程链（ARIS/SAP）★事件-功能交替连接</td></tr><tr><td><b>DFD</b></td><td>Data Flow Diagram</td><td>数据流图 ★只表达数据流向、<b>不表达控制时序</b></td></tr><tr><td><b>UML</b></td><td>Unified Modeling Language</td><td>统一建模语言：活动图/时序图，面向系统交互</td></tr><tr><td><b>IDEF0</b></td><td>Integration Definition for Function Modeling</td><td>功能建模法 ★ICOM：输入-控制-机制-输出</td></tr><tr><td><b>SIPOC</b></td><td>Supplier-Input-Process-Output-Customer</td><td>高层流程范围图 ★六西格玛 Define 阶段标配、一页纸定范围</td></tr><tr><td><b>RACI</b></td><td>Responsible-Accountable-Consulted-Informed</td><td>职责矩阵：负责/批准/咨询/知会 ★每项活动<b>有且仅有一个 A</b></td></tr></table>" },
     { t: "2.1 建模标准与目的", en: "Modeling Standards", d:
-      "<h4>本节小结（点击下层节点看精讲）</h4><ul><li>建模四大目的：<b>统一沟通语言</b>（业务与 IT）、<b>分析诊断</b>（找瓶颈浪费）、<b>自动化基础</b>（BPMS 可执行模型）、<b>知识沉淀与合规审计</b>。</li><li>好模型五条质量标准：<b>正确性、完整性、一致性、可读性、可维护性</b>。</li><li>流程仓库 = 流程资产的单一事实来源；治理五支柱 = 建模标准、评审批准、版本控制、命名规范、所有权；<b>模型变更由流程所有者批准</b>。</li></ul><div class='exam-tip'>★ 本节高频：质量标准的场景对应题、仓库治理责任归属、建模分层粒度。</div>", c: [
+      "<h4>本节小结<span class='h4-en'>SECTION SUMMARY — open the child nodes for details</span></h4><ul><li>建模四大目的：<b>统一沟通语言</b>（业务与 IT）、<b>分析诊断</b>（找瓶颈浪费）、<b>自动化基础</b>（BPMS 可执行模型）、<b>知识沉淀与合规审计</b>。</li><li>好模型五条质量标准：<b>正确性、完整性、一致性、可读性、可维护性</b>。</li><li>流程仓库 = 流程资产的单一事实来源；治理五支柱 = 建模标准、评审批准、版本控制、命名规范、所有权；<b>模型变更由流程所有者批准</b>。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 本节高频：质量标准的场景对应题、仓库治理责任归属、建模分层粒度。</div>", c: [
       { t: "建模目的与质量标准", d:
-        "<h4>精讲：为什么建模</h4><ul><li>四大目的：统一沟通语言（业务与 IT）、分析诊断（找瓶颈浪费）、自动化基础（BPMS 可执行模型）、知识沉淀与合规审计。</li></ul><h4>精讲：好模型五条标准</h4><ul><li><b>正确性</b>：符合语法语义；<b>完整性</b>：覆盖所有路径与例外；<b>一致性</b>：与其他模型及命名规范一致；<b>可读性</b>：粒度统一、版面清晰；<b>可维护性</b>：便于随业务变化更新。</li><li>模型种类：As-Is / To-Be 模型、流程景观图(Landscape)、价值流图。</li></ul><div class='exam-tip'>★ 易考：质量标准与场景对应（如'同一图中泳道有时是部门有时是个人'违反一致性）。</div>" },
+        "<h4>精讲：为什么建模</h4><ul><li>四大目的：统一沟通语言（业务与 IT）、分析诊断（找瓶颈浪费）、自动化基础（BPMS 可执行模型）、知识沉淀与合规审计。</li></ul><h4>精讲：好模型五条标准</h4><ul><li><b>正确性</b>：符合语法语义；<b>完整性</b>：覆盖所有路径与例外；<b>一致性</b>：与其他模型及命名规范一致；<b>可读性</b>：粒度统一、版面清晰；<b>可维护性</b>：便于随业务变化更新。</li><li>模型种类：As-Is / To-Be 模型、流程景观图(Landscape)、价值流图。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：质量标准与场景对应（如'同一图中泳道有时是部门有时是个人'违反一致性）。</div>" },
       { t: "流程仓库", en: "Process Repository", d:
-        "<h4>精讲：仓库是什么</h4><ul><li>集中存储与管理全部流程资产的机制：模型、文档、KPI、规则、版本历史。价值：单一事实来源、支持复用、支撑治理与审计。</li></ul><h4>精讲：治理五支柱</h4><ul><li>建模标准、评审与批准流程、版本控制、命名规范、明确的模型所有权。</li><li>变更审批责任在<b>流程所有者</b>（重大跨域变更升级到治理委员会）。</li></ul><div class='exam-tip'>★ 易考：'谁批准模型变更'类题目；仓库 vs 共享网盘的区别（治理与版本控制）。</div>" },
+        "<h4>精讲：仓库是什么</h4><ul><li>集中存储与管理全部流程资产的机制：模型、文档、KPI、规则、版本历史。价值：单一事实来源、支持复用、支撑治理与审计。</li></ul><h4>精讲：治理五支柱</h4><ul><li>建模标准、评审与批准流程、版本控制、命名规范、明确的模型所有权。</li><li>变更审批责任在<b>流程所有者</b>（重大跨域变更升级到治理委员会）。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：'谁批准模型变更'类题目；仓库 vs 共享网盘的区别（治理与版本控制）。</div>" },
       { t: "建模层级与规范", d:
         "<h4>精讲：分层建模</h4><ul><li>企业级：价值链/景观图，面向高管。</li><li>域级：单流程端到端视图，面向流程所有者。</li><li>详细级：任务级含系统逻辑与决策规则，面向执行与自动化开发。</li><li>规范要点：统一符号集、泳道=执行角色、活动粒度一致、每条路径必须有终点。</li></ul>" }
     ]},
     { t: "2.2 建模符号与表示法", en: "Modeling Notations", d:
-      "<h4>本节小结（点击下层节点看精讲）</h4><ul><li><b>BPMN 2.0 是绝对重点</b>：四类核心元素——流对象（事件/活动/网关）、连接对象（顺序流/消息流/关联）、泳道（Pool/Lane）、数据与工件。</li><li>网关语义：XOR 多选一、AND 全部同时、OR 满足条件者都执行、事件网关由后续事件决定。</li><li>备选符号及适用场景：EPC（事件触发）、DFD（数据流向不含时序）、UML（系统交互）、IDEF0（功能分解 ICOM）、SIPOC（一页纸定范围）。</li><li>流程边界=起点触发事件→终点价值交付；RACI 每项活动<b>有且仅有一个 A</b>。</li></ul><div class='exam-tip'>★ 本节高频：给场景选网关/选符号、顺序流 vs 消息流、RACI 规则判断。</div>", c: [
+      "<h4>本节小结<span class='h4-en'>SECTION SUMMARY — open the child nodes for details</span></h4><ul><li><b>BPMN 2.0 是绝对重点</b>：四类核心元素——流对象（事件/活动/网关）、连接对象（顺序流/消息流/关联）、泳道（Pool/Lane）、数据与工件。</li><li>网关语义：XOR 多选一、AND 全部同时、OR 满足条件者都执行、事件网关由后续事件决定。</li><li>备选符号及适用场景：EPC（事件触发）、DFD（数据流向不含时序）、UML（系统交互）、IDEF0（功能分解 ICOM）、SIPOC（一页纸定范围）。</li><li>流程边界=起点触发事件→终点价值交付；RACI 每项活动<b>有且仅有一个 A</b>。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 本节高频：给场景选网关/选符号、顺序流 vs 消息流、RACI 规则判断。</div>", c: [
       { t: "BPMN 2.0（最重点）", d:
-        "<h4>精讲：四类核心元素</h4><ul><li><b>流对象</b>：事件(Event：开始/中间/结束 × 捕获/抛出)、活动(任务/子流程)、网关(Gateway)。</li><li><b>网关语义</b>：排他 XOR=多选一；并行 AND=全部同时发生；包容 OR=满足条件的分支都执行；事件网关=由后续事件决定路径。</li><li><b>连接对象</b>：顺序流(实线箭头，同一池内)、消息流(虚线空心箭头，<b>跨池</b>通信)、关联(点线，注释/数据)。</li><li><b>泳道</b>：Pool=独立参与者/系统；Lane=Pool 内的角色或部门。</li><li><b>数据与工件</b>：数据对象、数据存储、注释。</li></ul><div class='exam-tip'>★ 必考三点：①给描述选网关类型 ②顺序流 vs 消息流——消息流不能连接同一池内元素 ③每条路径都必须到达结束事件。</div>", c: [
+        "<h4>精讲：四类核心元素</h4><ul><li><b>流对象</b>：事件(Event：开始/中间/结束 × 捕获/抛出)、活动(任务/子流程)、网关(Gateway)。</li><li><b>网关语义</b>：排他 XOR=多选一；并行 AND=全部同时发生；包容 OR=满足条件的分支都执行；事件网关=由后续事件决定路径。</li><li><b>连接对象</b>：顺序流(实线箭头，同一池内)、消息流(虚线空心箭头，<b>跨池</b>通信)、关联(点线，注释/数据)。</li><li><b>泳道</b>：Pool=独立参与者/系统；Lane=Pool 内的角色或部门。</li><li><b>数据与工件</b>：数据对象、数据存储、注释。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 必考三点：①给描述选网关类型 ②顺序流 vs 消息流——消息流不能连接同一池内元素 ③每条路径都必须到达结束事件。</div>", c: [
           { t: "事件 Event 详解", d:
-            "<h4>精讲</h4><ul><li><b>开始事件</b>：无修饰（普通触发）、消息、定时、信号、条件、错误等触发类型。</li><li><b>中间事件</b>：捕获型（流程在此等待，如消息到达、定时器到点）与抛出型（发出消息/信号）。</li><li><b>结束事件</b>：无修饰、消息、错误、终止（Terminate，杀掉全部并行分支）。</li></ul><div class='exam-tip'>★ 易考：定时中间事件表示'等待 X 天后升级'类场景；终止结束事件会中断所有并行路径。</div>" },
+            "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>开始事件</b>：无修饰（普通触发）、消息、定时、信号、条件、错误等触发类型。</li><li><b>中间事件</b>：捕获型（流程在此等待，如消息到达、定时器到点）与抛出型（发出消息/信号）。</li><li><b>结束事件</b>：无修饰、消息、错误、终止（Terminate，杀掉全部并行分支）。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：定时中间事件表示'等待 X 天后升级'类场景；终止结束事件会中断所有并行路径。</div>" },
           { t: "活动 Activity 详解", d:
-            "<h4>精讲</h4><ul><li><b>任务 Task</b>：原子活动。类型：用户任务（人+系统）、服务任务（系统自动调用）、手工任务、脚本任务、业务规则任务。</li><li><b>子流程</b>：嵌入式子流程（同一池内展开）与调用活动（引用独立可复用流程）。</li><li>活动可有多个输出顺序流，但须配合网关表达分支语义。</li></ul><div class='exam-tip'>★ 易考：用户任务 vs 服务任务的区别——是否需要人工参与。</div>" },
+            "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>任务 Task</b>：原子活动。类型：用户任务（人+系统）、服务任务（系统自动调用）、手工任务、脚本任务、业务规则任务。</li><li><b>子流程</b>：嵌入式子流程（同一池内展开）与调用活动（引用独立可复用流程）。</li><li>活动可有多个输出顺序流，但须配合网关表达分支语义。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：用户任务 vs 服务任务的区别——是否需要人工参与。</div>" },
           { t: "网关 Gateway 详解", d:
-            "<h4>精讲</h4><ul><li><b>排他 XOR</b>：按条件只走一条，可搭配默认流（Default Flow）。</li><li><b>并行 AND</b>：分叉出全部分支同时执行，汇合处等待所有分支到齐。</li><li><b>包容 OR</b>：满足条件的分支都执行，汇合处等待所有<b>被激活</b>的分支。</li><li><b>事件网关</b>：后接多个中间事件，谁先发生走谁。</li><li>经典错误：AND 分叉 3 支只汇合 2 支→流程死锁。</li></ul><div class='exam-tip'>★ 必考：场景选网关 + 汇合语义判断。</div>" },
+            "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>排他 XOR</b>：按条件只走一条，可搭配默认流（Default Flow）。</li><li><b>并行 AND</b>：分叉出全部分支同时执行，汇合处等待所有分支到齐。</li><li><b>包容 OR</b>：满足条件的分支都执行，汇合处等待所有<b>被激活</b>的分支。</li><li><b>事件网关</b>：后接多个中间事件，谁先发生走谁。</li><li>经典错误：AND 分叉 3 支只汇合 2 支→流程死锁。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 必考：场景选网关 + 汇合语义判断。</div>" },
           { t: "泳道与连接对象详解", d:
-            "<h4>精讲</h4><ul><li><b>Pool</b>：独立参与者（公司/系统）；内部细节不展开时用<b>黑池</b>。</li><li><b>Lane</b>：Pool 内按角色/部门分道，回答'谁做'。</li><li><b>顺序流</b>：实线，同一 Pool 内的执行顺序，<b>不可跨池</b>。</li><li><b>消息流</b>：虚线，跨 Pool 通信。</li><li><b>关联 Association</b>：点线，连接注释与数据对象。</li></ul><div class='exam-tip'>★ 必考：顺序流 vs 消息流（同池/跨池）；黑池语义。</div>" }
+            "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>Pool</b>：独立参与者（公司/系统）；内部细节不展开时用<b>黑池</b>。</li><li><b>Lane</b>：Pool 内按角色/部门分道，回答'谁做'。</li><li><b>顺序流</b>：实线，同一 Pool 内的执行顺序，<b>不可跨池</b>。</li><li><b>消息流</b>：虚线，跨 Pool 通信。</li><li><b>关联 Association</b>：点线，连接注释与数据对象。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 必考：顺序流 vs 消息流（同池/跨池）；黑池语义。</div>" }
         ] },
       { t: "其他建模符号", d:
-        "<h4>精讲：五大备选符号及适用场景</h4><ul><li><b>EPC</b> 事件驱动流程链（ARIS/SAP）：事件→功能交替连接，擅长表达触发关系。</li><li><b>DFD</b> 数据流图：只表达数据流向（处理/存储/外部实体），<b>不表达控制顺序与时序</b>。</li><li><b>UML 活动图/时序图</b>：面向对象与软件交互设计。</li><li><b>IDEF0</b>：功能分解，输入I-控制C-机制M-输出O，适合层级化功能建模。</li><li><b>SIPOC</b>：供方-输入-过程-输出-客户一页纸高层视图，快速界定流程范围（六西格玛 Define 阶段标配）。</li></ul><div class='exam-tip'>★ 易考：场景选符号——'向管理层一页展示范围'选 SIPOC；'表达数据流向不涉及时序'选 DFD。</div>", c: [
+        "<h4>精讲：五大备选符号及适用场景</h4><ul><li><b>EPC</b> 事件驱动流程链（ARIS/SAP）：事件→功能交替连接，擅长表达触发关系。</li><li><b>DFD</b> 数据流图：只表达数据流向（处理/存储/外部实体），<b>不表达控制顺序与时序</b>。</li><li><b>UML 活动图/时序图</b>：面向对象与软件交互设计。</li><li><b>IDEF0</b>：功能分解，输入I-控制C-机制M-输出O，适合层级化功能建模。</li><li><b>SIPOC</b>：供方-输入-过程-输出-客户一页纸高层视图，快速界定流程范围（六西格玛 Define 阶段标配）。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：场景选符号——'向管理层一页展示范围'选 SIPOC；'表达数据流向不涉及时序'选 DFD。</div>", c: [
           { t: "EPC / DFD / UML 对比", d:
-            "<h4>精讲</h4><ul><li><b>EPC</b>：事件驱动流程链——'事件→功能→事件'交替连接，挂组织/信息/资源对象，SAP ARIS 体系，擅长表达触发逻辑。</li><li><b>DFD</b>：数据流图——外部实体、处理、数据存储、数据流；<b>不表达控制时序与分支循环</b>。</li><li><b>UML 活动图</b>：面向对象范式的流程图；时序图表达对象间消息的时间顺序。</li></ul><div class='exam-tip'>★ 易考：'只关心数据在系统间怎么流、不关心顺序'→DFD。</div>" },
+            "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>EPC</b>：事件驱动流程链——'事件→功能→事件'交替连接，挂组织/信息/资源对象，SAP ARIS 体系，擅长表达触发逻辑。</li><li><b>DFD</b>：数据流图——外部实体、处理、数据存储、数据流；<b>不表达控制时序与分支循环</b>。</li><li><b>UML 活动图</b>：面向对象范式的流程图；时序图表达对象间消息的时间顺序。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：'只关心数据在系统间怎么流、不关心顺序'→DFD。</div>" },
           { t: "IDEF0 / SIPOC 详解", d:
-            "<h4>精讲</h4><ul><li><b>IDEF0</b>：自顶向下功能分解，每个功能框有 ICOM 四类箭头：输入（被转换的）、<b>控制（约束条件，如政策）</b>、机制（执行资源）、输出。</li><li><b>SIPOC</b>：一页纸高层视图——供方→输入→过程（4-7 个高层步骤）→输出→客户；用于项目启动界定范围、对齐共识。</li></ul><div class='exam-tip'>★ 易考：IDEF0 中'控制'箭头的含义是约束/政策，不是输入物料。</div>" }
+            "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>IDEF0</b>：自顶向下功能分解，每个功能框有 ICOM 四类箭头：输入（被转换的）、<b>控制（约束条件，如政策）</b>、机制（执行资源）、输出。</li><li><b>SIPOC</b>：一页纸高层视图——供方→输入→过程（4-7 个高层步骤）→输出→客户；用于项目启动界定范围、对齐共识。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：IDEF0 中'控制'箭头的含义是约束/政策，不是输入物料。</div>" }
         ] },
       { t: "流程边界与角色定义", d:
-        "<h4>精讲：边界怎么定</h4><ul><li>起点=外部触发事件（客户请求、系统定时、上一流程交付物）；终点=对客户/下游的价值交付完成。</li><li>边界定错的后果：范围蔓延或流程碎片化（只画出部门内一小段）。</li></ul><h4>精讲：RACI 职责矩阵</h4><ul><li>R 负责、A 批准/问责（每项活动<b>有且仅有一个</b>A）、C 咨询、I 知会。</li></ul><div class='exam-tip'>★ 易考：RACI 规则判断——'一个活动两个A'是错误分配。</div>", c: [
+        "<h4>精讲：边界怎么定</h4><ul><li>起点=外部触发事件（客户请求、系统定时、上一流程交付物）；终点=对客户/下游的价值交付完成。</li><li>边界定错的后果：范围蔓延或流程碎片化（只画出部门内一小段）。</li></ul><h4>精讲：RACI 职责矩阵</h4><ul><li>R 负责、A 批准/问责（每项活动<b>有且仅有一个</b>A）、C 咨询、I 知会。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：RACI 规则判断——'一个活动两个A'是错误分配。</div>", c: [
           { t: "触发器与边界定法", d:
-            "<h4>精讲</h4><ul><li>起点触发：外部客户请求、上游流程交付、定时/事件触发。</li><li>终点：对客户/下游的<b>价值交付完成</b>，而不是'内部做完'。</li><li>常见边界错误：只画部门内一段（流程碎片化）或把多个流程塞进一张巨型图（范围蔓延）。</li></ul>" },
+            "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>起点触发：外部客户请求、上游流程交付、定时/事件触发。</li><li>终点：对客户/下游的<b>价值交付完成</b>，而不是'内部做完'。</li><li>常见边界错误：只画部门内一段（流程碎片化）或把多个流程塞进一张巨型图（范围蔓延）。</li></ul>" },
           { t: "RACI 矩阵详解", d:
-            "<h4>精讲</h4><ul><li><b>R Responsible</b>：实际执行，可多人；<b>A Accountable</b>：最终问责与批准，<b>有且仅有一个</b>；<b>C Consulted</b>：执行前咨询；<b>I Informed</b>：执行后知会。</li><li>用途：流程角色分配、跨部门协作界面定义、治理审批矩阵。</li></ul><div class='exam-tip'>★ 易考：'一个活动两个 A'或'只有 R 没有 A'都是错误分配。</div>" }
+            "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>R Responsible</b>：实际执行，可多人；<b>A Accountable</b>：最终问责与批准，<b>有且仅有一个</b>；<b>C Consulted</b>：执行前咨询；<b>I Informed</b>：执行后知会。</li><li>用途：流程角色分配、跨部门协作界面定义、治理审批矩阵。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：'一个活动两个 A'或'只有 R 没有 A'都是错误分配。</div>" }
         ] }
     ]}
   ], q: [
@@ -411,36 +470,36 @@ const DATA = {
       e:"SIPOC（Supplier-Input-Process-Output-Customer）正是这种高层概览工具，常用于六西格玛 Define 阶段界定范围。" }
     ]},
 
-  { t: "3. 流程分析", en: "Process Analysis", w: "10% · 14题", d:
-    "<h4>本章精讲</h4>核心是'诊断现状'：需求获取技术选型、根因分析工具（5Why/鱼骨图/帕累托）与精益浪费分析是三大高频题源。", c: [
+  { t: "3. 流程分析", en: "Process Analysis", w: "10% · 14题 / 14Q", d:
+    "<h4>本章精讲<span class='h4-en'>CHAPTER OVERVIEW</span></h4>核心是'诊断现状'：需求获取技术选型、根因分析工具（5Why/鱼骨图/帕累托）与精益浪费分析是三大高频题源。", c: [
     { t: "★ 英文缩写速查", en: "Key Abbreviations & Exam Points", d:
-      "<h4>本章专有缩写（记全称 + 考点）</h4><table><tr><th>缩写</th><th>英文全称</th><th>含义与考点</th></tr><tr><td><b>RCA</b></td><td>Root Cause Analysis</td><td>根因分析 ★5Why / 鱼骨图 / 帕累托的选型判断</td></tr><tr><td><b>6M</b></td><td>Man-Machine-Material-Method-Environment-Measurement</td><td>鱼骨图六分类：人、机、料、法、环、测</td></tr><tr><td><b>VSM</b></td><td>Value Stream Mapping</td><td>价值流图 ★区分 VA / NVA / 浪费</td></tr><tr><td><b>VA / NVA</b></td><td>Value-Added / Non-Value-Added</td><td>增值 / 必要非增值活动（审批、检验属 NVA）</td></tr><tr><td><b>TOC</b></td><td>Theory of Constraints</td><td>约束理论 ★五步聚焦法：识别→榨取→迁就→提升→循环</td></tr><tr><td><b>PCE</b></td><td>Process Cycle Efficiency</td><td>流程周期效率 = 增值时间 ÷ 总提前期 ★典型流程常低于 10%</td></tr><tr><td><b>ABC</b></td><td>Activity-Based Costing</td><td>作业成本法 ★按活动动因归集成本，vs 传统按工时/数量分摊</td></tr></table>" },
+      "<h4>本章专有缩写<span class='h4-en'>KEY ABBREVIATIONS — full name + exam point</span></h4><table><tr><th>缩写</th><th>英文全称</th><th>含义与考点</th></tr><tr><td><b>RCA</b></td><td>Root Cause Analysis</td><td>根因分析 ★5Why / 鱼骨图 / 帕累托的选型判断</td></tr><tr><td><b>6M</b></td><td>Man-Machine-Material-Method-Environment-Measurement</td><td>鱼骨图六分类：人、机、料、法、环、测</td></tr><tr><td><b>VSM</b></td><td>Value Stream Mapping</td><td>价值流图 ★区分 VA / NVA / 浪费</td></tr><tr><td><b>VA / NVA</b></td><td>Value-Added / Non-Value-Added</td><td>增值 / 必要非增值活动（审批、检验属 NVA）</td></tr><tr><td><b>TOC</b></td><td>Theory of Constraints</td><td>约束理论 ★五步聚焦法：识别→榨取→迁就→提升→循环</td></tr><tr><td><b>PCE</b></td><td>Process Cycle Efficiency</td><td>流程周期效率 = 增值时间 ÷ 总提前期 ★典型流程常低于 10%</td></tr><tr><td><b>ABC</b></td><td>Activity-Based Costing</td><td>作业成本法 ★按活动动因归集成本，vs 传统按工时/数量分摊</td></tr></table>" },
     { t: "3.1 流程分析方法", en: "Analysis Methods", d:
-      "<h4>本节小结（点击下层节点看精讲）</h4><ul><li>需求五分类：业务需求 → 干系人需求 → 功能需求 → 非功能需求 → <b>过渡需求</b>（切换期临时能力）。</li><li>获取技术选型：访谈（深入敏感）、引导式工作坊（快速共识）、<b>观察/跟岗</b>（验证说的与做的差异）、文档分析、问卷（大范围定量）。</li><li>评估三步：模型审阅 → 流程走查(Walkthrough) → 数据佐证；差距分析对照 To-Be 或标杆输出 Gap List。</li><li>RCA 三工具：<b>5Why</b>（单问题深挖）、<b>鱼骨图</b>（多原因分类，6M）、<b>帕累托</b>（80/20 排优先级）。</li></ul><div class='exam-tip'>★ 本节高频：获取技术情境匹配、RCA 工具选择。</div>", c: [
+      "<h4>本节小结<span class='h4-en'>SECTION SUMMARY — open the child nodes for details</span></h4><ul><li>需求五分类：业务需求 → 干系人需求 → 功能需求 → 非功能需求 → <b>过渡需求</b>（切换期临时能力）。</li><li>获取技术选型：访谈（深入敏感）、引导式工作坊（快速共识）、<b>观察/跟岗</b>（验证说的与做的差异）、文档分析、问卷（大范围定量）。</li><li>评估三步：模型审阅 → 流程走查(Walkthrough) → 数据佐证；差距分析对照 To-Be 或标杆输出 Gap List。</li><li>RCA 三工具：<b>5Why</b>（单问题深挖）、<b>鱼骨图</b>（多原因分类，6M）、<b>帕累托</b>（80/20 排优先级）。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 本节高频：获取技术情境匹配、RCA 工具选择。</div>", c: [
       { t: "业务需求分析", d:
-        "<h4>精讲：需求类型</h4><ul><li>业务需求（为什么做）→ 干系人需求 → 功能需求（系统做什么）→ 非功能需求（性能/安全/合规）→ 过渡需求（切换期临时能力，如并行运行期的人工对账）。</li></ul><h4>精讲：获取技术选型</h4><ul><li>访谈：深入一对一，适合敏感话题与专家。</li><li>引导式工作坊：多干系人集中达成共识，效率高。</li><li>观察/跟岗：验证'说的与做的不一致'，发现隐性知识。</li><li>文档分析：利用既有制度、报表、日志。</li><li>问卷：大范围定量收集。</li></ul><div class='exam-tip'>★ 易考：情境匹配——'干系人分散且需快速达成一致'选工作坊；'需验证实际操作与制度差异'选观察。</div>" },
+        "<h4>精讲：需求类型</h4><ul><li>业务需求（为什么做）→ 干系人需求 → 功能需求（系统做什么）→ 非功能需求（性能/安全/合规）→ 过渡需求（切换期临时能力，如并行运行期的人工对账）。</li></ul><h4>精讲：获取技术选型</h4><ul><li>访谈：深入一对一，适合敏感话题与专家。</li><li>引导式工作坊：多干系人集中达成共识，效率高。</li><li>观察/跟岗：验证'说的与做的不一致'，发现隐性知识。</li><li>文档分析：利用既有制度、报表、日志。</li><li>问卷：大范围定量收集。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：情境匹配——'干系人分散且需快速达成一致'选工作坊；'需验证实际操作与制度差异'选观察。</div>" },
       { t: "现状评估与差距分析", d:
         "<h4>精讲：评估三步路径</h4><ul><li>模型审阅 → 实地验证（Walkthrough 流程走查，按图走一遍真实执行）→ 数据佐证（KPI 与日志印证）。</li><li>差距分析：现状 vs 目标（To-Be 或<b>标杆</b>）逐项对比，输出差距清单(Gap List)。</li><li>标杆(Benchmarking)是差距来源之一：与最佳实践对比找差距。</li></ul>" },
       { t: "根因分析", en: "Root Cause Analysis", d:
-        "<h4>精讲：三大 RCA 工具适用场景</h4><ul><li><b>5 Why</b>：针对单一问题沿因果链连问五层，简单直接。</li><li><b>鱼骨图/石川图</b>：多原因并行梳理，按 6M 分类（人、机、料、法、环、测），适合团队头脑风暴。</li><li><b>帕累托图</b>：多问题排优先级，80/20 找'关键少数'。</li><li>对策必须针对<b>根因</b>而非表象；区分纠正措施（消除已发生）与预防措施（防止发生）。</li></ul><div class='exam-tip'>★ 必考：给问题场景选工具——'原因分散多类'用鱼骨图；'问题太多排序'用帕累托；'单一问题深挖'用 5Why。</div>", c: [
+        "<h4>精讲：三大 RCA 工具适用场景</h4><ul><li><b>5 Why</b>：针对单一问题沿因果链连问五层，简单直接。</li><li><b>鱼骨图/石川图</b>：多原因并行梳理，按 6M 分类（人、机、料、法、环、测），适合团队头脑风暴。</li><li><b>帕累托图</b>：多问题排优先级，80/20 找'关键少数'。</li><li>对策必须针对<b>根因</b>而非表象；区分纠正措施（消除已发生）与预防措施（防止发生）。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 必考：给问题场景选工具——'原因分散多类'用鱼骨图；'问题太多排序'用帕累托；'单一问题深挖'用 5Why。</div>", c: [
           { t: "5 Why 详解", d:
-            "<h4>精讲</h4><ul><li>对单一问题沿因果链连续追问'为什么'（通常 3-5 层），直到可行动的根因。</li><li>优点：简单直接；风险：沿单条因果链走偏、遗漏并行原因。</li></ul><div class='exam-tip'>★ 适用判断：单一问题、原因链清晰时首选。</div>" },
+            "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>对单一问题沿因果链连续追问'为什么'（通常 3-5 层），直到可行动的根因。</li><li>优点：简单直接；风险：沿单条因果链走偏、遗漏并行原因。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 适用判断：单一问题、原因链清晰时首选。</div>" },
           { t: "鱼骨图详解", d:
-            "<h4>精讲</h4><ul><li>问题写在鱼头，主刺按 <b>6M</b> 分类：人 Man、机 Machine、料 Material、法 Method、环 Environment、测 Measurement。</li><li>适合团队头脑风暴、多原因并行梳理；每根大刺可再嵌套 5Why 深挖。</li></ul>" },
+            "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>问题写在鱼头，主刺按 <b>6M</b> 分类：人 Man、机 Machine、料 Material、法 Method、环 Environment、测 Measurement。</li><li>适合团队头脑风暴、多原因并行梳理；每根大刺可再嵌套 5Why 深挖。</li></ul>" },
           { t: "帕累托图详解", d:
-            "<h4>精讲</h4><ul><li>把问题/缺陷按频次降序排列 + 累计百分比曲线，识别贡献约 80% 问题的'关键少数'（约 20% 类别）。</li><li>用途：改进<b>优先级排序</b>，不是找单一根因。</li></ul><div class='exam-tip'>★ 三工具选择题：单一深挖→5Why；分类梳理→鱼骨；排序→帕累托。</div>" },
+            "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>把问题/缺陷按频次降序排列 + 累计百分比曲线，识别贡献约 80% 问题的'关键少数'（约 20% 类别）。</li><li>用途：改进<b>优先级排序</b>，不是找单一根因。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 三工具选择题：单一深挖→5Why；分类梳理→鱼骨；排序→帕累托。</div>" },
           { t: "纠正 vs 预防措施", d:
-            "<h4>精讲</h4><ul><li><b>纠正</b>：消除已发生的不合格（救火）；<b>纠正措施</b>：消除已发生问题的根因防再发；<b>预防措施</b>：消除潜在不合格的原因。</li><li>验证：措施实施后必须用数据确认有效（再发生率显著下降）。</li></ul>" }
+            "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>纠正</b>：消除已发生的不合格（救火）；<b>纠正措施</b>：消除已发生问题的根因防再发；<b>预防措施</b>：消除潜在不合格的原因。</li><li>验证：措施实施后必须用数据确认有效（再发生率显著下降）。</li></ul>" }
         ] }
     ]},
     { t: "3.2 流程分析技术", en: "Analysis Techniques", d:
-      "<h4>本节小结（点击下层节点看精讲）</h4><ul><li>活动三分法：<b>增值 VA / 必要非增值 NVA / 纯浪费</b>；精益七大浪费 + 第 8 种（员工才智未被利用）。</li><li>TOC 五步：识别约束 → 榨取 → 迁就 → 提升 → 循环；<b>PCE = 增值时间 ÷ 总提前期</b>（常低于 10%）。</li><li>排队论要点：利用率越高等待非线性上升——盲目拉满产能制造排队。</li><li><b>ABC 作业成本法</b>：资源→活动→成本对象，按动因归集，比传统工时分摊更真实。</li><li><b>仿真 Simulation</b>：上线前低成本验证容量与瓶颈。</li></ul><div class='exam-tip'>★ 本节高频：浪费类型判断、ABC vs 传统成本法、仿真的适用时机。</div>", c: [
+      "<h4>本节小结<span class='h4-en'>SECTION SUMMARY — open the child nodes for details</span></h4><ul><li>活动三分法：<b>增值 VA / 必要非增值 NVA / 纯浪费</b>；精益七大浪费 + 第 8 种（员工才智未被利用）。</li><li>TOC 五步：识别约束 → 榨取 → 迁就 → 提升 → 循环；<b>PCE = 增值时间 ÷ 总提前期</b>（常低于 10%）。</li><li>排队论要点：利用率越高等待非线性上升——盲目拉满产能制造排队。</li><li><b>ABC 作业成本法</b>：资源→活动→成本对象，按动因归集，比传统工时分摊更真实。</li><li><b>仿真 Simulation</b>：上线前低成本验证容量与瓶颈。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 本节高频：浪费类型判断、ABC vs 传统成本法、仿真的适用时机。</div>", c: [
       { t: "价值流与浪费分析", d:
-        "<h4>精讲：增值三分法</h4><ul><li>增值 VA：客户愿意付钱、改变产品/服务形态。</li><li>必要非增值 NVA：不增值但当前必需，如审批、检验、记录。</li><li>纯浪费：可直接消除，如等待、返工。</li></ul><h4>精讲：七大浪费（必背）</h4><ul><li>过量生产、等待、搬运、过度加工、库存、多余动作、缺陷/返工；第 8 种：未被利用的员工才智。</li></ul><div class='exam-tip'>★ 易考：给场景判断浪费类型（如'单据在部门间积压三天'=等待+库存）。</div>" },
+        "<h4>精讲：增值三分法</h4><ul><li>增值 VA：客户愿意付钱、改变产品/服务形态。</li><li>必要非增值 NVA：不增值但当前必需，如审批、检验、记录。</li><li>纯浪费：可直接消除，如等待、返工。</li></ul><h4>精讲：七大浪费（必背）</h4><ul><li>过量生产、等待、搬运、过度加工、库存、多余动作、缺陷/返工；第 8 种：未被利用的员工才智。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：给场景判断浪费类型（如'单据在部门间积压三天'=等待+库存）。</div>" },
       { t: "瓶颈与约束分析", d:
         "<h4>精讲：TOC 五步聚焦法</h4><ul><li>识别约束 → 榨取约束 → 迁就约束 → 提升约束 → 约束转移后回到第一步，持续循环。</li></ul><h4>精讲：关键度量</h4><ul><li>流程周期效率 PCE = 增值时间 ÷ 总提前期，典型流程常低于 10%。</li><li>排队论要点：资源利用率越高，等待时间非线性急剧上升——盲目拉高利用率会造成排队。</li></ul>" },
       { t: "其他常用技术", d:
-        "<h4>精讲：成本与仿真</h4><ul><li><b>作业成本法 ABC</b>：按'活动'归集成本（资源→活动→成本对象），比传统按工时分摊更精确反映流程消耗。</li><li><b>模拟仿真</b>：对 To-Be 方案做容量、瓶颈、到达率波动的虚拟验证，降低实施风险。</li><li>流程走查、绩效数据分析、日志分析（流程挖掘的数据基础）。</li></ul><div class='exam-tip'>★ 易考：ABC vs 传统成本法——传统法按单一动因（工时/数量）粗放分摊间接费，常扭曲流程成本。</div>" }
+        "<h4>精讲：成本与仿真</h4><ul><li><b>作业成本法 ABC</b>：按'活动'归集成本（资源→活动→成本对象），比传统按工时分摊更精确反映流程消耗。</li><li><b>模拟仿真</b>：对 To-Be 方案做容量、瓶颈、到达率波动的虚拟验证，降低实施风险。</li><li>流程走查、绩效数据分析、日志分析（流程挖掘的数据基础）。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：ABC vs 传统成本法——传统法按单一动因（工时/数量）粗放分摊间接费，常扭曲流程成本。</div>" }
     ]}
   ], q: [
     { id:"ch3-1", s:"客服投诉处理时间过长。分析团队列出可能原因（人员技能、系统响应、制度流程、考核指标…）并分类梳理因果链。最适合的 RCA 工具是：", o:["5 Why 分析","鱼骨图（石川图）","帕累托图","控制图"], a:1,
@@ -453,27 +512,27 @@ const DATA = {
       e:"仿真可在虚拟环境对 To-Be 方案做容量、到达率波动、瓶颈位置的验证，是实施前的低成本试错手段。" }
     ]},
 
-  { t: "4. 流程设计与转型", en: "Process Design & Transformation", w: "11% · 15题", d:
-    "<h4>本章精讲</h4>两大块：设计原则（给场景判断设计决策对错）与 To-Be 转型实施路径（试点→推广→验证）。", c: [
+  { t: "4. 流程设计与转型", en: "Process Design & Transformation", w: "11% · 15题 / 15Q", d:
+    "<h4>本章精讲<span class='h4-en'>CHAPTER OVERVIEW</span></h4>两大块：设计原则（给场景判断设计决策对错）与 To-Be 转型实施路径（试点→推广→验证）。", c: [
     { t: "★ 英文缩写速查", en: "Key Abbreviations & Exam Points", d:
-      "<h4>本章专有缩写（记全称 + 考点）</h4><table><tr><th>缩写</th><th>英文全称</th><th>含义与考点</th></tr><tr><td><b>ESIA</b></td><td>Eliminate-Simplify-Integrate-Automate</td><td>流程简化四步：清除-简化-整合-自动化 ★<b>顺序有讲究</b>：先清简化、最后才自动化，'先把烂流程自动化'是经典错误选项</td></tr><tr><td><b>Pilot</b></td><td>Pilot Testing</td><td>试点测试 ★高风险变革应试点先行→验证→分阶段推广；大爆炸式切换是高频错误选项</td></tr><tr><td><b>To-Be</b></td><td>To-Be Process Design</td><td>未来流程设计 ★上线后须做绩效验证（实测 vs 设计目标）</td></tr></table>" },
+      "<h4>本章专有缩写<span class='h4-en'>KEY ABBREVIATIONS — full name + exam point</span></h4><table><tr><th>缩写</th><th>英文全称</th><th>含义与考点</th></tr><tr><td><b>ESIA</b></td><td>Eliminate-Simplify-Integrate-Automate</td><td>流程简化四步：清除-简化-整合-自动化 ★<b>顺序有讲究</b>：先清简化、最后才自动化，'先把烂流程自动化'是经典错误选项</td></tr><tr><td><b>Pilot</b></td><td>Pilot Testing</td><td>试点测试 ★高风险变革应试点先行→验证→分阶段推广；大爆炸式切换是高频错误选项</td></tr><tr><td><b>To-Be</b></td><td>To-Be Process Design</td><td>未来流程设计 ★上线后须做绩效验证（实测 vs 设计目标）</td></tr></table>" },
     { t: "4.1 流程设计原则", en: "Design Principles", d:
-      "<h4>精讲：八大设计启发</h4><ul><li>以端到端与客户价值为导向，而非部门切割。</li><li>一人多岗（Case Worker）：减少交接与等待。</li><li>按情况分支处理，替代层层串行审批。</li><li>把决策点放进实际工作中，让一线有权决策。</li><li><b>信息一次采集、共享使用</b>——重复录入是典型设计缺陷。</li><li>并行替代串行。</li><li>把控制/检查嵌入流程而非事后另设。</li><li>在信息源头一次性捕获数据。</li></ul><h4>精讲：ESIA 简化技术</h4><ul><li>清除(Eliminate)、简化(Simplify)、整合(Integrate)、自动化(Automate)——<b>顺序有讲究：先清简化，最后才自动化</b>（自动化一个应被清除的活动是浪费）。</li></ul><div class='exam-tip'>★ 易考：给设计描述判断违反哪条原则；'先把烂流程自动化'是经典错误选项。</div>", c: [
+      "<h4>精讲：八大设计启发</h4><ul><li>以端到端与客户价值为导向，而非部门切割。</li><li>一人多岗（Case Worker）：减少交接与等待。</li><li>按情况分支处理，替代层层串行审批。</li><li>把决策点放进实际工作中，让一线有权决策。</li><li><b>信息一次采集、共享使用</b>——重复录入是典型设计缺陷。</li><li>并行替代串行。</li><li>把控制/检查嵌入流程而非事后另设。</li><li>在信息源头一次性捕获数据。</li></ul><h4>精讲：ESIA 简化技术</h4><ul><li>清除(Eliminate)、简化(Simplify)、整合(Integrate)、自动化(Automate)——<b>顺序有讲究：先清简化，最后才自动化</b>（自动化一个应被清除的活动是浪费）。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：给设计描述判断违反哪条原则；'先把烂流程自动化'是经典错误选项。</div>", c: [
       { t: "减少交接与等待类原则", d:
-        "<h4>精讲</h4><ul><li><b>一人多岗（Case Worker）</b>：一个案例由一人/一小组端到端负责，消除多次交接。</li><li>交接次数越多，等待与信息损耗越多——周期时间的最大杀手往往是<b>等待</b>而非处理。</li><li><b>并行替代串行</b>：可独立的环节同步开展（并行工程）。</li></ul>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>一人多岗（Case Worker）</b>：一个案例由一人/一小组端到端负责，消除多次交接。</li><li>交接次数越多，等待与信息损耗越多——周期时间的最大杀手往往是<b>等待</b>而非处理。</li><li><b>并行替代串行</b>：可独立的环节同步开展（并行工程）。</li></ul>" },
       { t: "决策与信息类原则", d:
-        "<h4>精讲</h4><ul><li><b>决策点放进工作</b>：让一线按规则自决，替代层层上报审批。</li><li><b>按情况分支</b>：简单件走快速通道、复杂件走完整流程，替代一刀切。</li><li><b>信息一次采集、共享使用</b>：源头一次性录入、全程复用——重复录入是典型设计缺陷。</li><li><b>源头捕获</b>：数据在最前端采集，越往后补录成本越高。</li></ul><div class='exam-tip'>★ 易考：给出设计片段判断违反哪条原则。</div>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>决策点放进工作</b>：让一线按规则自决，替代层层上报审批。</li><li><b>按情况分支</b>：简单件走快速通道、复杂件走完整流程，替代一刀切。</li><li><b>信息一次采集、共享使用</b>：源头一次性录入、全程复用——重复录入是典型设计缺陷。</li><li><b>源头捕获</b>：数据在最前端采集，越往后补录成本越高。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：给出设计片段判断违反哪条原则。</div>" },
       { t: "控制与 ESIA 详解", d:
-        "<h4>精讲</h4><ul><li><b>控制嵌入流程</b>：校验/合规检查做在发生点即时拦截，替代事后批量审计。</li><li><b>ESIA</b>：清除（非增值活动）→简化（表单/沟通/流程）→整合（工作/团队/客户）→自动化。<b>顺序不可颠倒</b>，自动化放最后。</li></ul><div class='exam-tip'>★ 必考：'自动化一个应被清除的活动 = 把浪费固化并放大'。</div>" }
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>控制嵌入流程</b>：校验/合规检查做在发生点即时拦截，替代事后批量审计。</li><li><b>ESIA</b>：清除（非增值活动）→简化（表单/沟通/流程）→整合（工作/团队/客户）→自动化。<b>顺序不可颠倒</b>，自动化放最后。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 必考：'自动化一个应被清除的活动 = 把浪费固化并放大'。</div>" }
     ] },
     { t: "4.2 流程转型实施", en: "Process Transformation", d:
-      "<h4>精讲：实施路线</h4><ul><li>推荐路径：<b>试点(Pilot) → 验证调整 → 分阶段推广 → 全面部署</b>，配套培训、制度与绩效固化。</li><li>实施后必须做<b>绩效验证</b>：To-Be 实测指标 vs 设计目标对比，未达标回炉改进。</li><li>常见失败原因：缺高管支持、忽视变革管理、范围蔓延、To-Be 与 IT 脱节、上线后无度量。</li></ul><div class='exam-tip'>★ 易考：转型失败首要原因=忽视人的因素；'先试点再推广'优于'一刀切'的情境题。</div>", c: [
+      "<h4>精讲：实施路线</h4><ul><li>推荐路径：<b>试点(Pilot) → 验证调整 → 分阶段推广 → 全面部署</b>，配套培训、制度与绩效固化。</li><li>实施后必须做<b>绩效验证</b>：To-Be 实测指标 vs 设计目标对比，未达标回炉改进。</li><li>常见失败原因：缺高管支持、忽视变革管理、范围蔓延、To-Be 与 IT 脱节、上线后无度量。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：转型失败首要原因=忽视人的因素；'先试点再推广'优于'一刀切'的情境题。</div>", c: [
       { t: "实施路线图详解", d:
-        "<h4>精讲</h4><ul><li>试点（选代表性场景验证 To-Be）→ 评估调整 → 分阶段推广（按区域/产品线）→ 全面部署。</li><li>配套：培训认证、SOP 制度更新、系统配置、双轨运行期的过渡需求（如并行期人工对账）。</li></ul>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>试点（选代表性场景验证 To-Be）→ 评估调整 → 分阶段推广（按区域/产品线）→ 全面部署。</li><li>配套：培训认证、SOP 制度更新、系统配置、双轨运行期的过渡需求（如并行期人工对账）。</li></ul>" },
       { t: "绩效验证与固化", d:
-        "<h4>精讲</h4><ul><li>上线后对比：To-Be 实测指标 vs 设计目标，未达标环节回炉。</li><li>固化手段：新做法写入标准作业、KPI 纳入考核、流程仓库版本更新。</li></ul>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>上线后对比：To-Be 实测指标 vs 设计目标，未达标环节回炉。</li><li>固化手段：新做法写入标准作业、KPI 纳入考核、流程仓库版本更新。</li></ul>" },
       { t: "转型失败原因清单", d:
-        "<h4>精讲</h4><ul><li>缺高管支持、忽视变革管理（人的因素第一）、范围蔓延、To-Be 与 IT 脱节、上线后无度量、试点选择失真、大爆炸式切换。</li></ul><div class='exam-tip'>★ 易考：案例题定位主要失误（如全网点同时上线=未试点先行）。</div>" }
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>缺高管支持、忽视变革管理（人的因素第一）、范围蔓延、To-Be 与 IT 脱节、上线后无度量、试点选择失真、大爆炸式切换。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：案例题定位主要失误（如全网点同时上线=未试点先行）。</div>" }
     ] }
   ], q: [
     { id:"ch4-1", s:"新设计的订单流程中，客户信息需要被销售、合同、财务三个环节分别手工录入系统。该设计主要违反的原则是：", o:["并行替代串行","信息一次采集、共享使用","按情况分支处理","控制嵌入流程"], a:1,
@@ -486,31 +545,31 @@ const DATA = {
       e:"实施后的绩效验证是转型的收口动作：确认 To-Be 是否兑现设计收益，未达标环节回炉，度量结果进入持续优化循环。" }
     ]},
 
-  { t: "5. 流程绩效管理", en: "Process Performance Management", w: "11% · 15题", d:
-    "<h4>本章精讲</h4>指标设计与六西格玛度量体系（DPMO/西格玛）是本章双高频，另有 BSC 四维度与先导/滞后指标之分。", c: [
+  { t: "5. 流程绩效管理", en: "Process Performance Management", w: "11% · 15题 / 15Q", d:
+    "<h4>本章精讲<span class='h4-en'>CHAPTER OVERVIEW</span></h4>指标设计与六西格玛度量体系（DPMO/西格玛）是本章双高频，另有 BSC 四维度与先导/滞后指标之分。", c: [
     { t: "★ 英文缩写速查", en: "Key Abbreviations & Exam Points", d:
-      "<h4>本章专有缩写（记全称 + 考点）</h4><table><tr><th>缩写</th><th>英文全称</th><th>含义与考点</th></tr><tr><td><b>KPI</b></td><td>Key Performance Indicator</td><td>关键绩效指标 ★少量关键、与战略/流程目标挂钩</td></tr><tr><td><b>BSC</b></td><td>Balanced Scorecard</td><td>平衡计分卡 ★四维度：财务/客户/内部流程/学习与成长，构成因果驱动链</td></tr><tr><td><b>CSF</b></td><td>Critical Success Factor</td><td>关键成功因素 ★分解链：CSF → CTQ → 流程 KPI</td></tr><tr><td><b>CTQ</b></td><td>Critical To Quality</td><td>质量关键点：客户需求的可度量转化</td></tr><tr><td><b>FPY</b></td><td>First Pass Yield</td><td>一次通过率：无返工一次完成的比例 ★效果/质量类指标</td></tr><tr><td><b>DPU / DPO / DPMO</b></td><td>Defects per Unit / per Opportunity / per Million Opportunities</td><td>六西格玛缺陷度量 ★DPMO = DPO × 10⁶，三步计算必考</td></tr><tr><td><b>Cp / Cpk</b></td><td>Process Capability Indices</td><td>过程能力指数 ★Cpk ≤ Cp；Cpk 越接近 Cp 过程越居中</td></tr><tr><td><b>NPS / CSAT</b></td><td>Net Promoter Score / Customer Satisfaction</td><td>净推荐值 / 客户满意度 ★客户视角的效果类指标</td></tr></table>" },
+      "<h4>本章专有缩写<span class='h4-en'>KEY ABBREVIATIONS — full name + exam point</span></h4><table><tr><th>缩写</th><th>英文全称</th><th>含义与考点</th></tr><tr><td><b>KPI</b></td><td>Key Performance Indicator</td><td>关键绩效指标 ★少量关键、与战略/流程目标挂钩</td></tr><tr><td><b>BSC</b></td><td>Balanced Scorecard</td><td>平衡计分卡 ★四维度：财务/客户/内部流程/学习与成长，构成因果驱动链</td></tr><tr><td><b>CSF</b></td><td>Critical Success Factor</td><td>关键成功因素 ★分解链：CSF → CTQ → 流程 KPI</td></tr><tr><td><b>CTQ</b></td><td>Critical To Quality</td><td>质量关键点：客户需求的可度量转化</td></tr><tr><td><b>FPY</b></td><td>First Pass Yield</td><td>一次通过率：无返工一次完成的比例 ★效果/质量类指标</td></tr><tr><td><b>DPU / DPO / DPMO</b></td><td>Defects per Unit / per Opportunity / per Million Opportunities</td><td>六西格玛缺陷度量 ★DPMO = DPO × 10⁶，三步计算必考</td></tr><tr><td><b>Cp / Cpk</b></td><td>Process Capability Indices</td><td>过程能力指数 ★Cpk ≤ Cp；Cpk 越接近 Cp 过程越居中</td></tr><tr><td><b>NPS / CSAT</b></td><td>Net Promoter Score / Customer Satisfaction</td><td>净推荐值 / 客户满意度 ★客户视角的效果类指标</td></tr></table>" },
     { t: "5.1 有效流程度量", en: "Effective Process Measures", d:
-      "<h4>精讲：度量设计原则</h4><ul><li>与流程目标和战略挂钩；<b>少量关键指标</b>；平衡效率-效果-适应性与多方视角；可操作、可追溯、责任到人。</li><li>指标来源链：客户关键成功因素 CSF → 质量关键点 CTQ → 流程 KPI。</li><li>分层：战略层 KPI → 流程层过程指标 → 活动层操作指标。</li></ul><h4>精讲：平衡计分卡 BSC 四维度</h4><ul><li>财务、客户、内部流程、学习与成长——构成因果驱动链（学习→流程→客户→财务）。</li></ul><div class='exam-tip'>★ 必考：先行指标(Leading，预测性如培训完成率) vs 滞后指标(Lagging，结果性如季度利润)；BSC 四维度归属判断。</div>", c: [
+      "<h4>精讲：度量设计原则</h4><ul><li>与流程目标和战略挂钩；<b>少量关键指标</b>；平衡效率-效果-适应性与多方视角；可操作、可追溯、责任到人。</li><li>指标来源链：客户关键成功因素 CSF → 质量关键点 CTQ → 流程 KPI。</li><li>分层：战略层 KPI → 流程层过程指标 → 活动层操作指标。</li></ul><h4>精讲：平衡计分卡 BSC 四维度</h4><ul><li>财务、客户、内部流程、学习与成长——构成因果驱动链（学习→流程→客户→财务）。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 必考：先行指标(Leading，预测性如培训完成率) vs 滞后指标(Lagging，结果性如季度利润)；BSC 四维度归属判断。</div>", c: [
       { t: "度量设计原则详解", d:
-        "<h4>精讲</h4><ul><li>与目标挂钩、少量关键、平衡（效率/效果/适应性）、可操作可追溯、责任到人、定期审视剔除失效指标。</li><li>常见病：指标泛滥（47 个 KPI）、指标与目标脱节（为测而测）、只测滞后不测先行。</li></ul><div class='exam-tip'>★ 易考：'指标太多看不清重点'违反少量关键原则。</div>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>与目标挂钩、少量关键、平衡（效率/效果/适应性）、可操作可追溯、责任到人、定期审视剔除失效指标。</li><li>常见病：指标泛滥（47 个 KPI）、指标与目标脱节（为测而测）、只测滞后不测先行。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：'指标太多看不清重点'违反少量关键原则。</div>" },
       { t: "CSF→CTQ→KPI 分解链", d:
-        "<h4>精讲</h4><ul><li><b>CSF</b>：客户视角'要做好哪些事才能成功' → <b>CTQ</b>：转成可测的质量特性 → <b>KPI</b>：落到流程可采集的指标。</li><li>例：CSF'准时交付'→ CTQ'下单到签收 ≤48h'→ KPI'48h 达成率'。</li></ul><div class='exam-tip'>★ 易考：分解链顺序排序题。</div>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>CSF</b>：客户视角'要做好哪些事才能成功' → <b>CTQ</b>：转成可测的质量特性 → <b>KPI</b>：落到流程可采集的指标。</li><li>例：CSF'准时交付'→ CTQ'下单到签收 ≤48h'→ KPI'48h 达成率'。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：分解链顺序排序题。</div>" },
       { t: "BSC 四维度详解", d:
-        "<h4>精讲</h4><ul><li>财务（收入/成本）、客户（满意度/份额）、内部流程（周期/质量）、学习与成长（员工/系统/文化）。</li><li>因果驱动链：学习成长 → 内部流程 → 客户 → 财务；四维度要平衡，不能只盯财务。</li></ul><div class='exam-tip'>★ 易考：给指标判断归属维度（员工技能与系统=学习成长）。</div>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>财务（收入/成本）、客户（满意度/份额）、内部流程（周期/质量）、学习与成长（员工/系统/文化）。</li><li>因果驱动链：学习成长 → 内部流程 → 客户 → 财务；四维度要平衡，不能只盯财务。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：给指标判断归属维度（员工技能与系统=学习成长）。</div>" },
       { t: "先行 vs 滞后指标", d:
-        "<h4>精讲</h4><ul><li><b>先行 Leading</b>：预测结果的过程指标（培训完成率、首检合格率）；<b>滞后 Lagging</b>：结果性指标（利润、投诉量、缺陷率）。</li><li>好的指标体系两者兼有：先行驱动改进、滞后验证成果。</li></ul><div class='exam-tip'>★ 易考：给指标判断先行/滞后（'能预测未来'=先行）。</div>" }
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>先行 Leading</b>：预测结果的过程指标（培训完成率、首检合格率）；<b>滞后 Lagging</b>：结果性指标（利润、投诉量、缺陷率）。</li><li>好的指标体系两者兼有：先行驱动改进、滞后验证成果。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：给指标判断先行/滞后（'能预测未来'=先行）。</div>" }
     ] },
     { t: "5.2 流程度量指标", en: "Process Metrics", d:
-      "<h4>精讲：三类常用指标</h4><ul><li><b>效率类</b>：周期时间、提前期、资源利用率、单位成本。</li><li><b>效果/质量类</b>：一次通过率 FPY、缺陷率、返工率、客户满意度 CSAT/NPS。</li><li><b>合规类</b>：政策遵从率、审计发现数。</li></ul><h4>精讲：六西格玛度量链（会算）</h4><ul><li>DPU = 缺陷总数 ÷ 单元数；DPO = DPU ÷ 每单元机会数；<b>DPMO = DPO × 1,000,000</b>；6σ≈3.4 DPMO。</li><li>过程能力 Cp/Cpk：Cpk≤Cp，Cpk 计入中心偏移；Cpk 越接近 Cp 过程越居中。</li></ul><div class='exam-tip'>★ 必考：DPMO 计算三步题；给指标判断效率类还是效果类（'单位订单处理成本'=效率，'客户满意度'=效果）。</div>", c: [
+      "<h4>精讲：三类常用指标</h4><ul><li><b>效率类</b>：周期时间、提前期、资源利用率、单位成本。</li><li><b>效果/质量类</b>：一次通过率 FPY、缺陷率、返工率、客户满意度 CSAT/NPS。</li><li><b>合规类</b>：政策遵从率、审计发现数。</li></ul><h4>精讲：六西格玛度量链（会算）</h4><ul><li>DPU = 缺陷总数 ÷ 单元数；DPO = DPU ÷ 每单元机会数；<b>DPMO = DPO × 1,000,000</b>；6σ≈3.4 DPMO。</li><li>过程能力 Cp/Cpk：Cpk≤Cp，Cpk 计入中心偏移；Cpk 越接近 Cp 过程越居中。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 必考：DPMO 计算三步题；给指标判断效率类还是效果类（'单位订单处理成本'=效率，'客户满意度'=效果）。</div>", c: [
       { t: "效率类指标详解", d:
-        "<h4>精讲</h4><ul><li>周期时间（Cycle Time，端到端）、处理时间（Touch Time）、提前期（Lead Time）、资源利用率、单位成本。</li><li>注意：周期时间 ≠ 处理时间——<b>等待往往占大头</b>，改善重点常在等待而非加速处理。</li></ul>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>周期时间（Cycle Time，端到端）、处理时间（Touch Time）、提前期（Lead Time）、资源利用率、单位成本。</li><li>注意：周期时间 ≠ 处理时间——<b>等待往往占大头</b>，改善重点常在等待而非加速处理。</li></ul>" },
       { t: "效果质量类指标", d:
-        "<h4>精讲</h4><ul><li>一次通过率 FPY、返工率、缺陷率、准时交付率、CSAT/NPS。</li><li>效率与效果要<b>配对看</b>：只提速度可能牺牲质量，只保质量可能拖垮成本。</li></ul>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>一次通过率 FPY、返工率、缺陷率、准时交付率、CSAT/NPS。</li><li>效率与效果要<b>配对看</b>：只提速度可能牺牲质量，只保质量可能拖垮成本。</li></ul>" },
       { t: "DPMO 计算详解", d:
-        "<h4>精讲（三步法）</h4><ul><li>DPU = 缺陷数 ÷ 单元数 → DPO = DPU ÷ 每单元机会数 → <b>DPMO = DPO × 1,000,000</b>。</li><li>例：2,000 单元、5 机会/单元、30 缺陷 → DPU=0.015 → DPO=0.003 → DPMO=3,000。</li><li>对照西格玛水平：6σ≈3.4 DPMO；3σ≈66,807 DPMO。</li></ul><div class='exam-tip'>★ 必考计算题：漏除机会数（只算 DPU）是经典陷阱。</div>" },
+        "<h4>精讲（三步法）</h4><ul><li>DPU = 缺陷数 ÷ 单元数 → DPO = DPU ÷ 每单元机会数 → <b>DPMO = DPO × 1,000,000</b>。</li><li>例：2,000 单元、5 机会/单元、30 缺陷 → DPU=0.015 → DPO=0.003 → DPMO=3,000。</li><li>对照西格玛水平：6σ≈3.4 DPMO；3σ≈66,807 DPMO。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 必考计算题：漏除机会数（只算 DPU）是经典陷阱。</div>" },
       { t: "Cp / Cpk 详解", d:
-        "<h4>精讲</h4><ul><li><b>Cp</b>：过程散布 vs 规格宽度，不考虑均值位置；<b>Cpk</b> = min(Cpu, Cpl)，计入均值偏移。</li><li>Cpk ≤ Cp 恒成立；Cpk 越接近 Cp 过程越居中；行业一般要求 Cpk ≥ 1.33。</li></ul><div class='exam-tip'>★ 易考：Cpk 恒大于 Cp 是错误说法。</div>" }
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>Cp</b>：过程散布 vs 规格宽度，不考虑均值位置；<b>Cpk</b> = min(Cpu, Cpl)，计入均值偏移。</li><li>Cpk ≤ Cp 恒成立；Cpk 越接近 Cp 过程越居中；行业一般要求 Cpk ≥ 1.33。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：Cpk 恒大于 Cp 是错误说法。</div>" }
     ] }
   ], q: [
     { id:"ch5-1", s:"下列指标中，属于'效果(Effectiveness)'度量而非'效率(Efficiency)'度量的是：", o:["单位订单处理成本","订单平均处理周期","客户满意度评分","每小时处理单据量"], a:2,
@@ -523,31 +582,31 @@ const DATA = {
       e:"学习与成长维度覆盖人员能力、信息系统、组织文化等基础性资产；它驱动内部流程改善，进而提升客户价值，最终兑现财务结果。" }
     ]},
 
-  { t: "6. 流程改进", en: "Process Improvement", w: "10% · 14题", d:
-    "<h4>本章精讲</h4>'改进步骤连续体'排序题与方法论工具箱（DMAIC 阶段-工具匹配）是本章两大必考题型。", c: [
+  { t: "6. 流程改进", en: "Process Improvement", w: "10% · 14题 / 14Q", d:
+    "<h4>本章精讲<span class='h4-en'>CHAPTER OVERVIEW</span></h4>'改进步骤连续体'排序题与方法论工具箱（DMAIC 阶段-工具匹配）是本章两大必考题型。", c: [
     { t: "★ 英文缩写速查", en: "Key Abbreviations & Exam Points", d:
-      "<h4>本章专有缩写（记全称 + 考点）</h4><table><tr><th>缩写</th><th>英文全称</th><th>含义与考点</th></tr><tr><td><b>DMAIC</b></td><td>Define-Measure-Analyze-Improve-Control</td><td>六西格玛改进路径（改进<b>已有</b>流程）★Measure=基线+MSA、Control=控制图，阶段-工具匹配必考</td></tr><tr><td><b>DMADV / DFSS</b></td><td>Define-Measure-Analyze-Design-Verify / Design For Six Sigma</td><td>六西格玛设计（<b>从零设计</b>新流程/产品）★与 DMAIC 的适用边界</td></tr><tr><td><b>MSA</b></td><td>Measurement System Analysis</td><td>测量系统分析 ★Measure 阶段确保数据可信</td></tr><tr><td><b>PDCA</b></td><td>Plan-Do-Check-Act</td><td>持续改进循环（TQM / Kaizen 通用）</td></tr><tr><td><b>SCOR</b></td><td>Supply Chain Operations Reference model</td><td>供应链运营参考模型 ★五大过程：Plan-Source-Make-Deliver-Return</td></tr><tr><td><b>SMED</b></td><td>Single-Minute Exchange of Die</td><td>快速换模：精益工具，缩短切换时间</td></tr><tr><td><b>5S</b></td><td>Sort-Set in order-Shine-Standardize-Sustain</td><td>整理、整顿、清扫、清洁、素养（精益现场管理）</td></tr></table>" },
+      "<h4>本章专有缩写<span class='h4-en'>KEY ABBREVIATIONS — full name + exam point</span></h4><table><tr><th>缩写</th><th>英文全称</th><th>含义与考点</th></tr><tr><td><b>DMAIC</b></td><td>Define-Measure-Analyze-Improve-Control</td><td>六西格玛改进路径（改进<b>已有</b>流程）★Measure=基线+MSA、Control=控制图，阶段-工具匹配必考</td></tr><tr><td><b>DMADV / DFSS</b></td><td>Define-Measure-Analyze-Design-Verify / Design For Six Sigma</td><td>六西格玛设计（<b>从零设计</b>新流程/产品）★与 DMAIC 的适用边界</td></tr><tr><td><b>MSA</b></td><td>Measurement System Analysis</td><td>测量系统分析 ★Measure 阶段确保数据可信</td></tr><tr><td><b>PDCA</b></td><td>Plan-Do-Check-Act</td><td>持续改进循环（TQM / Kaizen 通用）</td></tr><tr><td><b>SCOR</b></td><td>Supply Chain Operations Reference model</td><td>供应链运营参考模型 ★五大过程：Plan-Source-Make-Deliver-Return</td></tr><tr><td><b>SMED</b></td><td>Single-Minute Exchange of Die</td><td>快速换模：精益工具，缩短切换时间</td></tr><tr><td><b>5S</b></td><td>Sort-Set in order-Shine-Standardize-Sustain</td><td>整理、整顿、清扫、清洁、素养（精益现场管理）</td></tr></table>" },
     { t: "6.1 流程变革程度", en: "Degrees of Process Change", d:
-      "<h4>精讲：改进连续体（由浅到深，必背排序）</h4><ul><li>①<b>流程简化</b>：消除明显冗余，动小手术。</li><li>②<b>持续改进</b>（Kaizen）：小步快跑，全员参与。</li><li>③<b>流程重设计</b>：对关键环节结构化重构，中等风险。</li><li>④<b>流程再造</b>：推倒重来，激进、高风险、收益上限最高。</li></ul><h4>精讲：选择依据</h4><ul><li>问题深度（表象→简化/改进；结构性失效→再设计/再造）、时间与资源预算、风险容忍度、组织变革承受能力。</li></ul><div class='exam-tip'>★ 必考：给场景选程度——'每月微调消除小浪费'=持续改进；'核心流程长期垫底需推倒重来'=再造；连续体排序题也常出现。</div>", c: [
+      "<h4>精讲：改进连续体（由浅到深，必背排序）</h4><ul><li>①<b>流程简化</b>：消除明显冗余，动小手术。</li><li>②<b>持续改进</b>（Kaizen）：小步快跑，全员参与。</li><li>③<b>流程重设计</b>：对关键环节结构化重构，中等风险。</li><li>④<b>流程再造</b>：推倒重来，激进、高风险、收益上限最高。</li></ul><h4>精讲：选择依据</h4><ul><li>问题深度（表象→简化/改进；结构性失效→再设计/再造）、时间与资源预算、风险容忍度、组织变革承受能力。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 必考：给场景选程度——'每月微调消除小浪费'=持续改进；'核心流程长期垫底需推倒重来'=再造；连续体排序题也常出现。</div>", c: [
       { t: "连续体四级详解", d:
-        "<h4>精讲</h4><ul><li><b>① 简化</b>：去除冗余动作/审批/表单，数周见效，风险最低。</li><li><b>② 持续改进</b>：Kaizen 小步快跑、全员参与、日拱一卒。</li><li><b>③ 重设计</b>：对关键环节结构性重构（合并岗位、改串行为并行），中等风险。</li><li><b>④ 再造</b>：推倒重来，激进、高风险、收益上限最高。</li></ul>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>① 简化</b>：去除冗余动作/审批/表单，数周见效，风险最低。</li><li><b>② 持续改进</b>：Kaizen 小步快跑、全员参与、日拱一卒。</li><li><b>③ 重设计</b>：对关键环节结构性重构（合并岗位、改串行为并行），中等风险。</li><li><b>④ 再造</b>：推倒重来，激进、高风险、收益上限最高。</li></ul>" },
       { t: "程度选择依据", d:
-        "<h4>精讲</h4><ul><li>看问题深度（表象问题→简化/改进；结构性失效→再设计/再造）、时间与资源预算、风险容忍度、组织变革承受力、收益预期。</li><li>经验法则：多数日常改进落在'简化+持续改进'区间；动用再造需要战略级理由与高管承诺。</li></ul><div class='exam-tip'>★ 必考：场景→程度匹配（'每月微调消除小浪费'=持续改进）。</div>" }
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>看问题深度（表象问题→简化/改进；结构性失效→再设计/再造）、时间与资源预算、风险容忍度、组织变革承受力、收益预期。</li><li>经验法则：多数日常改进落在'简化+持续改进'区间；动用再造需要战略级理由与高管承诺。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 必考：场景→程度匹配（'每月微调消除小浪费'=持续改进）。</div>" }
     ] },
     { t: "6.2 改进方法论", en: "Design Methodologies", d:
-      "<h4>精讲：六西格玛双路径</h4><ul><li><b>DMAIC</b>（改进现有流程）：Define 界定问题(SIPOC/VOC) → Measure 基线与测量系统分析(MSA) → Analyze 找根因 → Improve 验证方案(DOE/试点) → Control 固化成果(控制图/标准作业)。</li><li><b>DMADV / DFSS</b>（设计全新流程/产品）：Define-Measure-Analyze-Design-Verify。</li></ul><h4>精讲：其他方法论要点</h4><ul><li><b>精益</b>：消除浪费、拉动式、单件流、看板、5S、SMED。</li><li><b>Kaizen</b>：全员渐进改善；Kaizen Blitz 改善突击周——几天内聚焦攻坚。</li><li><b>TQM</b>：全员+全过程+以客户为中心，PDCA。</li><li><b>标杆管理四类</b>：内部、竞争、功能（跨行业同职能）、通用。</li><li><b>SCOR</b>：Plan-Source-Make-Deliver-Return，供应链流程参考模型。</li></ul><div class='exam-tip'>★ 必考：DMAIC 五阶段与工具匹配（Measure=基线+MSA，Control=控制图）；DMADV 用于'设计新流程'的判断题。</div>", c: [
+      "<h4>精讲：六西格玛双路径</h4><ul><li><b>DMAIC</b>（改进现有流程）：Define 界定问题(SIPOC/VOC) → Measure 基线与测量系统分析(MSA) → Analyze 找根因 → Improve 验证方案(DOE/试点) → Control 固化成果(控制图/标准作业)。</li><li><b>DMADV / DFSS</b>（设计全新流程/产品）：Define-Measure-Analyze-Design-Verify。</li></ul><h4>精讲：其他方法论要点</h4><ul><li><b>精益</b>：消除浪费、拉动式、单件流、看板、5S、SMED。</li><li><b>Kaizen</b>：全员渐进改善；Kaizen Blitz 改善突击周——几天内聚焦攻坚。</li><li><b>TQM</b>：全员+全过程+以客户为中心，PDCA。</li><li><b>标杆管理四类</b>：内部、竞争、功能（跨行业同职能）、通用。</li><li><b>SCOR</b>：Plan-Source-Make-Deliver-Return，供应链流程参考模型。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 必考：DMAIC 五阶段与工具匹配（Measure=基线+MSA，Control=控制图）；DMADV 用于'设计新流程'的判断题。</div>", c: [
       { t: "DMAIC-D：Define 详解", d:
-        "<h4>精讲</h4><ul><li>定义问题/目标/范围与客户需求；产出项目章程、SIPOC、VOC 客户之声清单。</li><li>关键动作：明确 Y（输出指标）与问题陈述，避免'解决方案先行'。</li></ul>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>定义问题/目标/范围与客户需求；产出项目章程、SIPOC、VOC 客户之声清单。</li><li>关键动作：明确 Y（输出指标）与问题陈述，避免'解决方案先行'。</li></ul>" },
       { t: "DMAIC-M：Measure 详解", d:
-        "<h4>精讲</h4><ul><li>采集数据建立绩效<b>基线</b>；<b>MSA 测量系统分析</b>确保数据可信（重复性/再现性）。</li><li>绘制详细价值流图，定位聚焦环节。</li></ul><div class='exam-tip'>★ 必考：'建立基线并验证测量系统'=Measure 阶段。</div>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>采集数据建立绩效<b>基线</b>；<b>MSA 测量系统分析</b>确保数据可信（重复性/再现性）。</li><li>绘制详细价值流图，定位聚焦环节。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 必考：'建立基线并验证测量系统'=Measure 阶段。</div>" },
       { t: "DMAIC-A：Analyze 详解", d:
-        "<h4>精讲</h4><ul><li>寻找根因与'关键少数 X'：鱼骨图、5Why、假设检验、回归分析、帕累托、FMEA。</li><li>要求：用数据验证假设，而非凭经验拍板。</li></ul>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>寻找根因与'关键少数 X'：鱼骨图、5Why、假设检验、回归分析、帕累托、FMEA。</li><li>要求：用数据验证假设，而非凭经验拍板。</li></ul>" },
       { t: "DMAIC-I / C 详解", d:
-        "<h4>精讲</h4><ul><li><b>Improve</b>：产生并验证改进方案——DOE 试验设计、试点、防错（Poka-Yoke）。</li><li><b>Control</b>：固化成果防回弹——控制图（SPC）、标准作业、反应计划、交接给流程所有者。</li></ul><div class='exam-tip'>★ 必考：Control 阶段的代表工具是控制图。</div>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>Improve</b>：产生并验证改进方案——DOE 试验设计、试点、防错（Poka-Yoke）。</li><li><b>Control</b>：固化成果防回弹——控制图（SPC）、标准作业、反应计划、交接给流程所有者。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 必考：Control 阶段的代表工具是控制图。</div>" },
       { t: "精益工具箱", d:
-        "<h4>精讲</h4><ul><li>5S（整理整顿清扫清洁素养）、看板（拉动信号）、单件流、SMED 快速换模、防错 Poka-Yoke、价值流图 VSM。</li><li>精益除浪费提速、六西格玛降波动提质——合并为 Lean Six Sigma。</li></ul>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>5S（整理整顿清扫清洁素养）、看板（拉动信号）、单件流、SMED 快速换模、防错 Poka-Yoke、价值流图 VSM。</li><li>精益除浪费提速、六西格玛降波动提质——合并为 Lean Six Sigma。</li></ul>" },
       { t: "标杆管理与 SCOR", d:
-        "<h4>精讲</h4><ul><li>标杆四类：<b>内部</b>（部门间）、<b>竞争</b>（直接对手）、<b>功能</b>（跨行业同职能）、<b>通用</b>（最佳实践）。</li><li><b>SCOR</b>：Plan-Source-Make-Deliver-Return 五大过程，供应链流程参考模型，附绩效指标与实践成熟度。</li></ul><div class='exam-tip'>★ 易考：跨行业学同职能=功能标杆；SCOR 五过程排序。</div>" }
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>标杆四类：<b>内部</b>（部门间）、<b>竞争</b>（直接对手）、<b>功能</b>（跨行业同职能）、<b>通用</b>（最佳实践）。</li><li><b>SCOR</b>：Plan-Source-Make-Deliver-Return 五大过程，供应链流程参考模型，附绩效指标与实践成熟度。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：跨行业学同职能=功能标杆；SCOR 五过程排序。</div>" }
     ] }
   ], q: [
     { id:"ch6-1", s:"按 CBOK 改进步骤连续体，下列排序正确的是（由渐进到激进）：", o:["再造 → 重设计 → 持续改进 → 简化","简化 → 持续改进 → 重设计 → 再造","持续改进 → 简化 → 再造 → 重设计","重设计 → 简化 → 持续改进 → 再造"], a:1,
@@ -560,27 +619,27 @@ const DATA = {
       e:"功能标杆指向不同行业但相同职能领域的最佳实践学习；竞争标杆针对直接竞争对手；内部标杆在企业内部部门间对比。" }
     ]},
 
-  { t: "7. 流程管理组织", en: "Process Management Organization", w: "12% · 17题", d:
-    "<h4>本章精讲</h4>三大高频角色（流程所有者/CPO/COE）的职责边界、成熟度五级特征、变革失败原因——都是记忆型送分题，务必全对。", c: [
+  { t: "7. 流程管理组织", en: "Process Management Organization", w: "12% · 17题 / 17Q", d:
+    "<h4>本章精讲<span class='h4-en'>CHAPTER OVERVIEW</span></h4>三大高频角色（流程所有者/CPO/COE）的职责边界、成熟度五级特征、变革失败原因——都是记忆型送分题，务必全对。", c: [
     { t: "★ 英文缩写速查", en: "Key Abbreviations & Exam Points", d:
-      "<h4>本章专有缩写（记全称 + 考点）</h4><table><tr><th>缩写</th><th>英文全称</th><th>含义与考点</th></tr><tr><td><b>CPO</b></td><td>Chief Process Officer</td><td>首席流程官 ★高管层流程战略代言人，制定流程战略与治理</td></tr><tr><td><b>COE</b></td><td>Center of Excellence</td><td>流程卓越中心 ★能力机构：方法论/标准/培训/教练，<b>不直接管流程绩效</b>；与 CPO 分工是必考点</td></tr><tr><td><b>CMMI</b></td><td>Capability Maturity Model Integration</td><td>能力成熟度模型集成 ★五级：初始→已管理→已定义→已量化→持续优化，特征匹配必考</td></tr><tr><td><b>OCM</b></td><td>Organizational Change Management</td><td>组织变革管理 ★Kotter 八步；变革失败第一原因=忽视人的因素</td></tr></table>" },
+      "<h4>本章专有缩写<span class='h4-en'>KEY ABBREVIATIONS — full name + exam point</span></h4><table><tr><th>缩写</th><th>英文全称</th><th>含义与考点</th></tr><tr><td><b>CPO</b></td><td>Chief Process Officer</td><td>首席流程官 ★高管层流程战略代言人，制定流程战略与治理</td></tr><tr><td><b>COE</b></td><td>Center of Excellence</td><td>流程卓越中心 ★能力机构：方法论/标准/培训/教练，<b>不直接管流程绩效</b>；与 CPO 分工是必考点</td></tr><tr><td><b>CMMI</b></td><td>Capability Maturity Model Integration</td><td>能力成熟度模型集成 ★五级：初始→已管理→已定义→已量化→持续优化，特征匹配必考</td></tr><tr><td><b>OCM</b></td><td>Organizational Change Management</td><td>组织变革管理 ★Kotter 八步；变革失败第一原因=忽视人的因素</td></tr></table>" },
     { t: "7.1 流程导向与成熟度", en: "Process Orientation", d:
-      "<h4>精讲：组织形态对比</h4><ul><li>职能型：纵向专业分工，部门墙严重、端到端割裂。</li><li>矩阵型：职能+项目双线，平衡但存在双重汇报冲突。</li><li><b>流程型组织</b>：以端到端流程为主轴组织工作与考核，流程所有者拥有跨职能协调权。</li></ul><h4>精讲：成熟度五级（必背）</h4><ul><li>1 初始级：无序、依赖个人英雄。</li><li>2 已管理：单点流程有文档、可重复。</li><li>3 已定义：企业级标准方法论与流程架构建立。</li><li>4 已量化：全流程度量驱动管理，绩效可预测。</li><li>5 持续优化：数据驱动的自主改进与创新成为常态。</li></ul><div class='exam-tip'>★ 必考：特征与级别匹配（'绩效可预测'=第4级；'依赖个人经验'=第1级）。</div>", c: [
+      "<h4>精讲：组织形态对比</h4><ul><li>职能型：纵向专业分工，部门墙严重、端到端割裂。</li><li>矩阵型：职能+项目双线，平衡但存在双重汇报冲突。</li><li><b>流程型组织</b>：以端到端流程为主轴组织工作与考核，流程所有者拥有跨职能协调权。</li></ul><h4>精讲：成熟度五级（必背）</h4><ul><li>1 初始级：无序、依赖个人英雄。</li><li>2 已管理：单点流程有文档、可重复。</li><li>3 已定义：企业级标准方法论与流程架构建立。</li><li>4 已量化：全流程度量驱动管理，绩效可预测。</li><li>5 持续优化：数据驱动的自主改进与创新成为常态。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 必考：特征与级别匹配（'绩效可预测'=第4级；'依赖个人经验'=第1级）。</div>", c: [
       { t: "组织形态对比详解", d:
-        "<h4>精讲</h4><ul><li><b>职能型</b>：专业深、规模效率高，但端到端割裂、部门墙严重。</li><li><b>矩阵型</b>：职能+流程/项目双线平衡，但双重汇报引发优先级冲突。</li><li><b>流程型</b>：以端到端流程为主轴组织工作与考核，客户导向；需流程所有者机制支撑。</li><li>务实路径：不推翻职能，而是<b>叠加流程维度</b>（职能→矩阵演进）。</li></ul>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>职能型</b>：专业深、规模效率高，但端到端割裂、部门墙严重。</li><li><b>矩阵型</b>：职能+流程/项目双线平衡，但双重汇报引发优先级冲突。</li><li><b>流程型</b>：以端到端流程为主轴组织工作与考核，客户导向；需流程所有者机制支撑。</li><li>务实路径：不推翻职能，而是<b>叠加流程维度</b>（职能→矩阵演进）。</li></ul>" },
       { t: "成熟度五级逐级详解", d:
-        "<h4>精讲（特征匹配必背）</h4><ul><li><b>1 初始级</b>：无序、救火式、依赖个人英雄。</li><li><b>2 已管理级</b>：局部流程有文档、可重复，但各点标准不一。</li><li><b>3 已定义级</b>：企业级标准方法论、流程架构与角色建立。</li><li><b>4 已量化级</b>：全流程度量驱动管理，绩效可预测（SPC/Cpk）。</li><li><b>5 持续优化级</b>：数据驱动的自主改进与创新成为常态。</li></ul><div class='exam-tip'>★ 必考：'有方法论但无系统度量'=第 3 级；'绩效可预测'=第 4 级。</div>" },
+        "<h4>精讲（特征匹配必背）</h4><ul><li><b>1 初始级</b>：无序、救火式、依赖个人英雄。</li><li><b>2 已管理级</b>：局部流程有文档、可重复，但各点标准不一。</li><li><b>3 已定义级</b>：企业级标准方法论、流程架构与角色建立。</li><li><b>4 已量化级</b>：全流程度量驱动管理，绩效可预测（SPC/Cpk）。</li><li><b>5 持续优化级</b>：数据驱动的自主改进与创新成为常态。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 必考：'有方法论但无系统度量'=第 3 级；'绩效可预测'=第 4 级。</div>" },
       { t: "流程所有者职责清单", d:
-        "<h4>精讲</h4><ul><li>对端到端流程绩效负责；维护并批准流程设计变更；跨职能协调冲突；主持流程评审；推动改进项目；向治理层汇报绩效。</li><li><b>不是</b>：直接行政指挥各部门人员（无行政隶属权），靠影响力与治理机制运作。</li></ul><div class='exam-tip'>★ 易考：职责边界判断——'流程所有者可以直接命令部门员工加班'是错误选项。</div>" }
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>对端到端流程绩效负责；维护并批准流程设计变更；跨职能协调冲突；主持流程评审；推动改进项目；向治理层汇报绩效。</li><li><b>不是</b>：直接行政指挥各部门人员（无行政隶属权），靠影响力与治理机制运作。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：职责边界判断——'流程所有者可以直接命令部门员工加班'是错误选项。</div>" }
     ] },
     { t: "7.2 组织变革管理", en: "Organizational Change Management", d:
-      "<h4>精讲：三角色的分工（必背）</h4><ul><li><b>流程所有者</b>：对某条端到端流程的<b>绩效与设计</b>负全责，跨职能协调，批准流程变更。</li><li><b>CPO 首席流程官</b>：高管层流程代言人，制定企业流程战略与治理。</li><li><b>COE 流程卓越中心</b>：能力机构——方法论、标准、工具、培训、教练；<b>不直接管流程绩效</b>。</li></ul><h4>精讲：变革管理（Kotter 八步精要）</h4><ul><li>紧迫感 → 领导联盟 → 愿景 → 沟通愿景 → 授权清除障碍 → 短期胜利 → 巩固成果 → 融入文化。</li><li>配套干系人分析与沟通计划；BPR 失败 70% 的主因=忽视人的因素。</li></ul><div class='exam-tip'>★ 必考：'谁批准流程变更'（流程所有者）；'谁提供方法论培训'（COE）；变革失败第一原因（忽视人）。</div>", c: [
+      "<h4>精讲：三角色的分工（必背）</h4><ul><li><b>流程所有者</b>：对某条端到端流程的<b>绩效与设计</b>负全责，跨职能协调，批准流程变更。</li><li><b>CPO 首席流程官</b>：高管层流程代言人，制定企业流程战略与治理。</li><li><b>COE 流程卓越中心</b>：能力机构——方法论、标准、工具、培训、教练；<b>不直接管流程绩效</b>。</li></ul><h4>精讲：变革管理（Kotter 八步精要）</h4><ul><li>紧迫感 → 领导联盟 → 愿景 → 沟通愿景 → 授权清除障碍 → 短期胜利 → 巩固成果 → 融入文化。</li><li>配套干系人分析与沟通计划；BPR 失败 70% 的主因=忽视人的因素。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 必考：'谁批准流程变更'（流程所有者）；'谁提供方法论培训'（COE）；变革失败第一原因（忽视人）。</div>", c: [
       { t: "CPO / COE / 流程所有者三角", d:
-        "<h4>精讲（必背分工）</h4><ul><li><b>CPO</b>：高管层——定流程战略、立流程文化、主持治理。</li><li><b>COE</b>：能力中枢——方法论/标准/工具/培训/教练，支持但不替代业务，<b>不直接管流程绩效</b>。</li><li><b>流程所有者</b>：单条端到端流程的绩效与设计责任人。</li><li>互补关系：战略（CPO）—能力（COE）—执行（Owner）。</li></ul><div class='exam-tip'>★ 必考三连：'谁批准变更'（Owner）、'谁提供培训'（COE）、'谁代言战略'（CPO）。</div>" },
+        "<h4>精讲（必背分工）</h4><ul><li><b>CPO</b>：高管层——定流程战略、立流程文化、主持治理。</li><li><b>COE</b>：能力中枢——方法论/标准/工具/培训/教练，支持但不替代业务，<b>不直接管流程绩效</b>。</li><li><b>流程所有者</b>：单条端到端流程的绩效与设计责任人。</li><li>互补关系：战略（CPO）—能力（COE）—执行（Owner）。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 必考三连：'谁批准变更'（Owner）、'谁提供培训'（COE）、'谁代言战略'（CPO）。</div>" },
       { t: "Kotter 八步详解", d:
-        "<h4>精讲</h4><ul><li>①营造紧迫感 ②组建领导联盟 ③制定愿景 ④沟通愿景 ⑤授权清除障碍 ⑥制造短期胜利 ⑦巩固成果深化推进 ⑧融入文化。</li><li>常见跳步失败：不做①②就推方案→遭遇阻力反噬；不做⑥⑧→'人走茶凉'变革回退。</li></ul><div class='exam-tip'>★ 易考：变革第一步=营造紧迫感。</div>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>①营造紧迫感 ②组建领导联盟 ③制定愿景 ④沟通愿景 ⑤授权清除障碍 ⑥制造短期胜利 ⑦巩固成果深化推进 ⑧融入文化。</li><li>常见跳步失败：不做①②就推方案→遭遇阻力反噬；不做⑥⑧→'人走茶凉'变革回退。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：变革第一步=营造紧迫感。</div>" },
       { t: "干系人与沟通计划", d:
-        "<h4>精讲</h4><ul><li>干系人分析：影响力 × 受影响度矩阵，识别关键干系人与阻力来源。</li><li>阻力根源：利益受损、习惯改变、信息不明、能力不足。</li><li>对策：参与式设计（让干系人参与方案）、透明沟通、培训赋能、激励机制对齐。</li></ul><div class='exam-tip'>★ 易考：应对抵触的正确姿势是让干系人参与，而非压制或绕开。</div>" }
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>干系人分析：影响力 × 受影响度矩阵，识别关键干系人与阻力来源。</li><li>阻力根源：利益受损、习惯改变、信息不明、能力不足。</li><li>对策：参与式设计（让干系人参与方案）、透明沟通、培训赋能、激励机制对齐。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：应对抵触的正确姿势是让干系人参与，而非压制或绕开。</div>" }
     ] }
   ], q: [
     { id:"ch7-1", s:"某端到端'订单履行'流程跨越销售、仓储、财务三个部门。当跨部门环节出现分歧时，最终决定流程如何设计、变更如何批准的角色应是：", o:["销售总监","流程所有者（Process Owner）","CIO","COE 主任"], a:1,
@@ -593,27 +652,27 @@ const DATA = {
       e:"BPR 的经典教训：技术方案可以完美，但员工抵触、文化冲突、沟通缺失会使其搁浅。变革管理（人）是第一位的失败原因。" }
     ]},
 
-  { t: "8. 企业流程管理", en: "Enterprise Process Management", w: "13% · 19题", d:
-    "<h4>本章精讲</h4>企业级视角：治理结构与决策升级路径、APQC PCF 框架层级、战略对齐与流程优先级排序——19 题的分量要求把细节吃透。", c: [
+  { t: "8. 企业流程管理", en: "Enterprise Process Management", w: "13% · 19题 / 19Q", d:
+    "<h4>本章精讲<span class='h4-en'>CHAPTER OVERVIEW</span></h4>企业级视角：治理结构与决策升级路径、APQC PCF 框架层级、战略对齐与流程优先级排序——19 题的分量要求把细节吃透。", c: [
     { t: "★ 英文缩写速查", en: "Key Abbreviations & Exam Points", d:
-      "<h4>本章专有缩写（记全称 + 考点）</h4><table><tr><th>缩写</th><th>英文全称</th><th>含义与考点</th></tr><tr><td><b>PCF</b></td><td>Process Classification Framework</td><td>流程分类框架 ★五级：类别→流程组→流程→活动→任务；跨行业通用基准，<b>不是</b>操作规程</td></tr><tr><td><b>APQC</b></td><td>American Productivity and Quality Center</td><td>美国生产力与质量中心：PCF 的发布与维护机构</td></tr><tr><td><b>EA</b></td><td>Enterprise Architecture</td><td>企业架构 ★业务→流程→应用→技术四层对齐</td></tr><tr><td><b>TOGAF</b></td><td>The Open Group Architecture Framework</td><td>开放组架构框架：主流 EA 方法论</td></tr><tr><td><b>EPM</b></td><td>Enterprise Process Management</td><td>企业流程管理：本章主题，企业级治理与战略对齐</td></tr></table>" },
+      "<h4>本章专有缩写<span class='h4-en'>KEY ABBREVIATIONS — full name + exam point</span></h4><table><tr><th>缩写</th><th>英文全称</th><th>含义与考点</th></tr><tr><td><b>PCF</b></td><td>Process Classification Framework</td><td>流程分类框架 ★五级：类别→流程组→流程→活动→任务；跨行业通用基准，<b>不是</b>操作规程</td></tr><tr><td><b>APQC</b></td><td>American Productivity and Quality Center</td><td>美国生产力与质量中心：PCF 的发布与维护机构</td></tr><tr><td><b>EA</b></td><td>Enterprise Architecture</td><td>企业架构 ★业务→流程→应用→技术四层对齐</td></tr><tr><td><b>TOGAF</b></td><td>The Open Group Architecture Framework</td><td>开放组架构框架：主流 EA 方法论</td></tr><tr><td><b>EPM</b></td><td>Enterprise Process Management</td><td>企业流程管理：本章主题，企业级治理与战略对齐</td></tr></table>" },
     { t: "8.1 企业流程治理", en: "Enterprise Process Governance", d:
-      "<h4>精讲：治理管什么</h4><ul><li>治理=关于流程的<b>决策权与问责结构</b>：政策标准制定、角色职责、决策权分配、绩效审查机制。</li><li>典型结构：流程所有者（单流程）→ 域流程委员会 → 企业流程治理委员会（高管）→ CPO 办公室。</li><li>决策升级路径：常规变更由流程所有者批；跨域/重大变更升级到治理委员会。</li></ul><h4>精讲：流程资产化</h4><ul><li>流程作为企业资产的登记、维护、复用与组合管理；治理确保资产不腐化（版本、评审、审计）。</li><li>治理成熟度演进：项目级 → 部门级 → 企业级。</li></ul><div class='exam-tip'>★ 易考：'跨部门流程冲突找谁裁决'=治理委员会/CPO；治理定规则与问责，管理执行规则。</div>", c: [
+      "<h4>精讲：治理管什么</h4><ul><li>治理=关于流程的<b>决策权与问责结构</b>：政策标准制定、角色职责、决策权分配、绩效审查机制。</li><li>典型结构：流程所有者（单流程）→ 域流程委员会 → 企业流程治理委员会（高管）→ CPO 办公室。</li><li>决策升级路径：常规变更由流程所有者批；跨域/重大变更升级到治理委员会。</li></ul><h4>精讲：流程资产化</h4><ul><li>流程作为企业资产的登记、维护、复用与组合管理；治理确保资产不腐化（版本、评审、审计）。</li><li>治理成熟度演进：项目级 → 部门级 → 企业级。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：'跨部门流程冲突找谁裁决'=治理委员会/CPO；治理定规则与问责，管理执行规则。</div>", c: [
       { t: "治理结构层级", d:
-        "<h4>精讲</h4><ul><li>流程所有者（单流程）→ 域流程委员会（跨流程协调）→ 企业流程治理委员会（高管决策）→ CPO 办公室（常设运营）。</li><li>治理职责：政策标准、优先级与资源分配、重大变更裁决、绩效审查。</li></ul>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>流程所有者（单流程）→ 域流程委员会（跨流程协调）→ 企业流程治理委员会（高管决策）→ CPO 办公室（常设运营）。</li><li>治理职责：政策标准、优先级与资源分配、重大变更裁决、绩效审查。</li></ul>" },
       { t: "决策升级路径", d:
-        "<h4>精讲</h4><ul><li>常规变更：流程所有者批准。</li><li>跨域影响 / 与政策冲突 / 重大资源投入：升级到治理委员会。</li><li>战略级议题：CPO / 高管层。</li><li>意义：让跨部门冲突有明确出口，避免无限拉扯与私下妥协。</li></ul><div class='exam-tip'>★ 易考：给变更场景判断批准主体（影响三个域=治理委员会）。</div>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>常规变更：流程所有者批准。</li><li>跨域影响 / 与政策冲突 / 重大资源投入：升级到治理委员会。</li><li>战略级议题：CPO / 高管层。</li><li>意义：让跨部门冲突有明确出口，避免无限拉扯与私下妥协。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：给变更场景判断批准主体（影响三个域=治理委员会）。</div>" },
       { t: "流程资产化详解", d:
-        "<h4>精讲</h4><ul><li>流程作为资产：登记入库、版本管理、评审更新、复用推广、组合投资。</li><li>价值：经验不随人员流失、新业务快速复用、审计合规有据可查。</li><li>治理成熟度演进：项目级 → 部门级 → 企业级。</li></ul>" }
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>流程作为资产：登记入库、版本管理、评审更新、复用推广、组合投资。</li><li>价值：经验不随人员流失、新业务快速复用、审计合规有据可查。</li><li>治理成熟度演进：项目级 → 部门级 → 企业级。</li></ul>" }
     ] },
     { t: "8.2 流程框架与战略对齐", en: "Process Frameworks", d:
-      "<h4>精讲：APQC PCF（必背层级）</h4><ul><li>五级架构：类别(Category) → 流程组(Process Group) → 流程(Process) → 活动(Activity) → 任务(Task)。</li><li>PCF 分运营类与管理支持类；价值=跨行业通用分类基准，用于流程清单对齐与标杆对比，<b>不是</b>具体操作规程。</li></ul><h4>精讲：战略对齐与优先级</h4><ul><li>对齐链路：战略地图 → 价值流 → 流程组合 → 流程优先级。</li><li>波特价值链：基本活动（进料物流、运营、出货物流、营销销售、服务）vs 支持活动（基础设施、HR、技术开发、采购）。</li><li><b>优先级双维评估</b>：战略重要性 × 绩效差距（重要且差距大=优先），辅以可行性。</li></ul><div class='exam-tip'>★ 必考：PCF 层级排序题；优先级矩阵横纵轴含义；价值链基本/支持活动分类。</div>", c: [
+      "<h4>精讲：APQC PCF（必背层级）</h4><ul><li>五级架构：类别(Category) → 流程组(Process Group) → 流程(Process) → 活动(Activity) → 任务(Task)。</li><li>PCF 分运营类与管理支持类；价值=跨行业通用分类基准，用于流程清单对齐与标杆对比，<b>不是</b>具体操作规程。</li></ul><h4>精讲：战略对齐与优先级</h4><ul><li>对齐链路：战略地图 → 价值流 → 流程组合 → 流程优先级。</li><li>波特价值链：基本活动（进料物流、运营、出货物流、营销销售、服务）vs 支持活动（基础设施、HR、技术开发、采购）。</li><li><b>优先级双维评估</b>：战略重要性 × 绩效差距（重要且差距大=优先），辅以可行性。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 必考：PCF 层级排序题；优先级矩阵横纵轴含义；价值链基本/支持活动分类。</div>", c: [
       { t: "PCF 五级详解", d:
-        "<h4>精讲</h4><ul><li>类别 → 流程组 → 流程 → 活动 → 任务，自上而下逐层细化。</li><li>构成：<b>运营类</b>（愿景与战略、产品与服务开发、市场营销与销售、交付服务、客户服务）+ <b>管理支持类</b>（人力、IT、财务、治理风险与合规）。</li><li>用法：对齐流程清单、查缺补漏、跨行业标杆对比；使用时需本地化裁剪。</li></ul>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>类别 → 流程组 → 流程 → 活动 → 任务，自上而下逐层细化。</li><li>构成：<b>运营类</b>（愿景与战略、产品与服务开发、市场营销与销售、交付服务、客户服务）+ <b>管理支持类</b>（人力、IT、财务、治理风险与合规）。</li><li>用法：对齐流程清单、查缺补漏、跨行业标杆对比；使用时需本地化裁剪。</li></ul>" },
       { t: "波特价值链详解", d:
-        "<h4>精讲</h4><ul><li><b>基本活动</b>：进料物流 → 运营 → 出货物流 → 市场营销与销售 → 售后服务。</li><li><b>支持活动</b>：企业基础设施、人力资源、技术开发、采购。</li><li>利润 = 总价值 − 总成本；价值链分析的目的=找价值提升与成本优化点。</li></ul><div class='exam-tip'>★ 易考：技术开发、HR=支持活动；出货物流=基本活动。</div>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>基本活动</b>：进料物流 → 运营 → 出货物流 → 市场营销与销售 → 售后服务。</li><li><b>支持活动</b>：企业基础设施、人力资源、技术开发、采购。</li><li>利润 = 总价值 − 总成本；价值链分析的目的=找价值提升与成本优化点。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：技术开发、HR=支持活动；出货物流=基本活动。</div>" },
       { t: "优先级矩阵详解", d:
-        "<h4>精讲</h4><ul><li>两维：<b>战略重要性</b>（对战略的贡献）× <b>绩效差距</b>（现状 vs 目标/标杆），辅以可行性（资源/风险）。</li><li>四象限：重要且差距大 → 优先改进；重要但绩效好 → 保持监控；不重要且差距大 → 暂缓或简化处理。</li></ul><div class='exam-tip'>★ 易考：双维含义与四象限决策。</div>" }
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>两维：<b>战略重要性</b>（对战略的贡献）× <b>绩效差距</b>（现状 vs 目标/标杆），辅以可行性（资源/风险）。</li><li>四象限：重要且差距大 → 优先改进；重要但绩效好 → 保持监控；不重要且差距大 → 暂缓或简化处理。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：双维含义与四象限决策。</div>" }
     ] }
   ], q: [
     { id:"ch8-1", s:"APQC 流程分类框架（PCF）的正确层级结构是：", o:["流程 → 流程组 → 类别 → 任务","类别 → 流程组 → 流程 → 活动 → 任务","活动 → 流程 → 流程组 → 类别","类别 → 流程 → 流程组 → 活动"], a:1,
@@ -626,38 +685,38 @@ const DATA = {
       e:"波特价值链：基本活动=进料物流、生产运营、出货物流、市场营销与销售、售后服务；支持活动=企业基础设施、人力资源、技术开发、采购。" }
     ]},
 
-  { t: "9. BPM 转型与技术", en: "BPM Transformation & Technologies", w: "15% · 20题", d:
-    "<h4>本章精讲</h4>全卷权重最高（20 题）：技术选型判断题（RPA/BPMS/流程挖掘/AI）与流程挖掘三类型是近年新增必考点。", c: [
+  { t: "9. BPM 转型与技术", en: "BPM Transformation & Technologies", w: "15% · 20题 / 20Q", d:
+    "<h4>本章精讲<span class='h4-en'>CHAPTER OVERVIEW</span></h4>全卷权重最高（20 题）：技术选型判断题（RPA/BPMS/流程挖掘/AI）与流程挖掘三类型是近年新增必考点。", c: [
     { t: "★ 英文缩写速查", en: "Key Abbreviations & Exam Points", d:
-      "<h4>本章专有缩写（记全称 + 考点）</h4><table><tr><th>缩写</th><th>英文全称</th><th>含义与考点</th></tr><tr><td><b>BPMS</b></td><td>Business Process Management Suite</td><td>BPM 套件 ★组件：建模、流程引擎、规则引擎、表单、集成连接器、BAM 监控、仿真</td></tr><tr><td><b>iBPMS</b></td><td>intelligent BPMS</td><td>智能 BPM 套件 ★BPMS + AI/ML + IoT + 自适应案例管理，支持动态决策</td></tr><tr><td><b>RPA</b></td><td>Robotic Process Automation</td><td>机器人流程自动化 ★界面级、规则明确、旧系统无接口场景；快但脆（界面一变即断）</td></tr><tr><td><b>BAM</b></td><td>Business Activity Monitoring</td><td>业务活动监控 ★运行中流程的实时监控与阈值告警</td></tr><tr><td><b>BRMS</b></td><td>Business Rules Management System</td><td>业务规则管理系统 ★规则与流程分离：业务人员自维护、变更无需改代码</td></tr><tr><td><b>AI / ML</b></td><td>Artificial Intelligence / Machine Learning</td><td>人工智能/机器学习 ★流程智能决策：风控识别、智能分流</td></tr><tr><td><b>IoT</b></td><td>Internet of Things</td><td>物联网：为流程提供实时感知数据（iBPMS 输入源之一）</td></tr><tr><td><b>LCAP</b></td><td>Low-Code Application Platform</td><td>低代码应用平台 ★业务人员自建轻量审批/收集类应用</td></tr><tr><td><b>API</b></td><td>Application Programming Interface</td><td>应用编程接口 ★系统间稳定集成的首选，改造周期长但最稳健</td></tr><tr><td><b>ERP</b></td><td>Enterprise Resource Planning</td><td>企业资源计划系统 ★流程挖掘事件日志的典型来源</td></tr></table>" },
+      "<h4>本章专有缩写<span class='h4-en'>KEY ABBREVIATIONS — full name + exam point</span></h4><table><tr><th>缩写</th><th>英文全称</th><th>含义与考点</th></tr><tr><td><b>BPMS</b></td><td>Business Process Management Suite</td><td>BPM 套件 ★组件：建模、流程引擎、规则引擎、表单、集成连接器、BAM 监控、仿真</td></tr><tr><td><b>iBPMS</b></td><td>intelligent BPMS</td><td>智能 BPM 套件 ★BPMS + AI/ML + IoT + 自适应案例管理，支持动态决策</td></tr><tr><td><b>RPA</b></td><td>Robotic Process Automation</td><td>机器人流程自动化 ★界面级、规则明确、旧系统无接口场景；快但脆（界面一变即断）</td></tr><tr><td><b>BAM</b></td><td>Business Activity Monitoring</td><td>业务活动监控 ★运行中流程的实时监控与阈值告警</td></tr><tr><td><b>BRMS</b></td><td>Business Rules Management System</td><td>业务规则管理系统 ★规则与流程分离：业务人员自维护、变更无需改代码</td></tr><tr><td><b>AI / ML</b></td><td>Artificial Intelligence / Machine Learning</td><td>人工智能/机器学习 ★流程智能决策：风控识别、智能分流</td></tr><tr><td><b>IoT</b></td><td>Internet of Things</td><td>物联网：为流程提供实时感知数据（iBPMS 输入源之一）</td></tr><tr><td><b>LCAP</b></td><td>Low-Code Application Platform</td><td>低代码应用平台 ★业务人员自建轻量审批/收集类应用</td></tr><tr><td><b>API</b></td><td>Application Programming Interface</td><td>应用编程接口 ★系统间稳定集成的首选，改造周期长但最稳健</td></tr><tr><td><b>ERP</b></td><td>Enterprise Resource Planning</td><td>企业资源计划系统 ★流程挖掘事件日志的典型来源</td></tr></table>" },
     { t: "9.1 BPM 转型架构", en: "Transformation Architecture", d:
       "<h4>精讲：架构对齐</h4><ul><li>业务架构（战略/能力/价值流）→ 流程架构 → 应用与数据架构 → 技术架构；企业架构(EA/TOGAF)方法保证转型不跑偏。</li><li>流程架构分层：企业级价值链 → 域流程 → 操作流程，层层解耦。</li><li>数字化转型路线：<b>标准化 → 集成 → 自动化 → 智能化</b>——顺序不能颠倒（未标准化的流程自动化是放大浪费）。</li></ul>", c: [
       { t: "四层架构对齐", d:
-        "<h4>精讲</h4><ul><li>业务架构（战略/能力/价值流）→ 流程架构（清单与分层）→ 应用与数据架构（系统支撑）→ 技术架构（基础设施）。</li><li>TOGAF 方法：基线架构 → 目标架构 → 差距分析 → 转型路线图；保证转型不跑偏、投资不重复。</li></ul>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>业务架构（战略/能力/价值流）→ 流程架构（清单与分层）→ 应用与数据架构（系统支撑）→ 技术架构（基础设施）。</li><li>TOGAF 方法：基线架构 → 目标架构 → 差距分析 → 转型路线图；保证转型不跑偏、投资不重复。</li></ul>" },
       { t: "数字化转型路线", d:
-        "<h4>精讲</h4><ul><li><b>标准化 → 集成 → 自动化 → 智能化</b>，顺序不可颠倒。</li><li>反例：未标准化就自动化=把烂流程固化；未集成就自动化=制造更多孤岛与 RPA 创可贴。</li></ul><div class='exam-tip'>★ 必考排序题。</div>" }
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>标准化 → 集成 → 自动化 → 智能化</b>，顺序不可颠倒。</li><li>反例：未标准化就自动化=把烂流程固化；未集成就自动化=制造更多孤岛与 RPA 创可贴。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 必考排序题。</div>" }
     ] },
     { t: "9.2 BPM 系统组件", en: "BPM System Components", d:
-      "<h4>精讲：BPMS 套件组件</h4><ul><li>流程引擎（Workflow）、建模工具、规则引擎、表单、集成连接器、监控分析（Dashboard/BAM）、模拟仿真。</li></ul><h4>精讲：流程挖掘（必背三类型）</h4><ul><li>数据源=信息系统<b>事件日志</b>（时间戳、活动、案例号）。</li><li><b>发现 Discovery</b>：无先验模型，从日志还原真实流程。</li><li><b>符合性检测 Conformance</b>：日志 vs 设计模型对比，找偏差。</li><li><b>增强 Enhancement</b>：用日志数据增强/修正已有模型（如标注时间与瓶颈）。</li></ul><h4>精讲：RPA vs BPMS vs API（必考选型）</h4><ul><li><b>RPA</b>：规则明确、重复、界面级操作自动化，快但脆（界面一变即断）。</li><li><b>BPMS</b>：端到端流程编排、人工任务与系统集成、可监控可优化。</li><li><b>API 集成</b>：系统间稳定数据交换首选，改造周期长但最稳健。</li><li><b>iBPMS</b>：BPMS + AI/ML + IoT + 自适应案例管理。新兴：AI 智能体、区块链存证、低代码。</li></ul><div class='exam-tip'>★ 必考：给场景选技术——'旧系统无接口+高频重复操作'选 RPA；'发现实际流程与制度不符'选流程挖掘(符合性检测)。</div>", c: [
+      "<h4>精讲：BPMS 套件组件</h4><ul><li>流程引擎（Workflow）、建模工具、规则引擎、表单、集成连接器、监控分析（Dashboard/BAM）、模拟仿真。</li></ul><h4>精讲：流程挖掘（必背三类型）</h4><ul><li>数据源=信息系统<b>事件日志</b>（时间戳、活动、案例号）。</li><li><b>发现 Discovery</b>：无先验模型，从日志还原真实流程。</li><li><b>符合性检测 Conformance</b>：日志 vs 设计模型对比，找偏差。</li><li><b>增强 Enhancement</b>：用日志数据增强/修正已有模型（如标注时间与瓶颈）。</li></ul><h4>精讲：RPA vs BPMS vs API（必考选型）</h4><ul><li><b>RPA</b>：规则明确、重复、界面级操作自动化，快但脆（界面一变即断）。</li><li><b>BPMS</b>：端到端流程编排、人工任务与系统集成、可监控可优化。</li><li><b>API 集成</b>：系统间稳定数据交换首选，改造周期长但最稳健。</li><li><b>iBPMS</b>：BPMS + AI/ML + IoT + 自适应案例管理。新兴：AI 智能体、区块链存证、低代码。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 必考：给场景选技术——'旧系统无接口+高频重复操作'选 RPA；'发现实际流程与制度不符'选流程挖掘(符合性检测)。</div>", c: [
       { t: "BPMS 六大组件详解", d:
-        "<h4>精讲</h4><ul><li>建模工具（设计）→ 流程引擎（执行与路由）→ 规则引擎（决策）→ 表单/界面（人工任务）→ 集成连接器（系统对接）→ 监控分析（Dashboard/BAM），外加模拟仿真。</li><li>选型考量：与现有系统兼容性、可扩展性、总拥有成本 TCO。</li></ul>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>建模工具（设计）→ 流程引擎（执行与路由）→ 规则引擎（决策）→ 表单/界面（人工任务）→ 集成连接器（系统对接）→ 监控分析（Dashboard/BAM），外加模拟仿真。</li><li>选型考量：与现有系统兼容性、可扩展性、总拥有成本 TCO。</li></ul>" },
       { t: "流程挖掘三类型详解", d:
-        "<h4>精讲（必背）</h4><ul><li>数据基础：<b>事件日志</b>——案例 ID、活动名、时间戳、资源。</li><li><b>发现 Discovery</b>：无模型 → 从日志还原真实流程（常发现'影子流程'）。</li><li><b>符合性检测 Conformance</b>：日志 vs 设计模型 → 找偏差（审计场景）。</li><li><b>增强 Enhancement</b>：用日志数据丰富已有模型（标注实际时间/成本/瓶颈）。</li></ul><div class='exam-tip'>★ 必考：审计核查=Conformance；无模型还原=Discovery。</div>" },
+        "<h4>精讲（必背）</h4><ul><li>数据基础：<b>事件日志</b>——案例 ID、活动名、时间戳、资源。</li><li><b>发现 Discovery</b>：无模型 → 从日志还原真实流程（常发现'影子流程'）。</li><li><b>符合性检测 Conformance</b>：日志 vs 设计模型 → 找偏差（审计场景）。</li><li><b>增强 Enhancement</b>：用日志数据丰富已有模型（标注实际时间/成本/瓶颈）。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 必考：审计核查=Conformance；无模型还原=Discovery。</div>" },
       { t: "RPA 深度解析", d:
-        "<h4>精讲</h4><ul><li>适用四条件：规则明确、高频重复、界面稳定、无需人工判断。</li><li>优点：部署快、不动底层系统；风险：界面一变即断（脆弱）、大量'创可贴'集成堆积技术债。</li><li>治理：机器人登记、异常监控、随 API 改造逐步退役。</li></ul><div class='exam-tip'>★ 易考：RPA vs API vs BPMS 选型边界。</div>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>适用四条件：规则明确、高频重复、界面稳定、无需人工判断。</li><li>优点：部署快、不动底层系统；风险：界面一变即断（脆弱）、大量'创可贴'集成堆积技术债。</li><li>治理：机器人登记、异常监控、随 API 改造逐步退役。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：RPA vs API vs BPMS 选型边界。</div>" },
       { t: "iBPMS 与 AI 应用", d:
-        "<h4>精讲</h4><ul><li>iBPMS = BPMS + AI/ML + IoT + 自适应案例管理 + 实时分析。</li><li>AI 落点：智能决策（风控分流）、文档理解（OCR+NLP）、预测（量预测排班）、异常检测、流程数字孪生。</li><li>趋势：AI 智能体从'辅助人执行'走向'代理执行+人监督'。</li></ul>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>iBPMS = BPMS + AI/ML + IoT + 自适应案例管理 + 实时分析。</li><li>AI 落点：智能决策（风控分流）、文档理解（OCR+NLP）、预测（量预测排班）、异常检测、流程数字孪生。</li><li>趋势：AI 智能体从'辅助人执行'走向'代理执行+人监督'。</li></ul>" },
       { t: "BAM 与仿真", d:
-        "<h4>精讲</h4><ul><li><b>BAM</b>：运行中流程的实时监控、阈值告警、即时干预——区别于事后报表式分析。</li><li><b>仿真</b>：To-Be 上线前验证容量、瓶颈、到达率波动，低成本试错。</li></ul>" }
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>BAM</b>：运行中流程的实时监控、阈值告警、即时干预——区别于事后报表式分析。</li><li><b>仿真</b>：To-Be 上线前验证容量、瓶颈、到达率波动，低成本试错。</li></ul>" }
     ] },
     { t: "9.3 业务流程规则", en: "Business Process Rules", d:
-      "<h4>精讲：规则外置（必考原理）</h4><ul><li>业务规则=指导/约束业务行为的陈述（如'金额>5万元需总监审批'）。</li><li>最佳实践：<b>规则与流程分离</b>——规则外置到规则引擎，流程只引用规则；好处：业务人员自维护、变更无需改代码与重发布、规则可复用可审计。</li><li>规则分类：事实、约束、推导、行动规则。</li></ul><h4>精讲：BRMS</h4><ul><li>业务规则管理系统：自然语言编写 → 验证冲突 → 部署 → 审计追溯，常与 BPMS 协同。</li></ul><div class='exam-tip'>★ 易考：审批阈值频繁调整的流程应把规则放哪——规则引擎/BRMS，而非硬编码。</div>", c: [
+      "<h4>精讲：规则外置（必考原理）</h4><ul><li>业务规则=指导/约束业务行为的陈述（如'金额>5万元需总监审批'）。</li><li>最佳实践：<b>规则与流程分离</b>——规则外置到规则引擎，流程只引用规则；好处：业务人员自维护、变更无需改代码与重发布、规则可复用可审计。</li><li>规则分类：事实、约束、推导、行动规则。</li></ul><h4>精讲：BRMS</h4><ul><li>业务规则管理系统：自然语言编写 → 验证冲突 → 部署 → 审计追溯，常与 BPMS 协同。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 易考：审批阈值频繁调整的流程应把规则放哪——规则引擎/BRMS，而非硬编码。</div>", c: [
       { t: "规则分类详解", d:
-        "<h4>精讲</h4><ul><li><b>事实规则</b>：领域基本断言（客户拥有信用额度）。</li><li><b>约束规则</b>：必须/不得（金额超 5 万需总监审批）。</li><li><b>推导规则</b>：由事实推出新事实（年消费>50万 → 客户是 VIP）。</li><li><b>行动规则</b>：满足条件则执行动作（逾期 3 天 → 自动催收提醒）。</li></ul>" },
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li><b>事实规则</b>：领域基本断言（客户拥有信用额度）。</li><li><b>约束规则</b>：必须/不得（金额超 5 万需总监审批）。</li><li><b>推导规则</b>：由事实推出新事实（年消费>50万 → 客户是 VIP）。</li><li><b>行动规则</b>：满足条件则执行动作（逾期 3 天 → 自动催收提醒）。</li></ul>" },
       { t: "规则外置原理", d:
-        "<h4>精讲（必考原理）</h4><ul><li>规则从流程模型与代码中抽出，集中到规则引擎；流程节点只调用规则服务。</li><li>收益：业务人员自助维护、变更免发版、规则跨流程复用、可审计追溯、全企业一致性。</li></ul><div class='exam-tip'>★ 必考：频繁变更的审批阈值 → 规则引擎/BRMS。</div>" },
+        "<h4>精讲（必考原理）</h4><ul><li>规则从流程模型与代码中抽出，集中到规则引擎；流程节点只调用规则服务。</li><li>收益：业务人员自助维护、变更免发版、规则跨流程复用、可审计追溯、全企业一致性。</li></ul><div class='exam-tip'><span class='tip-en'>EXAM TIP</span>★ 必考：频繁变更的审批阈值 → 规则引擎/BRMS。</div>" },
       { t: "BRMS 详解", d:
-        "<h4>精讲</h4><ul><li>能力：自然语言规则编写、冲突检测与验证、版本管理、部署测试、审计追踪。</li><li>与 BPMS 协同：流程节点以决策表/决策树形式调用规则服务做判断。</li></ul>" }
+        "<h4>精讲<span class='h4-en'>KEY POINTS</span></h4><ul><li>能力：自然语言规则编写、冲突检测与验证、版本管理、部署测试、审计追踪。</li><li>与 BPMS 协同：流程节点以决策表/决策树形式调用规则服务做判断。</li></ul>" }
     ] }
   ], q: [
     { id:"ch9-1", s:"某公司核心订货系统界面老旧、无 API 可用，员工每天需在两个系统间重复搬运数百条数据。最适合的自动化技术是：", o:["BPMS 流程平台重建","RPA 机器人流程自动化","数据仓库","业务规则引擎"], a:1,
@@ -715,6 +774,11 @@ const ENQ = {"ch1-1":{"s":"A consultant argues that the order management process
   DATA.c.forEach(walk);
 })();
 
+function chapterEnOf(qid){
+  const c = DATA.c.find(ch => ch.q && ch.q.some(x => x.id === qid));
+  return c && c.en ? c.en : '';
+}
+
 function chapterTitleOf(qid){
   const c = DATA.c.find(ch => ch.q && ch.q.some(x => x.id === qid));
   return c ? c.t : '错题重做';
@@ -722,15 +786,16 @@ function chapterTitleOf(qid){
 /* 练习语言模式：题干/选项英文（与真题一致），可切换中英对照 */
 let langMode = 'en';
 function startQuiz(questions, title){
-  if (!questions.length) { renderStats(); return; }  // 预览沙箱拦截 alert：错题为空时仅刷新统计面板
+  if (!questions.length) { renderStats(); return; }
+  overlayQuiz.classList.add('show');   /* 显示练习弹窗 */  // 预览沙箱拦截 alert：错题为空时仅刷新统计面板
   let idx = 0, right = 0, wrongList = [];
   renderQ();
   function renderQ(){
     const q = questions[idx];
     quizModal.innerHTML = `
-      <h3>${title}<button class="btn" id="qLang" style="float:right;font-size:12px;padding:4px 10px">🌐 ${langMode==='both'?'中英对照：开':'中英对照：关'}</button></h3>
-      <div class="sub2">第 ${idx+1} / ${questions.length} 题 · 答错会自动记入错题本，重做答对后自动移出</div>
-      <div class="q-idx">【${chapterTitleOf(q.id)}】</div>
+      <h3>${title}<span class="h4-en">CHAPTER DRILL</span><button class="btn" id="qLang" style="float:right;font-size:12px;padding:4px 10px">🌐 ${langMode==='both'?'中英对照：开 · Bilingual ON':'中英对照：关 · Bilingual OFF'}</button></h3>
+      <div class="sub2">第 ${idx+1} / ${questions.length} 题 · 答错会自动记入错题本，重做答对后自动移出<span class="ui-en">Question ${idx+1} of ${questions.length} · Wrong answers go to the error bank and leave it once re-answered correctly.</span></div>
+      <div class="q-idx">【${chapterTitleOf(q.id)}】<span class="ui-en in">${chapterEnOf(q.id)}</span></div>
       <div class="q-stem">${q.sEn || q.s}${q.sEn && langMode==='both' ? `<div class="zh-ref">${q.s}</div>` : ''}</div>
       ${q.o.map((o,i)=>{
         const en = (q.oEn && q.oEn[i]) || o;
@@ -739,8 +804,8 @@ function startQuiz(questions, title){
       }).join('')}
       <div class="q-exp" id="qExp"></div>
       <div class="modal-foot">
-        <button class="btn" id="qQuit">退出练习</button>
-        <button class="btn primary" id="qNext" style="visibility:hidden">${idx+1===questions.length?'查看结果':'下一题'}</button>
+        <button class="btn" id="qQuit">退出练习<span class="ui-en">Quit</span></button>
+        <button class="btn primary" id="qNext" style="visibility:hidden">${idx+1===questions.length?'查看结果':'下一题'}<span class="ui-en">${idx+1===questions.length?'See results':'Next question'}</span></button>
       </div>`;
     quizModal.querySelector('#qLang').addEventListener('click', () => {
       langMode = langMode === 'both' ? 'en' : 'both';
@@ -757,8 +822,8 @@ function startQuiz(questions, title){
         });
         if (!isRight) { opt.classList.add('wrong'); wrongList.push(q.id); } else right++;
         const exp = quizModal.querySelector('#qExp');
-        exp.innerHTML = `<span class="${isRight?'verdict-ok':'verdict-bad'}">${isRight?'✔ 答对了':'✘ 答错了'}</span> —— ${q.eEn || q.e}`
-          + (q.eEn ? `<div class="zh-ref" style="margin-top:6px">中文解析：${q.e}</div>` : '');
+        exp.innerHTML = `<span class="${isRight?'verdict-ok':'verdict-bad'}">${isRight?'✔ 答对了 / Correct':'✘ 答错了 / Incorrect'}</span> —— ${q.eEn || q.e}`
+          + (q.eEn ? `<div class="zh-ref" style="margin-top:6px">中文解析 / CN：${q.e}</div>` : '');
         exp.classList.add('show');
         quizModal.querySelector('#qNext').style.visibility = 'visible';
       });
@@ -772,11 +837,11 @@ function startQuiz(questions, title){
   function renderResult(){
     const pct = Math.round(right / questions.length * 100);
     quizModal.innerHTML = `
-      <h3>${title} · 练习结果</h3>
+      <h3>${title} · 练习结果<span class="h4-en">DRILL RESULT</span></h3>
       <div class="result-box">
         <div class="big ${pct>=70?'':'bad'}">${right} / ${questions.length}</div>
-        <div style="margin:8px 0 14px;color:var(--muted)">正确率 ${pct}%（官方及格线 70%）${wrongList.length?` · 本次答错 ${wrongList.length} 题已记入错题本`:' · 本次全部答对，太棒了'}</div>
-        <button class="btn primary" id="qDone">完成</button>
+        <div style="margin:8px 0 14px;color:var(--muted)">正确率 ${pct}%（官方及格线 70%）${wrongList.length?` · 本次答错 ${wrongList.length} 题已记入错题本`:' · 本次全部答对，太棒了'}<span class="ui-en">Accuracy ${pct}% — official pass line is 70%</span></div>
+        <button class="btn primary" id="qDone">完成<span class="ui-en">Done</span></button>
       </div>`;
     quizModal.querySelector('#qDone').addEventListener('click', () => overlayQuiz.classList.remove('show'));
   }
@@ -789,7 +854,7 @@ function renderStats(){
     const rightN = qs.filter(q => store.correct[q.id]).length;
     const wrongN = qs.filter(q => store.wrong[q.id]).length;
     const pct = done ? Math.round(rightN/done*100) : 0;
-    return `<tr><td>${ch.t}</td><td>${qs.length}</td><td>${done}</td><td>${rightN}</td><td style="color:${wrongN?'var(--bad)':'inherit'}">${wrongN}</td><td>${done?pct+'%':'—'}</td><td>${done?`<span class="bar" style="width:${Math.max(pct*0.5,4)}px"></span>`:''}</td></tr>`;
+    return `<tr><td>${ch.t}<span class="th-en">${ch.en || ''}</span></td><td>${qs.length}</td><td>${done}</td><td>${rightN}</td><td style="color:${wrongN?'var(--bad)':'inherit'}">${wrongN}</td><td>${done?pct+'%':'—'}</td><td>${done?`<span class="bar" style="width:${Math.max(pct*0.5,4)}px"></span>`:''}</td></tr>`;
   }).join('');
   const totalQ = DATA.c.reduce((n,ch)=>n+(ch.q?ch.q.length:0),0);
   const totalDone = Object.keys(store.attempts).filter(k => store.attempts[k] > 0).length;
@@ -799,31 +864,31 @@ function renderStats(){
   const wrongQs = [];
   DATA.c.forEach(ch => (ch.q||[]).forEach(q => { if (store.wrong[q.id]) wrongQs.push(q); }));
   const wrongHtml = wrongQs.length
-    ? wrongQs.map(q => `<div class="wrong-item"><div class="wq">【${chapterTitleOf(q.id)}】${q.sEn || q.s}${q.sEn ? `<div class="zh-ref">${q.s}</div>` : ''}</div><div class="wa">正确答案：${String.fromCharCode(65+q.a)}. ${(q.oEn && q.oEn[q.a]) || q.o[q.a]}</div></div>`).join('')
-    : '<div style="color:var(--muted);padding:10px 0">暂无错题，继续保持！</div>';
+    ? wrongQs.map(q => `<div class="wrong-item"><div class="wq">【${chapterTitleOf(q.id)}】${q.sEn || q.s}${q.sEn ? `<div class="zh-ref">${q.s}</div>` : ''}</div><div class="wa">正确答案 / Correct：${String.fromCharCode(65+q.a)}. ${(q.oEn && q.oEn[q.a]) || q.o[q.a]}</div></div>`).join('')
+    : '<div style="color:var(--muted);padding:10px 0">暂无错题，继续保持！<span class="ui-en">No wrong answers yet — keep it up!</span></div>';
   statsModal.innerHTML = `
-    <h3>📊 练习统计与错题本</h3>
-    <div class="sub2">数据保存在本机浏览器中，关闭页面不丢失</div>
+    <h3>📊 练习统计与错题本<span class="h4-en">DRILL STATS &amp; ERROR BANK</span></h3>
+    <div class="sub2">数据保存在本机浏览器中，关闭页面不丢失<span class="ui-en">Stored in your browser's local storage — persists across sessions.</span></div>
     <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:6px">
-      <div class="exam-badge" style="border-color:var(--border);background:var(--accent-soft);color:var(--text)"><b>${totalDone}/${totalQ}</b>已练习</div>
-      <div class="exam-badge" style="border-color:var(--border);background:var(--ok-soft);color:var(--text)"><b>${totalRight}</b>答对</div>
-      <div class="exam-badge" style="border-color:var(--border);background:var(--bad-soft);color:var(--text)"><b>${totalWrong}</b>待攻克错题</div>
-      <div class="exam-badge" style="border-color:var(--border);background:var(--accent-soft);color:var(--text)"><b>${totalDone?totalPct+'%':'—'}</b>总正确率</div>
+      <div class="exam-badge" style="border-color:var(--border);background:var(--accent-soft);color:var(--text)"><b>${totalDone}/${totalQ}</b>已练习<span class="badge-en">Practised</span></div>
+      <div class="exam-badge" style="border-color:var(--border);background:var(--ok-soft);color:var(--text)"><b>${totalRight}</b>答对<span class="badge-en">Correct</span></div>
+      <div class="exam-badge" style="border-color:var(--border);background:var(--bad-soft);color:var(--text)"><b>${totalWrong}</b>待攻克错题<span class="badge-en">To review</span></div>
+      <div class="exam-badge" style="border-color:var(--border);background:var(--accent-soft);color:var(--text)"><b>${totalDone?totalPct+'%':'—'}</b>总正确率<span class="badge-en">Overall accuracy</span></div>
     </div>
-    <table class="stats-table"><tr><th>知识域</th><th>题量</th><th>已练</th><th>答对</th><th>答错</th><th>正确率</th><th>图示</th></tr>${rows}</table>
+    <table class="stats-table"><tr><th>知识域<span class="th-en">Domain</span></th><th>题量<span class="th-en">Items</span></th><th>已练<span class="th-en">Done</span></th><th>答对<span class="th-en">Correct</span></th><th>答错<span class="th-en">Wrong</span></th><th>正确率<span class="th-en">Accuracy</span></th><th>图示<span class="th-en">Chart</span></th></tr>${rows}</table>
     <div style="display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 14px">
-      <button class="btn primary" id="redoWrong" ${wrongQs.length?'':'disabled style="opacity:.5;pointer-events:none"'}>🔁 重做错题（${wrongQs.length}）</button>
-      <button class="btn danger" id="clearStats">清空全部记录</button>
-      <button class="btn" id="closeStats">关闭</button>
+      <button class="btn primary" id="redoWrong" ${wrongQs.length?'':'disabled style="opacity:.5;pointer-events:none"'}>🔁 重做错题（${wrongQs.length}）<span class="ui-en">Redo wrong answers</span></button>
+      <button class="btn danger" id="clearStats">清空全部记录<span class="ui-en">Clear all records</span></button>
+      <button class="btn" id="closeStats">关闭<span class="ui-en">Close</span></button>
     </div>
-    <h3 style="font-size:14px">错题本</h3>${wrongHtml}`;
+    <h3 style="font-size:14px">错题本<span class="h4-en">ERROR BANK</span></h3>${wrongHtml}`;
   document.getElementById('closeStats').addEventListener('click', () => overlayStats.classList.remove('show'));
   document.getElementById('clearStats').addEventListener('click', () => {
     // 预览沙箱拦截 confirm，改用两步确认
     const b = document.getElementById('clearStats');
     if (b.dataset.arm !== '1') {
       b.dataset.arm = '1'; b.dataset.orig = b.textContent;
-      b.textContent = '再点一次确认清空';
+      b.textContent = '再点一次确认清空 · click again to confirm';
       setTimeout(() => { b.dataset.arm = '0'; b.textContent = b.dataset.orig; }, 4000);
     } else {
       b.dataset.arm = '0'; b.textContent = b.dataset.orig;
@@ -832,8 +897,9 @@ function renderStats(){
   });
   if (wrongQs.length) document.getElementById('redoWrong').addEventListener('click', () => {
     overlayStats.classList.remove('show');
-    startQuiz(wrongQs, '🔁 错题重做');
+    startQuiz(wrongQs, '🔁 错题重做 / Redo wrong');
   });
+  overlayStats.classList.add('show');   /* 显示统计面板 */
 }
 document.getElementById('openStats').addEventListener('click', renderStats);
 
@@ -852,7 +918,7 @@ function buildNode(node, depth, parentUl){
   if (hasKids || node.d || node.note) inner += `<span class="toggle">+</span>`;
   inner += `<span class="node-label">${node.t}${node.en ? `<span class="en">${node.en}</span>` : ''}</span>`;
   if (node.w) inner += `<span class="w-badge">${node.w}</span>`;
-  if (isChapter && node.q) inner += `<span class="q-badge" title="点击进入本章练习">📝 练习 ${node.q.length}题</span>`;
+  if (isChapter && node.q) inner += `<span class="q-badge" title="点击进入本章练习 / Start chapter drill">📝 练习 ${node.q.length}题<span style="font-size:9.5px;opacity:.8;margin-left:3px">/ Drill</span></span>`;
   row.innerHTML = inner;
   li.appendChild(row);
 
@@ -1711,11 +1777,27 @@ function loadDB(){ try { return JSON.parse(localStorage.getItem(KEY)) || {wrong:
 function saveDB(db){ localStorage.setItem(KEY, JSON.stringify(db)); }
 let db = loadDB();
 
+const CH_EN = {
+  "1. 业务流程管理基础": "Business Process Management",
+  "2. 流程建模": "Process Modeling",
+  "3. 流程分析": "Process Analysis",
+  "4. 流程设计与转型": "Process Design &amp; Transformation",
+  "5. 流程绩效管理": "Process Performance Management",
+  "6. 流程改进": "Process Improvement",
+  "7. 流程管理组织": "Process Management Organization",
+  "8. 企业流程管理": "Enterprise Process Management",
+  "9. BPM 转型与技术": "BPM Transformation &amp; Technology"
+};
+function bankChapterEnOf(qid){ return CH_EN[bankChapterOf(qid)] || ""; }
 function bankChapterOf(qid){
   for (const b of BANK) if (b.qs.some(q => q.id === qid)) return b.ch;
   return "综合";
 }
 function shuffle(arr){ const a = arr.slice(); for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+/* 返回上一级：回到模拟考试首页（试卷选择列表） */
+function backToCenter(){ renderHome(); }
+window.backToCenter = backToCenter;
 
 const views = ["viewHome","viewExam","viewResult","viewReview","viewBook"];
 function show(id){ views.forEach(v => document.getElementById(v).classList.toggle("hidden", v !== id)); window.scrollTo(0,0); }
@@ -1735,20 +1817,20 @@ function clearChSel(){
 function renderHome(){
   show("viewHome");
   clearPaperSel(); clearChSel();
-  document.getElementById("wrongCountInfo").textContent = Object.keys(db.wrong).length ? "当前错题 " + Object.keys(db.wrong).length + " 题" : "暂无错题，先做一次全真模拟吧";
+  document.getElementById("wrongCountInfo").textContent = Object.keys(db.wrong).length ? "当前错题 " + Object.keys(db.wrong).length + " 题 / " + Object.keys(db.wrong).length + " wrong to review" : "暂无错题，先做一次全真模拟吧 · No wrong answers yet — take a mock exam first";
   const list = document.getElementById("chList");
   list.innerHTML = "";
   BANK.forEach((b,i) => {
     const btn = document.createElement("button");
     btn.className = "ch-btn";
-    btn.textContent = b.ch + "（" + b.qs.length + "题 · 权重" + b.pct + "）";
+    btn.innerHTML = b.ch + "（" + b.qs.length + "题 · 权重" + b.pct + "）" + `<span class="ui-en">${b.qs.length} items · weight ${b.pct}</span>`;
     btn.addEventListener("click", () => {
       selCh = i;
       list.querySelectorAll(".ch-btn").forEach(x => x.classList.remove("selected"));
       btn.classList.add("selected");
       const bar = document.getElementById("chStartBar");
       bar.classList.remove("hidden");
-      document.getElementById("chSelNote").textContent = "已选择：" + b.ch + "（" + b.qs.length + " 题 · 按题量自动计时）";
+      document.getElementById("chSelNote").innerHTML = "已选择：" + b.ch + "（" + b.qs.length + " 题 · 按题量自动计时）" + `<span class="ui-en">Selected: ${b.ch} · ${b.qs.length} items</span>`;
     });
     list.appendChild(btn);
   });
@@ -1760,14 +1842,14 @@ function renderHome(){
     banner.id = "resumeBanner";
     banner.className = "resume-banner";
     const span = document.createElement("span");
-    span.textContent = "检测到未完成的考试（" + db.active.title + "）";
+    span.innerHTML = "检测到未完成的考试（" + db.active.title + "）" + `<span class="ui-en">An unfinished exam was found: ${db.active.title}</span>`;
     const rb = document.createElement("button");
     rb.className = "btn primary";
-    rb.textContent = "继续作答";
+    rb.innerHTML = "继续作答<span class='ui-en'>Resume</span>";
     rb.addEventListener("click", () => { exam = db.active; show("viewExam"); renderQ(); renderPalette(); startTimer(); });
     const ab = document.createElement("button");
     ab.className = "btn";
-    ab.textContent = "放弃并清除";
+    ab.innerHTML = "放弃并清除<span class='ui-en'>Discard</span>";
     ab.addEventListener("click", () => { db.active = null; saveDB(db); renderHome(); });
     banner.appendChild(span); banner.appendChild(rb); banner.appendChild(ab);
     const home = document.getElementById("viewHome");
@@ -1779,7 +1861,7 @@ document.querySelectorAll(".mode-card[data-p]").forEach(c => c.addEventListener(
   document.querySelectorAll(".mode-card[data-p]").forEach(x => x.classList.remove("selected"));
   c.classList.add("selected");
   document.getElementById("paperStartBar").classList.remove("hidden");
-  document.getElementById("paperSelNote").textContent = "已选择：全真模拟卷 · 第" + selPaper + "套（140 题 · 180 分钟）";
+  document.getElementById("paperSelNote").innerHTML = "已选择：全真模拟卷 · 第" + selPaper + "套（140 题 · 180 分钟）" + `<span class="ui-en">Selected: Mock paper ${selPaper} · 140 items · 180 min</span>`;
 }));
 document.getElementById("paperStartBtn").addEventListener("click", () => { if (selPaper) startPaper(selPaper); });
 document.getElementById("chStartBtn").addEventListener("click", () => {
@@ -1790,7 +1872,7 @@ document.getElementById("chStartBtn").addEventListener("click", () => {
 document.getElementById("modeWrong").addEventListener("click", () => {
   const qs = [];
   BANK.forEach(b => b.qs.forEach(q => { if (db.wrong[q.id]) qs.push(q); }));
-  if (!qs.length) { document.getElementById("wrongCountInfo").textContent = "错题本为空，请先参加考试或章节练习"; return; }
+  if (!qs.length) { document.getElementById("wrongCountInfo").innerHTML = "错题本为空，请先参加考试或章节练习<span class='ui-en'>The error bank is empty — take an exam or a chapter drill first.</span>"; return; }
   startExam(null, "错题重做", shuffle(qs));
 });
 document.getElementById("modeBook").addEventListener("click", renderBook);
@@ -1801,8 +1883,8 @@ let exam = null, timerInt = null;
 function startExam(chapterIdxs, title, fixedList, minutesOverride){
   const sb = document.getElementById("submitBtn");   /* 重置交卷按钮的两步确认状态 */
   sb.dataset.arm = "0"; sb.classList.remove("armed");
-  if (!sb.dataset.orig) sb.dataset.orig = sb.textContent;
-  sb.textContent = sb.dataset.orig;
+  if (!sb.dataset.orig) sb.dataset.orig = sb.innerHTML;
+  sb.innerHTML = sb.dataset.orig;
   let qs = fixedList || [];
   if (!qs.length) {
     const pool = chapterIdxs ? BANK.filter((b,i) => chapterIdxs.includes(i)) : BANK;
@@ -1820,7 +1902,7 @@ function startExam(chapterIdxs, title, fixedList, minutesOverride){
   };
   db.active = exam; saveDB(db);
   show("viewExam");
-  document.getElementById("examTitle").textContent = title;
+  document.getElementById("examTitle").innerHTML = title + `<span class="h4-en">CBPP MOCK EXAM</span>`;
   renderQ(); renderPalette(); startTimer();
 }
 
@@ -1852,10 +1934,10 @@ function optText(q, i){
 }
 function renderQ(){
   const q = exam.qs[exam.idx];
-  document.getElementById("examPos").textContent = " · 第 " + (exam.idx+1) + " / " + exam.qs.length + " 题";
+  document.getElementById("examPos").textContent = " · 第 " + (exam.idx+1) + " / " + exam.qs.length + " 题 · Question " + (exam.idx+1) + " of " + exam.qs.length;
   const card = document.getElementById("qCard");
   card.innerHTML = `
-    <span class="qtag">${bankChapterOf(q.id)}</span>
+    <span class="qtag">${bankChapterOf(q.id)} · ${bankChapterEnOf(q.id)}</span>
     ${stemHtml(q, (exam.idx+1) + ". ")}
     ${q.o.map((o,i)=>`<div class="xopt ${exam.answers[q.id]===i?'sel':''}" data-i="${i}"><span class="ol">${String.fromCharCode(65+i)}.</span>${optText(q,i)}</div>`).join("")}`;
   card.querySelectorAll(".xopt").forEach(opt => {
@@ -1895,7 +1977,7 @@ document.getElementById("flagBtn").addEventListener("click", () => {
 });
 /* 语言切换：英文（默认，与真题一致）/ 中英对照 */
 const langBtn = document.getElementById("langBtn");
-function syncLangBtn(){ langBtn.textContent = langMode === "both" ? "🌐 中英对照：开" : "🌐 中英对照：关"; }
+function syncLangBtn(){ langBtn.innerHTML = langMode === "both" ? "🌐 中英对照：开<span class=\"ui-en\">Bilingual: ON</span>" : "🌐 中英对照：关<span class=\"ui-en\">Bilingual: OFF</span>"; }
 langBtn.addEventListener("click", () => {
   langMode = langMode === "both" ? "en" : "both";
   syncLangBtn();
@@ -1908,15 +1990,15 @@ document.getElementById("submitBtn").addEventListener("click", () => {
   const unanswered = exam.qs.filter(q => exam.answers[q.id] === undefined).length;
   if (btn.dataset.arm !== "1") {
     btn.dataset.arm = "1";
-    btn.dataset.orig = btn.textContent;
-    btn.textContent = unanswered ? "未答 " + unanswered + " 题 · 再点一次确认交卷" : "再点一次确认交卷";
+    btn.dataset.orig = btn.innerHTML;
+    btn.innerHTML = (unanswered ? "未答 " + unanswered + " 题 · 再点一次确认交卷" : "再点一次确认交卷") + `<span class="ui-en">Click again to submit</span>`;
     btn.classList.add("armed");
     window._submitArmTimer = setTimeout(() => {
-      btn.dataset.arm = "0"; btn.textContent = btn.dataset.orig; btn.classList.remove("armed");
+      btn.dataset.arm = "0"; btn.innerHTML = btn.dataset.orig; btn.classList.remove("armed");
     }, 4000);
   } else {
     clearTimeout(window._submitArmTimer);
-    btn.dataset.arm = "0"; btn.textContent = btn.dataset.orig; btn.classList.remove("armed");
+    btn.dataset.arm = "0"; btn.innerHTML = btn.dataset.orig; btn.classList.remove("armed");
     submitExam(false);
   }
 });
@@ -1946,55 +2028,59 @@ function submitExam(auto){
   const rows = Object.keys(perCh).map(ch => {
     const d = perCh[ch], p = Math.round(d.r/d.n*100);
     const color = p >= 70 ? "var(--ok)" : p >= 50 ? "var(--warn)" : "var(--bad)";
-    return `<tr><td>${ch}</td><td>${d.n}</td><td>${d.r}</td><td style="color:${color};font-weight:700">${p}%</td><td><span class="bar" style="width:${p*0.7}px;background:${color}"></span></td></tr>`;
+    return `<tr><td>${ch}<span class="th-en">${CH_EN[ch] || ""}</span></td><td>${d.n}</td><td>${d.r}</td><td style="color:${color};font-weight:700">${p}%</td><td><span class="bar" style="width:${p*0.7}px;background:${color}"></span></td></tr>`;
   }).join("");
   document.getElementById("viewResult").innerHTML = `
     <div class="card">
-      <h3>${exam.title} · 成绩单</h3>
-      <div class="muted">用时约 ${durMin} 分钟 ${auto ? "（时间到自动交卷）" : ""} · 及格线 70%</div>
+      <h3>${exam.title} · 成绩单<span class="h4-en">SCORE REPORT</span></h3>
+      <div class="muted">用时约 ${durMin} 分钟 ${auto ? "（时间到自动交卷）" : ""} · 及格线 70%<span class="ui-en">Time used: about ${durMin} min${auto ? " (auto-submitted at time-out)" : ""} · pass mark 70%</span></div>
       <div class="score-big">
         <div class="n ${pass?'pass':'fail'}">${pct}%</div>
-        <div style="font-size:15px">${pass ? "🎉 恭喜，达到及格线！" : "💪 未达及格线，错题已全部记入错题本"}</div>
-        <div class="muted" style="margin-top:4px">答对 ${right} / ${total} 题</div>
+        <div style="font-size:15px">${pass ? "🎉 恭喜，达到及格线！" : "💪 未达及格线，错题已全部记入错题本"}<span class="ui-en">${pass ? "Congratulations — you passed the 70% line." : "Below the 70% line — every wrong answer was saved to the error bank."}</span></div>
+        <div class="muted" style="margin-top:4px">答对 ${right} / ${total} 题<span class="ui-en in">${right} of ${total} correct</span></div>
       </div>
-      <table class="rtable"><tr><th>知识域</th><th>题量</th><th>答对</th><th>正确率</th><th>图示</th></tr>${rows}</table>
+      <table class="rtable"><tr><th>知识域<span class="th-en">Domain</span></th><th>题量<span class="th-en">Items</span></th><th>答对<span class="th-en">Correct</span></th><th>正确率<span class="th-en">Accuracy</span></th><th>图示<span class="th-en">Chart</span></th></tr>${rows}</table>
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-        <button class="btn primary" id="rvBtn">📋 查看全部解析</button>
-        <button class="btn" id="rvWrongBtn">🔁 只看错题解析（${wrongIds.length}）</button>
-        <button class="btn" id="backBtn">返回首页</button>
+        <button class="btn primary" id="rvBtn">📋 查看全部解析<span class="ui-en">All explanations</span></button>
+        <button class="btn" id="rvWrongBtn">🔁 只看错题解析（${wrongIds.length}）<span class="ui-en">Wrong answers only</span></button>
+        <button class="btn" id="centerBtn">← 返回模考列表<span class="ui-en">Back to exam list</span></button>
       </div>
     </div>`;
   show("viewResult");
   document.getElementById("rvBtn").addEventListener("click", () => renderReview(null));
   document.getElementById("rvWrongBtn").addEventListener("click", () => renderReview(wrongIds));
-  document.getElementById("backBtn").addEventListener("click", renderHome);
+  document.getElementById("centerBtn").addEventListener("click", backToCenter);
 }
 
 function renderReview(filterList){
   const list = filterList || exam.qs;
   document.getElementById("viewReview").innerHTML = `
     <div class="card">
-      <h3>📋 答案解析回顾</h3>
-      <p class="muted">绿色=正确答案，红色=你的错误选择。全部错题已记入错题本，重做答对后自动移出。</p>
-      <button class="btn" id="rvBack" style="margin-top:10px">← 返回成绩单</button>
+      <h3>📋 答案解析回顾<span class="h4-en">ANSWER REVIEW</span></h3>
+      <p class="muted">绿色=正确答案，红色=你的错误选择。全部错题已记入错题本，重做答对后自动移出。<span class="ui-en">Green = correct answer, red = your wrong pick. Every wrong answer is in the error bank and leaves it once re-answered correctly.</span></p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+        <button class="btn" id="rvBack">← 返回成绩单<span class="ui-en">Back to score report</span></button>
+        <button class="btn" id="rvCenter">← 返回模考列表<span class="ui-en">Back to exam list</span></button>
+      </div>
     </div>
     ${list.map((q, n) => {
       const my = exam.answers[q.id];
       const ok = my === q.a;
       return `<div class="rev-item ${ok?'ok':'bad'}">
-        <div class="muted">第 ${exam.qs.indexOf(q)+1} 题 · ${bankChapterOf(q.id)} ${filterList?`· <span class="verdict-bad">错题</span>`:""}</div>
+        <div class="muted">第 ${exam.qs.indexOf(q)+1} 题 · ${bankChapterOf(q.id)} · ${bankChapterEnOf(q.id)}${filterList?` · <span class="verdict-bad">错题 / Wrong</span>`:""}<span class="ui-en in">Question ${exam.qs.indexOf(q)+1}</span></div>
         <div class="qstem" style="font-size:14.5px">${n+1}. ${q.sEn || q.s}${q.sEn && langMode==='both' ? `<div class="zh-ref">${q.s}</div>` : ''}</div>
         ${q.o.map((o,i)=>{
           const en = (q.oEn && q.oEn[i]) || o;
           const zh = (q.oEn && langMode==='both') ? `<span class="zh-inline">${o}</span>` : '';
           return `<div class="xopt ${i===q.a?'rc':(i===my?'rw':'')}" style="cursor:default">${i===q.a?'<span>✔</span>':(i===my?'<span>✘</span>':'<span></span>')}<span><b>${String.fromCharCode(65+i)}.</b> ${en}${zh}</span></div>`;
         }).join("")}
-        <div class="exp2"><span class="${ok?'verdict-ok':'verdict-bad'}">${ok?'✔ 答对':'✘ 答错'}</span> —— ${q.eEn || q.e}</div>
-        ${q.eEn ? `<div class="exp2 zh-ref" style="margin-top:6px">中文解析：${q.e}</div>` : ''}
+        <div class="exp2"><span class="${ok?'verdict-ok':'verdict-bad'}">${ok?'✔ 答对 / Correct':'✘ 答错 / Incorrect'}</span> —— ${q.eEn || q.e}</div>
+        ${q.eEn ? `<div class="exp2 zh-ref" style="margin-top:6px">中文解析 / CN：${q.e}</div>` : ''}
       </div>`;
     }).join("")}`;
   show("viewReview");
   document.getElementById("rvBack").addEventListener("click", () => show("viewResult"));
+  document.getElementById("rvCenter").addEventListener("click", backToCenter);
 }
 
 /* ============ 错题本 / 历史 ============ */
@@ -2002,40 +2088,46 @@ function renderBook(){
   const wrongQs = [];
   BANK.forEach(b => b.qs.forEach(q => { if (db.wrong[q.id]) wrongQs.push(q); }));
   const histHtml = db.hist.length
-    ? db.hist.map(h => `<div class="hist-item"><span>${h.date} · ${h.title}</span><span>用时${h.dur}分钟</span><span><b>${h.score}%</b>（${h.right}/${h.total}）<span class="${h.pass?'pass-tag':'fail-tag'}">${h.pass?'及格':'未及格'}</span></span></div>`).join("")
-    : '<div class="muted" style="padding:6px 0">暂无考试记录</div>';
+    ? db.hist.map(h => `<div class="hist-item"><span>${h.date} · ${h.title}</span><span>用时 ${h.dur} 分钟<span class="ui-en in">${h.dur} min</span></span><span><b>${h.score}%</b>（${h.right}/${h.total}）<span class="${h.pass?'pass-tag':'fail-tag'}">${h.pass?'及格 / PASS':'未及格 / FAIL'}</span></span></div>`).join("")
+    : '<div class="muted" style="padding:6px 0">暂无考试记录<span class="ui-en">No exam records yet.</span></div>';
   const wrongHtml = wrongQs.length
-    ? wrongQs.map(q => `<div class="wrong-item"><b>【${bankChapterOf(q.id)}】</b>${q.sEn || q.s}${q.sEn ? `<div class="zh-ref">${q.s}</div>` : ''}<div class="muted" style="margin-top:4px">正确答案：${String.fromCharCode(65+q.a)}. ${(q.oEn && q.oEn[q.a]) || q.o[q.a]}</div></div>`).join("")
-    : '<div class="muted" style="padding:6px 0">错题本是空的，太棒了！</div>';
+    ? wrongQs.map(q => `<div class="wrong-item"><b>【${bankChapterOf(q.id)} · ${bankChapterEnOf(q.id)}】</b>${q.sEn || q.s}${q.sEn ? `<div class="zh-ref">${q.s}</div>` : ''}<div class="muted" style="margin-top:4px">正确答案 / Correct：${String.fromCharCode(65+q.a)}. ${(q.oEn && q.oEn[q.a]) || q.o[q.a]}</div></div>`).join("")
+    : '<div class="muted" style="padding:6px 0">错题本是空的，太棒了！<span class="ui-en">The error bank is empty — well done!</span></div>';
   document.getElementById("viewBook").innerHTML = `
     <div class="card">
       <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
-        <h3 style="font-size:16px">📖 错题本与考试历史</h3>
+        <h3 style="font-size:16px">📖 错题本与考试历史<span class="h4-en">ERROR BANK &amp; EXAM HISTORY</span></h3>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <button class="btn primary" id="bkRedo" ${wrongQs.length?'':'disabled'}>🔁 重做错题（${wrongQs.length}）</button>
-          <button class="btn danger" id="bkClear">清空全部记录</button>
-          <button class="btn" id="bkBack">返回首页</button>
+          <button class="btn primary" id="bkRedo" ${wrongQs.length?'':'disabled'}>🔁 重做错题（${wrongQs.length}）<span class="ui-en">Redo wrong answers</span></button>
+          <button class="btn danger" id="bkClear">清空全部记录<span class="ui-en">Clear all records</span></button>
+          <button class="btn" id="bkCenter">← 返回模考列表<span class="ui-en">Back to exam list</span></button>
         </div>
       </div>
-      <h4 style="margin:14px 0 4px;font-size:13.5px">考试历史</h4>${histHtml}
-      <h4 style="margin:14px 0 4px;font-size:13.5px">错题清单</h4>${wrongHtml}
+      <h4 style="margin:14px 0 4px;font-size:13.5px">考试历史<span class="h4-en">EXAM HISTORY</span></h4>${histHtml}
+      <h4 style="margin:14px 0 4px;font-size:13.5px">错题清单<span class="h4-en">WRONG ANSWER LIST</span></h4>${wrongHtml}
     </div>`;
   show("viewBook");
-  document.getElementById("bkBack").addEventListener("click", renderHome);
+  document.getElementById("bkCenter").addEventListener("click", backToCenter);
   document.getElementById("bkRedo").addEventListener("click", () => { if (wrongQs.length) startExam(null, "错题重做", shuffle(wrongQs)); });
   document.getElementById("bkClear").addEventListener("click", () => {
     /* 两步确认替代 confirm */
     const b = document.getElementById("bkClear");
     if (b.dataset.arm !== "1") {
-      b.dataset.arm = "1"; b.dataset.orig = b.textContent;
-      b.textContent = "再点一次确认清空（不可恢复）";
-      setTimeout(() => { b.dataset.arm = "0"; b.textContent = b.dataset.orig; }, 4000);
+      b.dataset.arm = "1"; b.dataset.orig = b.innerHTML;
+      b.innerHTML = "再点一次确认清空（不可恢复）<span class=\"ui-en\">Click again to clear</span>";
+      setTimeout(() => { b.dataset.arm = "0"; b.innerHTML = b.dataset.orig; }, 4000);
     } else {
-      b.dataset.arm = "0"; b.textContent = b.dataset.orig;
+      b.dataset.arm = "0"; b.innerHTML = b.dataset.orig;
       db = {wrong:{}, hist:[], active:null}; saveDB(db); renderBook();
     }
   });
 }
+
+/* 答题页返回上一级：返回考试列表（进度已保存，可从横幅继续；计时不暂停） */
+(function(){
+  var bl = document.getElementById("backListBtn");
+  if (bl) bl.addEventListener("click", function(){ clearInterval(timerInt); renderHome(); });
+})();
 
 renderHome();
 
@@ -2043,13 +2135,41 @@ renderHome();
 </script>
 
 <script>
+/* 一级导航：学习地图 / 模拟考试。每个 tab 都记在 URL hash 上，刷新可复原 */
 function switchTab(which){
-  document.getElementById("tabMap").classList.toggle("hidden", which !== "map");
-  document.getElementById("tabExam").classList.toggle("hidden", which !== "exam");
-  document.getElementById("tabBtnMap").classList.toggle("active", which === "map");
-  document.getElementById("tabBtnExam").classList.toggle("active", which === "exam");
+  var isExam = which === "exam";
+  document.getElementById("tabMap").classList.toggle("hidden", isExam);
+  document.getElementById("tabExam").classList.toggle("hidden", !isExam);
+  document.getElementById("tabBtnMap").classList.toggle("active", !isExam);
+  document.getElementById("tabBtnExam").classList.toggle("active", isExam);
   window.scrollTo(0, 0);
+  try { history.replaceState(null, "", isExam ? "#exam" : "#study"); } catch(e) {}
 }
+/* 支持从首页入口带 hash 直达：#study / #exam */
+function openTabFromHash(){
+  var h = (location.hash || "").replace("#", "").toLowerCase();
+  if (h === "exam" || h === "mock" || h === "tests") {
+    switchTab("exam");
+    try { if (typeof window.backToCenter === "function") window.backToCenter(); } catch(e) {}
+  } else if (h === "study" || h === "map") {
+    switchTab("map");
+  }
+}
+window.addEventListener("hashchange", openTabFromHash);
+openTabFromHash();
+/* 吸顶偏移自适应：顶栏 + tab 栏的真实高度（窄屏换行时也不会遮挡） */
+function syncStickyTop(){
+  var tb = document.querySelector(".topbar"), tn = document.querySelector(".tabnav");
+  if (!tb || !tn) return;
+  var h = tb.offsetHeight + tn.offsetHeight;
+  if (h > 0) document.documentElement.style.setProperty("--stick-top", h + "px");
+}
+window.addEventListener("resize", syncStickyTop);
+window.addEventListener("load", syncStickyTop);
+syncStickyTop();
+
+window.__centerSwitch = switchTab;
+window.centerHome = function(){ switchTab("map"); };
 </script>
 </body>
 </html>
