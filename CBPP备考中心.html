@@ -245,10 +245,8 @@
 </head>
 <body>
 <div class="topbar">
-  <a class="home" href="index.html">🏠 ← 返回首页 <span class="e">Back to Home</span></a>
-  <a class="home" href="CBPP考点思维导图.html">🧭 思维导图 <span class="e">Knowledge Map</span></a>
-  <a class="home" href="CBPP模拟考试系统.html">🎯 全真模考 <span class="e">Mock Exams</span></a>
-  <span class="tb-note">CBPP Prep Center · <b>学习与练习</b> / Study &amp; Chapter Drills</span>
+  <a class="home" href="index.html">🏠 ← 目录 <span class="e">Directory</span></a>
+  <span class="tb-note">CBPP Prep Center · <b>精讲 + 分章练习 + 五套全真卷</b> / Notes, drills &amp; 5 mock papers</span>
 </div>
 <header>
   <div>
@@ -267,7 +265,6 @@
 <div class="tabnav">
   <button class="tab active" id="tabBtnMap" onclick="switchTab('map')">📖 学习地图 · 精讲与分章练习<span class="e">Study map &amp; chapter drills</span></button>
   <button class="tab" id="tabBtnExam" onclick="switchTab('exam')">📝 模拟考试（五套全真卷）<span class="e">Mock exams · 5 full papers</span></button>
-  <a class="tab home-tab" href="index.html">🏠 返回首页<span class="e">Back to Home</span></a>
   <span class="tnote">先学后测：精讲 → 分章练习 → 五套全真模考 → 错题重做<span class="e">Learn first, then test: notes → drills → 5 mock papers → redo mistakes</span></span>
 </div>
 <div id="tabMap">
@@ -999,6 +996,33 @@ document.getElementById('search').addEventListener('input', e => {
     }
   });
 });
+
+/* 供目录页深链直达：#domain3 第 3 域精讲 / #drill3 第 3 章练习 / #stats 练习统计 */
+window.__learnDeep = function(h){
+  var m;
+  var rows = [].slice.call(document.querySelectorAll('#tree .node-row.chapter'));
+  if ((m = h.match(/^domain([1-9])$/))) {
+    var r = rows[+m[1] - 1];
+    if (!r) return false;
+    var li = r.parentElement;
+    var sub = li.querySelector(':scope > ul.tree-ul');
+    var det = li.querySelector(':scope > .detail');
+    if (sub) { sub.style.display = ''; var tg = r.querySelector('.toggle'); if (tg) tg.classList.add('open'); }
+    if (det) det.classList.add('show');
+    try { if (r.scrollIntoView) r.scrollIntoView({ block: 'start' }); } catch(e) {}
+    return true;
+  }
+  if ((m = h.match(/^drill([1-9])$/))) {
+    var r2 = rows[+m[1] - 1];
+    if (!r2) return false;
+    var b = r2.querySelector('.q-badge');
+    if (!b) return false;
+    b.click();
+    return true;
+  }
+  if (h === 'stats') { renderStats(); return true; }
+  return false;
+};
 
 })();
 </script>
@@ -2129,6 +2153,21 @@ function renderBook(){
   if (bl) bl.addEventListener("click", function(){ clearInterval(timerInt); renderHome(); });
 })();
 
+/* 供目录页深链直达：#paper1-5 直接开考 / #wrong 错题本 / #chapter 单章模考 / #exam 卷列表 */
+window.__examDeep = function(h){
+  var m;
+  if ((m = h.match(/^paper([1-5])$/))) { startPaper(+m[1]); return true; }
+  if (h === 'wrong' || h === 'book') { renderBook(); return true; }
+  if (h === 'chapter' || h === 'chapters') {
+    renderHome();
+    var el = document.getElementById('chList');
+    if (el) { try { if (el.scrollIntoView) el.scrollIntoView({ block: 'center' }); } catch(e) {} }
+    return true;
+  }
+  if (h === 'exam' || h === 'papers') { renderHome(); return true; }
+  return false;
+};
+
 renderHome();
 
 })();
@@ -2145,18 +2184,41 @@ function switchTab(which){
   window.scrollTo(0, 0);
   try { history.replaceState(null, "", isExam ? "#exam" : "#study"); } catch(e) {}
 }
-/* 支持从首页入口带 hash 直达：#study / #exam */
-function openTabFromHash(){
+/* 目录页深链路由：#domain3 / #drill3 / #stats / #outline / #exam / #paper1-5 / #chapter / #wrong */
+var __lastRouted = null;
+function routeHash(){
   var h = (location.hash || "").replace("#", "").toLowerCase();
-  if (h === "exam" || h === "mock" || h === "tests") {
+  if (h === __lastRouted) return;      /* 立即执行 + load 各触发一次时，避免重复开考 */
+  __lastRouted = h;
+  if (!h) { switchTab("map"); return; }
+  if (/^(exam|papers|mock|tests|paper[1-5]|wrong|book|chapter|chapters)$/.test(h)) {
     switchTab("exam");
-    try { if (typeof window.backToCenter === "function") window.backToCenter(); } catch(e) {}
-  } else if (h === "study" || h === "map") {
-    switchTab("map");
+    var ok = false;
+    try { ok = window.__examDeep ? window.__examDeep(h) : false; } catch(e) {}
+    if (!ok) { try { if (typeof window.backToCenter === "function") window.backToCenter(); } catch(e) {} }
+    /* 开考后把 hash 归一到 #exam：刷新时停在卷列表（进度从横幅继续），不会重开一张新卷 */
+    if (h !== "exam") { try { history.replaceState(null, "", location.pathname + location.search + "#exam"); } catch(e) {} }
+    return;
   }
+  if (/^(study|map|outline|domain[1-9]|drill[1-9]|stats)$/.test(h)) {
+    switchTab("map");
+    if (h === "outline") {
+      var ea = document.getElementById("expandAll");
+      if (ea) ea.click();
+      try { history.replaceState(null, "", location.pathname + location.search + "#outline"); } catch(e) {}
+      return;
+    }
+    try { if (window.__learnDeep) window.__learnDeep(h); } catch(e) {}
+    if (h !== "study" && h !== "map") {
+      try { history.replaceState(null, "", location.pathname + location.search + "#" + h); } catch(e) {}
+    }
+    return;
+  }
+  switchTab("map");
 }
-window.addEventListener("hashchange", openTabFromHash);
-openTabFromHash();
+window.addEventListener("hashchange", routeHash);
+window.addEventListener("load", routeHash);
+routeHash();
 /* 吸顶偏移自适应：顶栏 + tab 栏的真实高度（窄屏换行时也不会遮挡） */
 function syncStickyTop(){
   var tb = document.querySelector(".topbar"), tn = document.querySelector(".tabnav");

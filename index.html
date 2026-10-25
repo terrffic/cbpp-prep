@@ -3,76 +3,84 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CBPP 备考中心 · 首页 | CBPP Prep Center</title>
+<title>CBPP 备考中心 · 目录 | CBPP Prep Directory</title>
 <style>
   *{box-sizing:border-box}
-  body{margin:0;min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;
-       color:#1e293b;background:
-         radial-gradient(1000px 520px at 12% -10%,#dbeafe 0%,rgba(219,234,254,0) 62%),
-         radial-gradient(900px 480px at 92% 0%,#e0e7ff 0%,rgba(224,231,255,0) 58%),
-         linear-gradient(180deg,#f8fafc 0%,#f1f5f9 100%);
-       padding:44px 20px 56px}
-  .page{width:100%;max-width:1120px;margin:0 auto}
+  :root{
+    --ink:#16202e; --ink2:#4b5a6b; --ink3:#8593a3;
+    --line:#e4e9f0; --line2:#eef2f7;
+    --blue:#2563eb; --blue-soft:#eff5ff; --blue-line:#d8e6ff;
+    --teal:#0f766e; --teal-soft:#effaf7; --teal-line:#cdeee7;
+    --amber:#b45309;
+  }
+  body{margin:0;min-height:100vh;color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;
+    background:linear-gradient(180deg,#fbfcfe 0%,#f2f5fa 100%);padding:36px 18px 48px}
+  .page{width:100%;max-width:1020px;margin:0 auto}
 
-  /* ---------- hero ---------- */
-  .hero{text-align:center;margin-bottom:38px}
-  .kicker{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #dbeafe;color:#1d4ed8;
-    font-size:11.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:6px 14px;border-radius:999px;
-    box-shadow:0 4px 14px rgba(37,99,235,.08)}
-  .kicker .dot{width:6px;height:6px;border-radius:50%;background:#2563eb}
-  h1{font-size:32px;line-height:1.28;margin:18px 0 0;letter-spacing:-.3px}
-  h1 .en-h{display:block;font-size:15px;font-weight:600;color:#64748b;letter-spacing:.2px;margin-top:8px}
-  .lead{max-width:840px;margin:16px auto 0;font-size:14px;line-height:1.85;color:#475569}
-  .lead .en{display:block;font-size:12.5px;line-height:1.8;color:#94a3b8;margin-top:9px}
+  .hero{margin-bottom:24px}
+  .kicker{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--blue-line);
+    color:#1d4ed8;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
+    padding:5px 12px;border-radius:999px}
+  .kicker .dot{width:5px;height:5px;border-radius:50%;background:var(--blue)}
+  h1{font-size:27px;line-height:1.3;margin:14px 0 0;letter-spacing:-.2px}
+  h1 .en{display:block;font-size:13.5px;font-weight:600;color:var(--ink3);letter-spacing:.2px;margin-top:6px}
+  .lead{margin:12px 0 0;font-size:13.2px;line-height:1.8;color:var(--ink2);max-width:870px}
+  .lead .en{display:block;font-size:11.8px;line-height:1.7;color:var(--ink3);margin-top:5px}
 
-  .facts{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:22px}
-  .fact{background:rgba(255,255,255,.86);border:1px solid #e2e8f0;border-radius:10px;padding:8px 14px;
-    font-size:12.5px;font-weight:700;color:#1e3a8a;backdrop-filter:blur(6px)}
-  .fact span{display:block;font-size:9.5px;font-weight:500;color:#64748b;margin-top:2px;letter-spacing:.2px}
+  .strip{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+  .strip .cell{background:#fff;border:1px solid var(--line);border-radius:9px;padding:7px 12px;min-width:102px}
+  .strip .cell b{display:block;font-size:15px;line-height:1.2;color:var(--ink);font-variant-numeric:tabular-nums}
+  .strip .cell span{display:block;font-size:10.5px;color:var(--ink3);margin-top:3px;letter-spacing:.2px}
 
-  /* ---------- entry cards ---------- */
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
-  .card{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid #e2e8f0;border-radius:16px;
-    padding:26px 24px 20px;text-decoration:none;color:inherit;overflow:hidden;
-    box-shadow:0 3px 14px rgba(15,23,42,.05);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
-  .card::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--bar,#2563eb);opacity:.9}
-  .card:hover{transform:translateY(-5px);border-color:var(--bar,#2563eb);box-shadow:0 18px 40px rgba(30,64,175,.15)}
-  .card:focus-visible{outline:3px solid #93c5fd;outline-offset:2px}
-  .card .num{position:absolute;top:16px;right:20px;font-size:34px;font-weight:800;color:#f1f5f9;letter-spacing:-2px;line-height:1}
-  .card .ic{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:23px;
-    background:var(--soft,#eff6ff);border:1px solid var(--line,#dbeafe);margin-bottom:14px}
-  .card h2{font-size:17px;margin:0;line-height:1.35;position:relative}
-  .card h2 .en{display:block;font-size:11.5px;font-weight:600;color:#94a3b8;letter-spacing:.4px;margin-top:5px;text-transform:uppercase}
-  .card p{font-size:12.8px;line-height:1.8;color:#475569;margin:12px 0 0}
-  .card p.en{font-size:11.5px;line-height:1.72;color:#94a3b8;margin-top:7px}
-  .card .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0 18px}
-  .card .tags i{font-style:normal;font-size:10.5px;font-weight:600;color:#475569;background:#f1f5f9;border:1px solid #e2e8f0;
-    border-radius:6px;padding:3px 8px}
-  .card .go{margin-top:auto;padding-top:15px;font-size:12.8px;font-weight:700;color:var(--bar,#2563eb);
-    display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px dashed #e2e8f0}
-  .card .go span{font-size:11px;font-weight:600;color:#94a3b8;letter-spacing:.2px}
-  .card .go .ar{transition:transform .18s ease}
-  .card:hover .go .ar{transform:translateX(4px)}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:15px;padding:4px 6px 8px;margin-top:16px;
+    box-shadow:0 1px 3px rgba(16,24,40,.04)}
+  .phead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:14px 16px 8px}
+  .phead h2{font-size:15px;margin:0;font-weight:700}
+  .phead h2 .en{font-size:11px;font-weight:600;color:var(--ink3);letter-spacing:.4px;margin-left:8px;text-transform:uppercase}
+  .phead .meta{margin-left:auto;font-size:11.5px;color:var(--ink3)}
+  .phead .meta b{color:var(--ink2)}
 
-  /* ---------- path strip ---------- */
-  .path{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:30px;
-    background:rgba(255,255,255,.7);border:1px solid #e2e8f0;border-radius:12px;padding:13px 18px;font-size:12.5px;color:#64748b}
-  .path b{color:#1d4ed8}
-  .path .a{color:#cbd5e1}
-  .path .e{color:#94a3b8;font-size:11.5px}
+  .rows{display:grid;grid-template-columns:1fr 1fr;gap:2px 10px;padding:0 10px 8px}
+  .rows.single{grid-template-columns:1fr}
+  .row{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;transition:background .14s ease}
+  .row:hover{background:#f7f9fc}
+  .row .idx{width:22px;flex:none;font-size:11px;font-weight:700;color:#b3c0cf;font-variant-numeric:tabular-nums}
+  .row .main{flex:1;min-width:0;text-decoration:none;color:inherit;display:block}
+  .row .main .t{display:block;font-size:13.4px;font-weight:600;line-height:1.45}
+  .row .main .e{display:block;font-size:11px;color:var(--ink3);line-height:1.5;margin-top:2px;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .row .main:hover .t{color:var(--blue)}
+  .row .w{flex:none;font-size:10.5px;font-weight:700;color:var(--ink2);background:#f4f7fb;
+    border:1px solid var(--line2);border-radius:5px;padding:2px 6px;font-variant-numeric:tabular-nums}
+  .row .go{flex:none;font-size:11.5px;font-weight:700;text-decoration:none;color:var(--blue);
+    border:1px solid var(--blue-line);background:var(--blue-soft);border-radius:7px;padding:5px 10px;white-space:nowrap}
+  .row .go:hover{background:#e3edff;border-color:#bfd6ff}
+  .row .go.teal{color:var(--teal);border-color:var(--teal-line);background:var(--teal-soft)}
+  .row .go.teal:hover{background:#e2f7f1}
+  .row .go.solid{color:#fff;background:var(--amber);border-color:var(--amber)}
+  .row .go.solid:hover{background:#9a4708;border-color:#9a4708}
 
-  footer{margin-top:34px;padding-top:20px;border-top:1px solid #e2e8f0;font-size:11.8px;line-height:1.85;color:#94a3b8;text-align:center}
-  footer .en{display:block;font-size:11px;color:#b0bccd;margin-top:6px}
-  footer a{color:#64748b;text-decoration:none;border-bottom:1px dotted #cbd5e1}
-  footer a:hover{color:#1d4ed8;border-color:#93c5fd}
-  footer .links{margin-top:10px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;font-size:11.5px}
+  .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:2px 16px 10px}
+  .tile{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:10px;
+    padding:11px 12px;background:#fcfdff;transition:border-color .14s,background .14s}
+  .tile:hover{border-color:var(--blue-line);background:var(--blue-soft)}
+  .tile b{display:block;font-size:12.8px;font-weight:700}
+  .tile b .en{display:block;font-size:10.5px;font-weight:600;color:var(--ink3);margin-top:3px;letter-spacing:.2px}
+  .tile span{display:block;font-size:11px;color:var(--ink3);margin-top:6px;line-height:1.5}
 
-  @media (max-width:900px){ .cards{grid-template-columns:1fr 1fr} }
-  @media (max-width:640px){
-    body{padding:28px 14px 40px}
-    h1{font-size:25px}
-    .cards{grid-template-columns:1fr;gap:14px}
-    .card .num{font-size:28px}
+  footer{margin-top:22px;padding-top:15px;border-top:1px solid var(--line);font-size:11.5px;line-height:1.9;color:var(--ink3)}
+  footer .links{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:8px}
+  footer a{color:var(--ink2);text-decoration:none;border-bottom:1px dotted #cbd5e1}
+  footer a:hover{color:var(--blue);border-color:#93c5fd}
+  footer .fine{margin-top:8px;font-size:10.8px;color:#a7b4c4;line-height:1.75}
+
+  @media (max-width:760px){
+    body{padding:26px 13px 36px}
+    h1{font-size:23px}
+    .rows{grid-template-columns:1fr}
+    .tiles{grid-template-columns:1fr}
+    .row .main .e{white-space:normal}
   }
 </style>
 </head>
@@ -81,74 +89,82 @@
 
   <header class="hero">
     <span class="kicker"><span class="dot"></span>CBPP® · Certified Business Process Professional</span>
-    <h1>CBPP 备考中心 · 选一个模块开始
-      <span class="en-h">CBPP Prep Center — pick one module to begin</span></h1>
-    <p class="lead">业务流程管理专家认证 · 依据 ABPMP《BPM CBOK®》4.0 与 2025 版《CBPP Examination Handbook》官方蓝图制作。本页是唯一入口，下面三个模块任选其一进入；进入后每个页面左上角都有「← 返回首页」，可随时回到这里换模块。
-      <span class="en">Built on the ABPMP BPM CBOK® 4.0 and the 2025 CBPP Examination Handbook blueprint. This page is the single entry point — choose any of the three modules below. Every module carries a “← Back to Home” link in its top bar, so you can always come back here and switch.</span></p>
-    <div class="facts">
-      <span class="fact">140 题 · 180 分钟<span>140 Qs · 180 min</span></span>
-      <span class="fact">70% 及格（98 题）<span>Pass mark 70% (98 Qs)</span></span>
-      <span class="fact">9 大知识域<span>9 knowledge domains</span></span>
-      <span class="fact">311 题题库<span>311-question bank</span></span>
-      <span class="fact">5 套全真卷<span>5 full mock papers</span></span>
-      <span class="fact">英文题面 · 双语解析<span>English stems · bilingual notes</span></span>
+    <h1>CBPP 备考中心 · 目录
+      <span class="en">CBPP Prep Directory — everything on one page</span></h1>
+    <p class="lead">全部内容都在这一页：要学哪一章、要做哪套卷，直接点那一行右边进去，一次到位；每页左上角「← 目录」一点就回来。
+      <span class="en">Everything lives on this page. Pick the chapter or the paper you want and click straight into it — no nested menus. Every page carries a “← Directory” link that brings you right back here.</span></p>
+    <div class="strip">
+      <div class="cell"><b>9</b><span>知识域 / domains</span></div>
+      <div class="cell"><b>140</b><span>每题卷 / items</span></div>
+      <div class="cell"><b>180</b><span>分钟 / minutes</span></div>
+      <div class="cell"><b>70%</b><span>及格 / to pass</span></div>
+      <div class="cell"><b id="stPapers">0</b><span>已考次数 / attempts</span></div>
+      <div class="cell"><b id="stBest">—</b><span>最高分 / best</span></div>
+      <div class="cell"><b id="stWrong">0</b><span>待复习错题 / wrong</span></div>
     </div>
   </header>
 
-  <div class="cards">
+  <section class="panel">
+    <div class="phead">
+      <h2>精讲与分章练习<span class="en">Notes &amp; chapter drills</span></h2>
+      <span class="meta">9 大知识域 · 四级精讲 · 36 道分章练习 · 中英双语</span>
+    </div>
+    <div class="rows">
+      <div class="row"><span class="idx">01</span><a class="main" href="CBPP备考中心.html#domain1"><span class="t">业务流程管理基础</span><span class="e">Business Process Management</span></a><span class="w">6%</span><a class="go teal" href="CBPP备考中心.html#drill1">练习</a></div>
+      <div class="row"><span class="idx">02</span><a class="main" href="CBPP备考中心.html#domain2"><span class="t">流程建模</span><span class="e">Process Modeling</span></a><span class="w">12%</span><a class="go teal" href="CBPP备考中心.html#drill2">练习</a></div>
+      <div class="row"><span class="idx">03</span><a class="main" href="CBPP备考中心.html#domain3"><span class="t">流程分析</span><span class="e">Process Analysis</span></a><span class="w">10%</span><a class="go teal" href="CBPP备考中心.html#drill3">练习</a></div>
+      <div class="row"><span class="idx">04</span><a class="main" href="CBPP备考中心.html#domain4"><span class="t">流程设计与转型</span><span class="e">Process Design &amp; Transformation</span></a><span class="w">11%</span><a class="go teal" href="CBPP备考中心.html#drill4">练习</a></div>
+      <div class="row"><span class="idx">05</span><a class="main" href="CBPP备考中心.html#domain5"><span class="t">流程绩效管理</span><span class="e">Process Performance Management</span></a><span class="w">11%</span><a class="go teal" href="CBPP备考中心.html#drill5">练习</a></div>
+      <div class="row"><span class="idx">06</span><a class="main" href="CBPP备考中心.html#domain6"><span class="t">流程改进</span><span class="e">Process Improvement</span></a><span class="w">10%</span><a class="go teal" href="CBPP备考中心.html#drill6">练习</a></div>
+      <div class="row"><span class="idx">07</span><a class="main" href="CBPP备考中心.html#domain7"><span class="t">流程管理组织</span><span class="e">Process Management Organization</span></a><span class="w">12%</span><a class="go teal" href="CBPP备考中心.html#drill7">练习</a></div>
+      <div class="row"><span class="idx">08</span><a class="main" href="CBPP备考中心.html#domain8"><span class="t">企业流程管理</span><span class="e">Enterprise Process Management</span></a><span class="w">13%</span><a class="go teal" href="CBPP备考中心.html#drill8">练习</a></div>
+      <div class="row"><span class="idx">09</span><a class="main" href="CBPP备考中心.html#domain9"><span class="t">BPM 转型与技术</span><span class="e">BPM Transformation &amp; Technology</span></a><span class="w">15%</span><a class="go teal" href="CBPP备考中心.html#drill9">练习</a></div>
+      <div class="row"><span class="idx">★</span><a class="main" href="CBPP备考中心.html#outline"><span class="t">完整知识树 · 全部展开</span><span class="e">Full outline, every level expanded</span></a><span class="w">全部</span><a class="go" href="CBPP备考中心.html#outline">打开</a></div>
+    </div>
+  </section>
 
-    <a class="card" href="CBPP考点思维导图.html" style="--bar:#2563eb;--soft:#eff6ff;--line:#dbeafe">
-      <span class="num">01</span>
-      <span class="ic">🧭</span>
-      <h2>考点思维导图<span class="en">Knowledge Map</span></h2>
-      <p>九大知识域四级精讲，全部节点中英双语；每章附英文缩写速查表；内置 36 道英文分章练习与错题统计。</p>
-      <p class="en">Four levels of exam-focused notes across all nine domains, every node bilingual. Includes abbreviation quick-reference tables, 36 English chapter drills and error tracking.</p>
-      <span class="tags"><i>9 domains</i><i>4 levels</i><i>57 abbreviations</i><i>36 drills</i></span>
-      <span class="go">进入思维导图<span>Enter the map →</span></span>
-    </a>
-
-    <a class="card" href="CBPP备考中心.html#study" style="--bar:#0f766e;--soft:#ecfdf5;--line:#d1fae5">
-      <span class="num">02</span>
-      <span class="ic">📖</span>
-      <h2>精讲与分章练习<span class="en">Study &amp; Chapter Drills</span></h2>
-      <p>学习地图 + 每个知识域精讲卡 + 逐章练习（题后即时解析）+ 错题本与正确率统计，适合打基础阶段使用。</p>
-      <p class="en">Study map with per-domain note cards, chapter-by-chapter drills with instant explanations, plus an error bank and accuracy stats — best for building the fundamentals.</p>
-      <span class="tags"><i>9 chapter decks</i><i>instant explanations</i><i>error bank</i></span>
-      <span class="go">进入学习与练习<span>Enter study &amp; drills →</span></span>
-    </a>
-
-    <a class="card" href="CBPP模拟考试系统.html" style="--bar:#b45309;--soft:#fffbeb;--line:#fef3c7">
-      <span class="num">03</span>
-      <span class="ic">🎯</span>
-      <h2>全真模拟考试<span class="en">Full Mock Exams</span></h2>
-      <p>五套全真卷，严格按官方蓝图组卷：每套 140 题 · 180 分钟 · 70% 及格；英文题面可开中英对照，交卷后按知识域出成绩单并可回看解析。</p>
-      <p class="en">Five full papers built to the official blueprint: 140 items · 180 minutes · 70% to pass each. English stems with an optional Chinese overlay; domain-level score reports and full answer review after submission.</p>
-      <span class="tags"><i>5 papers</i><i>180 min timer</i><i>review mode</i></span>
-      <span class="go">进入模拟考试<span>Enter mock exams →</span></span>
-    </a>
-
-  </div>
-
-  <div class="path">
-    <span>建议路径</span>
-    <b>01 思维导图</b><span class="a">→</span>
-    <b>02 分章练习</b><span class="a">→</span>
-    <b>03 五套全真模考</b><span class="a">→</span>
-    <span>错题重做，稳定 75% 以上再上考场</span>
-    <span class="e">Recommended path: map → chapter drills → five mock papers → redo mistakes; aim for a stable 75%+ before the real exam.</span>
-  </div>
+  <section class="panel">
+    <div class="phead">
+      <h2>全真模拟考试<span class="en">Full mock exams</span></h2>
+      <span class="meta">5 套 · 每套 <b>140 题 / 180 分钟</b> · 70% 及格 · 英文题面可开中英对照</span>
+    </div>
+    <div class="rows single">
+      <div class="row"><span class="idx">P1</span><a class="main" href="CBPP备考中心.html#paper1"><span class="t">第 1 套全真卷</span><span class="e">Full mock paper 1 · 140 items · 180 minutes</span></a><span class="w">140 题</span><a class="go solid" href="CBPP备考中心.html#paper1">开始</a></div>
+      <div class="row"><span class="idx">P2</span><a class="main" href="CBPP备考中心.html#paper2"><span class="t">第 2 套全真卷</span><span class="e">Full mock paper 2 · 140 items · 180 minutes</span></a><span class="w">140 题</span><a class="go solid" href="CBPP备考中心.html#paper2">开始</a></div>
+      <div class="row"><span class="idx">P3</span><a class="main" href="CBPP备考中心.html#paper3"><span class="t">第 3 套全真卷</span><span class="e">Full mock paper 3 · 140 items · 180 minutes</span></a><span class="w">140 题</span><a class="go solid" href="CBPP备考中心.html#paper3">开始</a></div>
+      <div class="row"><span class="idx">P4</span><a class="main" href="CBPP备考中心.html#paper4"><span class="t">第 4 套全真卷</span><span class="e">Full mock paper 4 · 140 items · 180 minutes</span></a><span class="w">140 题</span><a class="go solid" href="CBPP备考中心.html#paper4">开始</a></div>
+      <div class="row"><span class="idx">P5</span><a class="main" href="CBPP备考中心.html#paper5"><span class="t">第 5 套全真卷</span><span class="e">Full mock paper 5 · 140 items · 180 minutes</span></a><span class="w">140 题</span><a class="go solid" href="CBPP备考中心.html#paper5">开始</a></div>
+    </div>
+    <div class="tiles">
+      <a class="tile" href="CBPP备考中心.html#chapter"><b>单章模考<span class="en">Single-chapter test</span></b><span>按知识域抽题，随时小测一段</span></a>
+      <a class="tile" href="CBPP备考中心.html#wrong"><b>错题本<span class="en">Wrong answers</span></b><span>汇总所有做错的题，一键重做</span></a>
+      <a class="tile" href="CBPP备考中心.html#stats"><b>练习统计<span class="en">Drill stats</span></b><span>分域正确率与错题分布</span></a>
+    </div>
+  </section>
 
   <footer>
-    纯前端单文件，无需登录、无需安装，打开即用；进度与成绩保存在本机浏览器。
-    <span class="en">Pure front-end single files — no login, no install. Progress and scores are stored in your own browser.</span>
     <div class="links">
       <a href="https://github.com/terrffic/cbpp-prep">GitHub 仓库 / Repository</a>
       <a href="README.md">使用说明 / README</a>
+      <a href="CBPP考点思维导图.html">思维导图单文件版 / Standalone map</a>
+      <a href="CBPP模拟考试系统.html">考试单文件版 / Standalone exam</a>
     </div>
-    <div style="margin-top:10px">本工具为第三方备考辅助资料，题目均为原创模拟题；CBPP®、BPM CBOK® 为 ABPMP 注册商标，与本工具无隶属关系。
-      <span class="en">Independent study aid with originally written practice questions. CBPP® and BPM CBOK® are registered trademarks of ABPMP; this tool is not affiliated with ABPMP.</span></div>
+    纯前端，无需登录与安装；进度、错题与成绩保存在本机浏览器。两个单文件版内容与主站相同，仅便于单独分享或离线使用。
+    <div class="fine">Independent study aid with originally written practice questions. CBPP® and BPM CBOK® are registered trademarks of ABPMP; this tool is not affiliated with ABPMP.</div>
   </footer>
 
 </div>
+<script>
+(function(){
+  try{
+    var db = JSON.parse(localStorage.getItem("cbpp_exam_v1") || "null") || {};
+    var hist = Array.isArray(db.hist) ? db.hist : [];
+    var best = hist.length ? Math.max.apply(null, hist.map(function(h){ return Number(h.score) || 0; })) : null;
+    document.getElementById("stPapers").textContent = hist.length;
+    document.getElementById("stBest").textContent = best === null ? "—" : best + "%";
+    document.getElementById("stWrong").textContent = db.wrong ? Object.keys(db.wrong).length : 0;
+  }catch(e){}
+})();
+</script>
 </body>
 </html>
