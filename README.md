@@ -1,6 +1,8 @@
 # CBPP 备考中心（业务流程管理专家认证）
 
-依据 ABPMP《BPM CBOK®》4.0 的知识域划分与 2025 版《CBPP Examination Handbook》公布的考试蓝图制作的**交互式备考工具**。纯前端、单文件、无需安装，双击 `index.html` 即用，也可直接部署到 GitHub Pages。
+**在线访问：https://terrffic.github.io/cbpp-prep/** ｜ 部署提交 `0273adc8af782acf93f0ab1746152e5d2e271be3`（Pages 构建 `built`，四个入口 HTML 线上 SHA-256 与入库内容逐一一致，见 `reports/F_deploy.md`）
+
+依据 ABPMP《BPM CBOK®》4.0 的知识域划分与 2025 版《CBPP Examination Handbook》公布的考试蓝图制作的**交互式备考工具**。纯前端、单文件、无需安装：线上直接打开上面的链接，本地双击 `index.html` 即用。
 
 > **性质声明**：本系统是**第三方学习工具**，不是 ABPMP 官方产品，题目不是真题，也不宣称与真实考试在难度或内容上一致。官方手册明确说明：通过分数由心理测量学方法确定，**未公布固定百分比**；本系统界面上的 70% 是**训练参考线**，不是官方及格线。
 
@@ -27,6 +29,19 @@
 | `CBPP模拟考试系统.html` | 兼容入口，自动跳转到主体应用的考试视图 |
 
 两个「单文件版」现在只是跳转页：早期它们各自内嵌一份内容，导致同一道题在三处出现不同版本；现在只保留 `CBPP备考中心.html` 一份内容源。
+
+## 部署与质量门禁
+
+| 命令 | 作用 | 当前结果 |
+|---|---|---|
+| `node tools/audit.js` | 结构 / 答案 / 计算复算 / 卷分布 / 中英一致 / 表述风险 | P0 = 0，GATE PASS |
+| `node tools/e2e.js` | jsdom 全流程点击回归（练习、考试、错题、存储迁移） | 73 passed / 0 failed |
+| `node tools/coverage.js` | 19 个二级领域覆盖矩阵 + 逐题审查台账 | 全覆盖，台账 323 行 |
+| `node tools/live_check.js` | 对 **Pages 线上字节** 跑启动与数据断言 | 26 passed / 0 failed |
+| `python tools/deploy.py --dry-run` | 本地与远端逐文件差异（无需凭据） | — |
+| `python tools/deploy.py` | 经 REST API 部署并自动核验 | 见 `reports/F_deploy.md` |
+
+本机 `git push` 经代理会返回 `502`，因此部署改走 `api.github.com` 的 Git Data 接口；token 只经 HTTPS 发出，不接受命令行传参，脚本输出不含凭据。细节见 `tools/DEPLOY.md`。
 
 ## 导航：一页目录，点一下就到
 
