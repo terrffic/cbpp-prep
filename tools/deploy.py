@@ -111,6 +111,12 @@ def local_files(repo):
 
 
 def blob_bytes(repo, path):
+    """取「git 会存进去的那份字节」：HEAD 里的内容（LF 归一化），
+    而不是工作区原始字节。这样入库 blob 与 `git hash-object` 一致，
+    别人的 clone 不会因为 core.autocrlf 而永远显示 modified。"""
+    r = subprocess.run(["git", "cat-file", "blob", "HEAD:" + path], cwd=repo, capture_output=True)
+    if r.returncode == 0:
+        return r.stdout
     return open(os.path.join(repo, path), "rb").read()
 
 
@@ -159,12 +165,12 @@ def main():
         return 0
 
     if args.verify_only:
-        verify_all(api)
+        verify_all(api, repo=repo)
         return 0
 
     if not (changed or added or deleted):
         log("\n远端已与本地一致，无需提交。")
-        verify_all(api)
+        verify_all(api, repo=repo)
         return 0
 
     # 1) 上传 blob（仅变动的文件）
@@ -212,7 +218,7 @@ def main():
     log("分支 %s 已更新 → %s" % (BRANCH, commit["sha"]))
 
     log("\n最终提交 SHA: " + commit["sha"])
-    verify_all(api, commit["sha"])
+    verify_all(api, commit["sha"], repo=repo)
     return 0
 
 
@@ -227,10 +233,10 @@ def sha256_bytes(b):
     return hashlib.sha256(b).hexdigest()
 
 
-def verify_all(api, expect_sha=None):
+def verify_all(api, expect_sha=None, repo=None):
     """逐文件核对「本地 = 分支 = Pages 线上」，并打印 Pages 构建状态。"""
-    repo = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
-    repo = os.path.abspath(repo)
+    if repo is None:
+        repo = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 
     st, head = api.call("GET", "/repos/%s/%s/git/ref/heads/%s" % (OWNER, REPO, BRANCH))
     head_sha = head["object"]["sha"] if st == 200 else "?"
@@ -268,7 +274,7 @@ def verify_all(api, expect_sha=None):
         log("Pages 状态读取失败 HTTP %s（可能未启用 Pages）" % st)
 
     # 逐字节对比 Pages 线上文件
-    log("Pages 线上逐文件校验（SHA-256）：")
+    log("Pages 线上逐文件校验（SHA-256，对照 git 入库字节）：")
     ok = fail = 0
     targets = ["index.html", "CBPP备考中心.html", "CBPP考点思维导图.html", "CBPP模拟考试系统.html"]
     for p in targets:
@@ -281,7 +287,8 @@ def verify_all(api, expect_sha=None):
             log("  ERR %-28s %s" % (p, e))
             fail += 1
             continue
-        lh = sha256_bytes(open(os.path.join(repo, p), "rb").read())
+        # 与「git 入库的那份字节」比（Pages 直接服务 blob，LF 归一化后的内容）
+        lh = sha256_bytes(blob_bytes(repo, p))
         sh = sha256_bytes(served)
         if lh == sh:
             log("  OK  %-28s %6.1f KB  %s" % (p, len(served) / 1024, sh[:16]))
