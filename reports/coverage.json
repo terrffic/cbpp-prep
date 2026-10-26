@@ -1,0 +1,201 @@
+{
+  "total": 323,
+  "byDomain": [
+    {
+      "d": "D1",
+      "n": 31,
+      "plan": 9
+    },
+    {
+      "d": "D2",
+      "n": 38,
+      "plan": 17
+    },
+    {
+      "d": "D3",
+      "n": 34,
+      "plan": 14
+    },
+    {
+      "d": "D4",
+      "n": 36,
+      "plan": 15
+    },
+    {
+      "d": "D5",
+      "n": 39,
+      "plan": 15
+    },
+    {
+      "d": "D6",
+      "n": 34,
+      "plan": 14
+    },
+    {
+      "d": "D7",
+      "n": 30,
+      "plan": 17
+    },
+    {
+      "d": "D8",
+      "n": 40,
+      "plan": 19
+    },
+    {
+      "d": "D9",
+      "n": 41,
+      "plan": 20
+    }
+  ],
+  "bySub": [
+    {
+      "code": "1.1",
+      "zh": "BPM 原则与概念",
+      "en": "Business Process Principles",
+      "bank": 25,
+      "status": "充分覆盖"
+    },
+    {
+      "code": "1.2",
+      "zh": "BPM 专业人员",
+      "en": "BPM Professionals",
+      "bank": 6,
+      "status": "充分覆盖"
+    },
+    {
+      "code": "2.1",
+      "zh": "建模标准与治理",
+      "en": "Process Modeling Standards",
+      "bank": 11,
+      "status": "充分覆盖"
+    },
+    {
+      "code": "2.2",
+      "zh": "建模符号与 BPMN",
+      "en": "Process Modeling Notations",
+      "bank": 27,
+      "status": "充分覆盖"
+    },
+    {
+      "code": "3.1",
+      "zh": "分析方法",
+      "en": "Process Analysis Methods",
+      "bank": 23,
+      "status": "充分覆盖"
+    },
+    {
+      "code": "3.2",
+      "zh": "分析技术",
+      "en": "Process Analysis Techniques",
+      "bank": 11,
+      "status": "充分覆盖"
+    },
+    {
+      "code": "4.1",
+      "zh": "设计原则",
+      "en": "Process Design Principles",
+      "bank": 28,
+      "status": "充分覆盖"
+    },
+    {
+      "code": "4.2",
+      "zh": "流程转型",
+      "en": "Process Transformation",
+      "bank": 8,
+      "status": "充分覆盖"
+    },
+    {
+      "code": "5.1",
+      "zh": "有效度量",
+      "en": "Effective Process Measures",
+      "bank": 9,
+      "status": "充分覆盖"
+    },
+    {
+      "code": "5.2",
+      "zh": "流程绩效指标",
+      "en": "Process Metrics",
+      "bank": 30,
+      "status": "充分覆盖"
+    },
+    {
+      "code": "6.1",
+      "zh": "改进幅度与类型",
+      "en": "Degrees of Process Change",
+      "bank": 13,
+      "status": "充分覆盖"
+    },
+    {
+      "code": "6.2",
+      "zh": "改进方法论",
+      "en": "Process Design Methodologies",
+      "bank": 21,
+      "status": "充分覆盖"
+    },
+    {
+      "code": "7.1",
+      "zh": "流程导向与角色",
+      "en": "Process Orientation",
+      "bank": 20,
+      "status": "充分覆盖"
+    },
+    {
+      "code": "7.2",
+      "zh": "组织变革管理",
+      "en": "Organizational Change Management",
+      "bank": 10,
+      "status": "充分覆盖"
+    },
+    {
+      "code": "8.1",
+      "zh": "企业流程治理",
+      "en": "Enterprise Process Governance",
+      "bank": 28,
+      "status": "充分覆盖"
+    },
+    {
+      "code": "8.2",
+      "zh": "流程框架与架构",
+      "en": "Process Frameworks",
+      "bank": 12,
+      "status": "充分覆盖"
+    },
+    {
+      "code": "9.1",
+      "zh": "转型技术架构",
+      "en": "BPM Transformation Architecture",
+      "bank": 9,
+      "status": "充分覆盖"
+    },
+    {
+      "code": "9.2",
+      "zh": "BPM 系统组件",
+      "en": "BPM System Components",
+      "bank": 27,
+      "status": "充分覆盖"
+    },
+    {
+      "code": "9.3",
+      "zh": "业务规则",
+      "en": "Business Process Rules",
+      "bank": 5,
+      "status": "充分覆盖"
+    }
+  ],
+  "verdicts": {
+    "A": 239,
+    "D": 6,
+    "B": 65,
+    "C": 13
+  },
+  "cognitive": {
+    "方法应用": 203,
+    "概念理解": 43,
+    "综合判断": 77
+  },
+  "difficulty": {
+    "易": 293,
+    "中": 30
+  },
+  "drills": 36
+}

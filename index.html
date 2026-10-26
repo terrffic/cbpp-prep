@@ -97,7 +97,7 @@
       <div class="cell"><b>9</b><span>知识域 / domains</span></div>
       <div class="cell"><b>140</b><span>每题卷 / items</span></div>
       <div class="cell"><b>180</b><span>分钟 / minutes</span></div>
-      <div class="cell"><b>70%</b><span>及格 / to pass</span></div>
+      <div class="cell"><b>70%</b><span>训练参考线 / target</span></div>
       <div class="cell"><b id="stPapers">0</b><span>已考次数 / attempts</span></div>
       <div class="cell"><b id="stBest">—</b><span>最高分 / best</span></div>
       <div class="cell"><b id="stWrong">0</b><span>待复习错题 / wrong</span></div>
@@ -126,7 +126,7 @@
   <section class="panel">
     <div class="phead">
       <h2>全真模拟考试<span class="en">Full mock exams</span></h2>
-      <span class="meta">5 套 · 每套 <b>140 题 / 180 分钟</b> · 70% 及格 · 英文题面可开中英对照</span>
+      <span class="meta">5 套 · 每套 <b>140 题 / 180 分钟</b> · 参考线 70%（非官方及格线）· 英文题面可开中英对照</span>
     </div>
     <div class="rows single">
       <div class="row"><span class="idx">P1</span><a class="main" href="CBPP备考中心.html#paper1"><span class="t">第 1 套全真卷</span><span class="e">Full mock paper 1 · 140 items · 180 minutes</span></a><span class="w">140 题</span><a class="go solid" href="CBPP备考中心.html#paper1">开始</a></div>
@@ -146,10 +146,10 @@
     <div class="links">
       <a href="https://github.com/terrffic/cbpp-prep">GitHub 仓库 / Repository</a>
       <a href="README.md">使用说明 / README</a>
-      <a href="CBPP考点思维导图.html">思维导图单文件版 / Standalone map</a>
-      <a href="CBPP模拟考试系统.html">考试单文件版 / Standalone exam</a>
+      <a href="CBPP考点思维导图.html">旧单文件版入口（自动跳转主站）</a>
+      <a href="CBPP模拟考试系统.html">旧考试单文件入口（自动跳转主站）</a>
     </div>
-    纯前端，无需登录与安装；进度、错题与成绩保存在本机浏览器。两个单文件版内容与主站相同，仅便于单独分享或离线使用。
+    纯前端，无需登录与安装；进度、错题与成绩保存在本机浏览器。为保证内容一致，原来的两个单文件版已并入主站，旧链接会自动跳转。题库版本更新后，旧成绩会标记为「旧题库」，不计入最高分。
     <div class="fine">Independent study aid with originally written practice questions. CBPP® and BPM CBOK® are registered trademarks of ABPMP; this tool is not affiliated with ABPMP.</div>
   </footer>
 
@@ -159,7 +159,8 @@
   try{
     var db = JSON.parse(localStorage.getItem("cbpp_exam_v1") || "null") || {};
     var hist = Array.isArray(db.hist) ? db.hist : [];
-    var best = hist.length ? Math.max.apply(null, hist.map(function(h){ return Number(h.score) || 0; })) : null;
+    var cur = hist.filter(function(h){ return !h.legacy; });      /* 旧题库成绩不计入 */
+    var best = cur.length ? Math.max.apply(null, cur.map(function(h){ return Number(h.score) || 0; })) : null;
     document.getElementById("stPapers").textContent = hist.length;
     document.getElementById("stBest").textContent = best === null ? "—" : best + "%";
     document.getElementById("stWrong").textContent = db.wrong ? Object.keys(db.wrong).length : 0;

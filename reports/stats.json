@@ -1,0 +1,166 @@
+{
+  "generatedAt": "2026-10-25T15:55:59.063Z",
+  "totals": {
+    "exam": 323,
+    "drill": 36
+  },
+  "domainCounts": [
+    {
+      "domain": 1,
+      "items": 31,
+      "plan": 9
+    },
+    {
+      "domain": 2,
+      "items": 38,
+      "plan": 17
+    },
+    {
+      "domain": 3,
+      "items": 34,
+      "plan": 14
+    },
+    {
+      "domain": 4,
+      "items": 36,
+      "plan": 15
+    },
+    {
+      "domain": 5,
+      "items": 39,
+      "plan": 15
+    },
+    {
+      "domain": 6,
+      "items": 34,
+      "plan": 14
+    },
+    {
+      "domain": 7,
+      "items": 30,
+      "plan": 17
+    },
+    {
+      "domain": 8,
+      "items": 40,
+      "plan": 19
+    },
+    {
+      "domain": 9,
+      "items": 41,
+      "plan": 20
+    }
+  ],
+  "answerDistribution": [
+    {
+      "n": 82,
+      "pct": 25
+    },
+    {
+      "n": 79,
+      "pct": 24
+    },
+    {
+      "n": 81,
+      "pct": 25
+    },
+    {
+      "n": 81,
+      "pct": 25
+    }
+  ],
+  "templateFamilies": [
+    {
+      "head": "DMAIC：Define（定义问题、章程与 SIPOC）",
+      "count": 6,
+      "ids": [
+        "g6-dmaic0",
+        "g6-dmaic1",
+        "g6-dmaic2",
+        "g6-dmaic3",
+        "g6-dmaic4",
+        "g6-dmaic5"
+      ]
+    },
+    {
+      "head": "精益工具箱：看板＝拉动补货信号；SMED＝压缩切换时间；",
+      "count": 6,
+      "ids": [
+        "g6-lean0",
+        "g6-lean1",
+        "g6-lean2",
+        "g6-lean3",
+        "g6-lean4",
+        "g6-lean5"
+      ]
+    },
+    {
+      "head": "治理分工：治理委员会管政策/标准/跨域裁决；所有者管单条",
+      "count": 6,
+      "ids": [
+        "g8-gov0",
+        "g8-gov1",
+        "g8-gov2",
+        "g8-gov3",
+        "g8-gov4",
+        "g8-gov5"
+      ]
+    }
+  ],
+  "templateItems": 18,
+  "weakDistractorItems": 141,
+  "papers": [
+    {
+      "pair": "P1-P2",
+      "n": 59,
+      "pct": 42
+    },
+    {
+      "pair": "P1-P3",
+      "n": 55,
+      "pct": 39
+    },
+    {
+      "pair": "P1-P4",
+      "n": 67,
+      "pct": 48
+    },
+    {
+      "pair": "P1-P5",
+      "n": 69,
+      "pct": 49
+    },
+    {
+      "pair": "P2-P3",
+      "n": 60,
+      "pct": 43
+    },
+    {
+      "pair": "P2-P4",
+      "n": 66,
+      "pct": 47
+    },
+    {
+      "pair": "P2-P5",
+      "n": 66,
+      "pct": 47
+    },
+    {
+      "pair": "P3-P4",
+      "n": 59,
+      "pct": 42
+    },
+    {
+      "pair": "P3-P5",
+      "n": 59,
+      "pct": 42
+    },
+    {
+      "pair": "P4-P5",
+      "n": 68,
+      "pct": 49
+    }
+  ],
+  "unionAcrossPapers": 299,
+  "drillOverlap": 36
+}

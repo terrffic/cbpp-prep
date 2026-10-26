@@ -1,0 +1,360 @@
+{
+  "generatedAt": "2026-10-25T15:55:19.944Z",
+  "totals": {
+    "exam": 323,
+    "drill": 36,
+    "all": 359
+  },
+  "domainCounts": [
+    31,
+    38,
+    34,
+    36,
+    39,
+    34,
+    30,
+    40,
+    41
+  ],
+  "plan": [
+    9,
+    17,
+    14,
+    15,
+    15,
+    14,
+    17,
+    19,
+    20
+  ],
+  "calc": {
+    "total": 24,
+    "pass": 24,
+    "detail": [
+      {
+        "id": "g5-dpmo0",
+        "expect": 3750,
+        "chosen": "3750",
+        "ok": true,
+        "note": "DPMO = 36/2400/4 × 1e6"
+      },
+      {
+        "id": "g5-dpmo1",
+        "expect": 3000,
+        "chosen": "3000",
+        "ok": true,
+        "note": "DPMO = 90/5000/6 × 1e6"
+      },
+      {
+        "id": "g5-dpmo2",
+        "expect": 5000,
+        "chosen": "5000",
+        "ok": true,
+        "note": "DPMO = 120/8000/3 × 1e6"
+      },
+      {
+        "id": "g5-dpmo3",
+        "expect": 2000,
+        "chosen": "2000",
+        "ok": true,
+        "note": "DPMO = 60/6000/5 × 1e6"
+      },
+      {
+        "id": "g5-dpmo4",
+        "expect": 4000,
+        "chosen": "4000",
+        "ok": true,
+        "note": "DPMO = 48/1500/8 × 1e6"
+      },
+      {
+        "id": "g5-dpmo5",
+        "expect": 2500,
+        "chosen": "2500",
+        "ok": true,
+        "note": "DPMO = 75/3000/10 × 1e6"
+      },
+      {
+        "id": "g5-dpmo6",
+        "expect": 4000,
+        "chosen": "4000",
+        "ok": true,
+        "note": "DPMO = 96/12000/2 × 1e6"
+      },
+      {
+        "id": "g5-dpmo7",
+        "expect": 2000,
+        "chosen": "2000",
+        "ok": true,
+        "note": "DPMO = 40/4000/5 × 1e6"
+      },
+      {
+        "id": "g5-pce0",
+        "expect": 5,
+        "chosen": "5%",
+        "ok": true,
+        "note": "PCE = 8/160"
+      },
+      {
+        "id": "g5-pce1",
+        "expect": 25,
+        "chosen": "25%",
+        "ok": true,
+        "note": "PCE = 15/60"
+      },
+      {
+        "id": "g5-pce2",
+        "expect": 20,
+        "chosen": "20%",
+        "ok": true,
+        "note": "PCE = 30/150"
+      },
+      {
+        "id": "g5-pce3",
+        "expect": 4,
+        "chosen": "4%",
+        "ok": true,
+        "note": "PCE = 10/250"
+      },
+      {
+        "id": "g5-pce4",
+        "expect": 20,
+        "chosen": "20%",
+        "ok": true,
+        "note": "PCE = 24/120"
+      },
+      {
+        "id": "g5-pce5",
+        "expect": 6,
+        "chosen": "6%",
+        "ok": true,
+        "note": "PCE = 18/300"
+      },
+      {
+        "id": "g5-fpy0",
+        "expect": 85,
+        "chosen": "85%",
+        "ok": true,
+        "note": "FPY = (2000-300)/2000"
+      },
+      {
+        "id": "g5-fpy1",
+        "expect": 70,
+        "chosen": "70%",
+        "ok": true,
+        "note": "FPY = (1500-450)/1500"
+      },
+      {
+        "id": "g5-fpy2",
+        "expect": 75,
+        "chosen": "75%",
+        "ok": true,
+        "note": "FPY = (800-200)/800"
+      },
+      {
+        "id": "g5-fpy3",
+        "expect": 95,
+        "chosen": "95%",
+        "ok": true,
+        "note": "FPY = (5000-250)/5000"
+      },
+      {
+        "id": "g6-dmaic0",
+        "expect": "Define",
+        "chosen": "Define",
+        "ok": true,
+        "note": "DMAIC 阶段"
+      },
+      {
+        "id": "g6-dmaic1",
+        "expect": "Measure",
+        "chosen": "Measure",
+        "ok": true,
+        "note": "DMAIC 阶段"
+      },
+      {
+        "id": "g6-dmaic2",
+        "expect": "Analyze",
+        "chosen": "Analyze",
+        "ok": true,
+        "note": "DMAIC 阶段"
+      },
+      {
+        "id": "g6-dmaic3",
+        "expect": "Improve",
+        "chosen": "Improve",
+        "ok": true,
+        "note": "DMAIC 阶段"
+      },
+      {
+        "id": "g6-dmaic4",
+        "expect": "Control",
+        "chosen": "Control",
+        "ok": true,
+        "note": "DMAIC 阶段"
+      },
+      {
+        "id": "g6-dmaic5",
+        "expect": "Analyze",
+        "chosen": "Analyze",
+        "ok": true,
+        "note": "DMAIC 阶段"
+      }
+    ]
+  },
+  "answerDistribution": [
+    82,
+    79,
+    81,
+    81
+  ],
+  "papers": [
+    {
+      "n": 1,
+      "count": 140,
+      "byDomain": {
+        "1": 9,
+        "2": 17,
+        "3": 14,
+        "4": 15,
+        "5": 15,
+        "6": 14,
+        "7": 17,
+        "8": 19,
+        "9": 20
+      }
+    },
+    {
+      "n": 2,
+      "count": 140,
+      "byDomain": {
+        "1": 9,
+        "2": 17,
+        "3": 14,
+        "4": 15,
+        "5": 15,
+        "6": 14,
+        "7": 17,
+        "8": 19,
+        "9": 20
+      }
+    },
+    {
+      "n": 3,
+      "count": 140,
+      "byDomain": {
+        "1": 9,
+        "2": 17,
+        "3": 14,
+        "4": 15,
+        "5": 15,
+        "6": 14,
+        "7": 17,
+        "8": 19,
+        "9": 20
+      }
+    },
+    {
+      "n": 4,
+      "count": 140,
+      "byDomain": {
+        "1": 9,
+        "2": 17,
+        "3": 14,
+        "4": 15,
+        "5": 15,
+        "6": 14,
+        "7": 17,
+        "8": 19,
+        "9": 20
+      }
+    },
+    {
+      "n": 5,
+      "count": 140,
+      "byDomain": {
+        "1": 9,
+        "2": 17,
+        "3": 14,
+        "4": 15,
+        "5": 15,
+        "6": 14,
+        "7": 17,
+        "8": 19,
+        "9": 20
+      }
+    }
+  ],
+  "overlapMatrix": [
+    {
+      "a": 1,
+      "b": 2,
+      "same": 59,
+      "pct": 42
+    },
+    {
+      "a": 1,
+      "b": 3,
+      "same": 55,
+      "pct": 39
+    },
+    {
+      "a": 1,
+      "b": 4,
+      "same": 67,
+      "pct": 48
+    },
+    {
+      "a": 1,
+      "b": 5,
+      "same": 69,
+      "pct": 49
+    },
+    {
+      "a": 2,
+      "b": 3,
+      "same": 60,
+      "pct": 43
+    },
+    {
+      "a": 2,
+      "b": 4,
+      "same": 66,
+      "pct": 47
+    },
+    {
+      "a": 2,
+      "b": 5,
+      "same": 66,
+      "pct": 47
+    },
+    {
+      "a": 3,
+      "b": 4,
+      "same": 59,
+      "pct": 42
+    },
+    {
+      "a": 3,
+      "b": 5,
+      "same": 59,
+      "pct": 42
+    },
+    {
+      "a": 4,
+      "b": 5,
+      "same": 68,
+      "pct": 49
+    }
+  ],
+  "uniqueAcrossPapers": 299,
+  "drillBankOverlap": 36,
+  "p0": [],
+  "p1": [
+    "存在高重合卷对（最高 49%），五套不能视为独立测评",
+    "分章练习与模考题库有 36 题重复",
+    "选项长度线索明显：83% 的题目正确答案是最长选项（应补充等长干扰项）"
+  ],
+  "info": [
+    "平均两两重合 63 题，最高 69 题"
+  ]
+}
