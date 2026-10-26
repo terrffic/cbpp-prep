@@ -1,6 +1,6 @@
 # CBPP 备考中心（业务流程管理专家认证）
 
-**在线访问：https://terrffic.github.io/cbpp-prep/** ｜ 部署提交 `0273adc8af782acf93f0ab1746152e5d2e271be3`（Pages 构建 `built`，四个入口 HTML 线上 SHA-256 与入库内容逐一一致，见 `reports/F_deploy.md`）
+**在线访问：https://terrffic.github.io/cbpp-prep/** ｜ 内容提交 `0273adc`（Pages 构建 `built`，四个入口 HTML 线上 SHA-256 与入库内容逐一一致；此后的文档提交不改 HTML，以文件哈希为准，见 `reports/F_deploy.md`）
 
 依据 ABPMP《BPM CBOK®》4.0 的知识域划分与 2025 版《CBPP Examination Handbook》公布的考试蓝图制作的**交互式备考工具**。纯前端、单文件、无需安装：线上直接打开上面的链接，本地双击 `index.html` 即用。
 
