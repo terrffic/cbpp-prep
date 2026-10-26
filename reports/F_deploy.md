@@ -9,7 +9,7 @@
 | **内容 Commit SHA** | **`0273adc8af782acf93f0ab1746152e5d2e271be3`**（本报告、README 等文档的后续提交在其后；HTML 内容自该提交起未变，**以四个文件的 SHA-256 为准**） |
 | **访问链接** | **https://terrffic.github.io/cbpp-prep/** |
 | Pages 构建 | `status=built`，构建 commit = `0273adc` ✅ |
-| 交付时分支 HEAD | `98885dfeacb46f8bbf61abdce69cb114f4fc35b3`（此后若有文档提交，HEAD 会前进 1 个；**HTML 内容哈希恒定**，见 §2） |
+| 交付时分支 HEAD | 见 GitHub 仓库页 `main` 最新提交（内容基线为 `0273adc`；此后只提交 `reports/`、`README.md`、`tools/`，**四个 HTML 的哈希恒定**，见 §2） |
 | 远端文件数 | 29（缺失 0 / 不一致 0 / 多余 0） |
 | 线上逐字节校验 | 4/4 入口文件 SHA-256 与入库内容完全一致 |
 | 线上冒烟 | `node tools/live_check.js` → **26 passed / 0 failed** |
