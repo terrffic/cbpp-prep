@@ -211,5 +211,94 @@ console.log('\n== 8. 全文表述扫描（禁止性断言 / 复习内容完整�
   ok(withEn >= 50, '带英文要点（EN note）的节点 ' + withEn + ' 个');
 }
 
+console.log('\n== 9. 知识树改版（关键考核点前置 / 展开讲解 / 线条 / 练习题量）==');
+{
+  const { w, d, errors } = load();
+  const details = [...d.querySelectorAll('#tree .detail .detail-inner')];
+  ok(details.length >= 115, '精讲卡数量 ' + details.length);
+  ok(details.every(x => !!x.querySelector('.keybox')), '每张精讲卡都以「关键考核点」开头');
+  ok(details.every(x => x.firstElementChild && x.firstElementChild.classList.contains('keybox')), '关键考核点在卡片最前面（第一个子元素）');
+  const withDepth = details.filter(x => x.querySelector('.prose')).length;
+  ok(withDepth >= 115, '展开讲解段落 ' + withDepth + ' 段');
+  const emptyKeys = details.filter(x => !x.querySelector('.keybox li') || x.querySelectorAll('.keybox li').length < 2).length;
+  ok(emptyKeys === 0, '没有空的关键考核点（少于 2 条的 ' + emptyKeys + ' 个）');
+  // 线条：树线 1px、精讲竖条 2px
+  ok(/ul\.tree-ul ul\.tree-ul::before[^}]*border-left:1px/.test(html), '树形连接线为 1px');
+  ok(/\.detail-inner[^}]*border-left:2px/.test(html), '精讲卡竖条为 2px');
+  // 练习题量
+  const badges = [...d.querySelectorAll('#tree .q-badge')];
+  const counts = badges.map(b => +(b.textContent.match(/练习\s*(\d+)题/) || [0, 0])[1]);
+  ok(counts.length === 9 && counts.every(n => n >= 30), '每章练习 ≥30 题：' + counts.join('/'));
+  badges[0].dispatchEvent(new w.MouseEvent('click', { bubbles: true }));
+  const pos = d.querySelector('#quizModal .sub2').textContent;
+  const m = pos.match(/第\s*1\s*\/\s*(\d+)\s*题/);
+  ok(m && +m[1] === counts[0], '第 1 章练习实际题量 ' + (m ? m[1] : '?') + ' 与徽章一致 ' + counts[0]);
+  d.getElementById('qQuit').click();
+  ok(errors.length === 0, '无脚本错误');
+}
+
+console.log('\n== 10. 错题分析与靶向练习 ==');
+{
+  const seed = w => {
+    const now = Date.now();
+    w.localStorage.setItem('cbpp_wrong_v1', JSON.stringify({
+      'x1-1': { n: 3, streak: 0, last: now, first: now, mastered: false },
+      'x2-2': { n: 2, streak: 0, last: now, first: now, mastered: false },
+      'ch1-3': { n: 1, streak: 2, last: now, first: now, mastered: true },
+      'x5-1': { n: 1, streak: 0, last: now, first: now, mastered: false }
+    }));
+    w.localStorage.setItem('cbpp_exam_v1', JSON.stringify({
+      wrong: { 'x1-1': 3, 'x2-2': 2, 'ch1-3': 1, 'x5-1': 1 }, hist: [], active: null, bankRev: '2026-10-rev3'
+    }));
+  };
+  const { w, d, errors } = load('', seed);
+  w.switchTab('exam');
+  ok(!!d.getElementById('modeAnalysis'), '首页有「错题分析」入口');
+  d.getElementById('modeAnalysis').click();
+  const v = d.getElementById('viewAnalysis');
+  ok(!hidden(d, 'viewAnalysis'), '错题分析视图打开');
+  const tiles = [...v.querySelectorAll('.an-tile')].map(t => t.querySelector('.v').textContent.trim());
+  ok(tiles[0] === '4', '错题总数 4，实际 ' + tiles[0]);
+  ok(tiles[1] === '3', '待巩固 3，实际 ' + tiles[1]);
+  ok(tiles[2] === '1', '已掌握 1，实际 ' + tiles[2]);
+  ok(tiles.substr === undefined && tiles[5] === '3/9', '涉及知识域 3/9，实际 ' + tiles[5]);
+  const domRows = [...v.querySelectorAll('.an-row .lb')].map(x => x.textContent.trim());
+  ok(/1\. 业务流程管理基础/.test(domRows[0]), '按域排序时错题最多的域排第一：' + domRows[0]);
+  ok(domRows.some(x => /^\d\.\d\s/.test(x)), '二级考点自动归类已输出：' + domRows.filter(x => /^\d\.\d/.test(x)).slice(0, 3).join(' / '));
+  ok(v.querySelectorAll('.an-item').length >= 4, '高频错题榜 ' + v.querySelectorAll('.an-item').length + ' 条');
+  d.getElementById('anPractice').click();
+  ok(!hidden(d, 'viewExam'), '靶向练习已开考');
+  const pos = d.getElementById('examPos').textContent;
+  ok(/第 1 \/ 20 题/.test(pos), '靶向练习 20 题（错题 4 + 同域补齐），实际：' + pos.trim());
+  d.getElementById('qCard').querySelectorAll('.xopt')[0].dispatchEvent(new w.MouseEvent('click', { bubbles: true }));
+  ok(d.querySelectorAll('#qCard .xopt.sel').length === 1, '靶向练习可作答（选中态生效）');
+  ok(d.querySelectorAll('#palette .pal-cell.done').length === 1, '答题卡同步记为已答');
+  ok(errors.length === 0, '无脚本错误');
+}
+
+console.log('\n== 11. 掌握状态与错题口径 ==');
+{
+  const { w, d } = load();
+  // 连续答对 2 次 → 标记掌握；再答错 → 退回待巩固
+  const r1 = w.__WR.hit('x9-9', true);
+  ok(r1.mastered === false, '答对 1 次尚不记为掌握');
+  const r2 = w.__WR.hit('x9-9', true);
+  ok(r2.mastered === true, '连续答对 2 次记为已掌握');
+  const r3 = w.__WR.hit('x9-9', false);
+  ok(r3.mastered === false && r3.n === 1, '再答错退回待巩固，错次累加为 1');
+  // 练习答错 → 进模考错题本（口径统一）
+  const badge = d.querySelector('#tree .q-badge');
+  badge.dispatchEvent(new w.MouseEvent('click', { bubbles: true }));
+  /* 练习池里的题对象可能与题库副本的选项顺序不同（练习侧做过答案平衡），取练习自己那份 */
+  const q = w.__CBPP_LEARN.data.c[0].q[0];
+  const opts = d.querySelectorAll('#quizModal .opt');
+  const wrongIdx = [0, 1, 2, 3].find(i => i !== q.a);
+  opts[wrongIdx].dispatchEvent(new w.MouseEvent('click', { bubbles: true }));
+  const dbObj = JSON.parse(w.localStorage.getItem('cbpp_exam_v1') || '{}');
+  ok(dbObj.wrong && dbObj.wrong[q.id] >= 1, '练习答错后模考错题本同步记录（' + q.id + '）');
+  const meta = w.__WR.all();
+  ok(meta[q.id] && meta[q.id].n >= 1, '错题元数据已写入（' + q.id + '）');
+}
+
 console.log('\nRESULT: ' + pass + ' passed, ' + fail + ' failed');
 process.exit(fail ? 1 : 0);

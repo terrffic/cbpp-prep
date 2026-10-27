@@ -199,7 +199,15 @@ if (maxOverlap / 140 > 0.35) warn('存在高重合卷对（最高 ' + Math.round
 const examIdSet = new Set(examQs.map(q => q.id));
 const drillInBank = drillQs.filter(q => examIdSet.has(q.id)).length;
 console.log('  分章练习与模考重合：' + drillInBank + ' / ' + drillQs.length);
-if (drillInBank > 0) warn('分章练习与模考题库有 ' + drillInBank + ' 题重复');
+/* 练习池设计：分章练习 = 本章精选题（36 道）+ 该知识域题库全部题目，因此重合是设计结果，不是缺陷。
+   这里改为「信息」并给出实际练习题量，避免把设计当作告警。 */
+const drillPoolSize = DATA.c.map((ch, i) => {
+  const own = (ch.q || []).map(q => q.id);
+  const bankIds = (BANK[i] && BANK[i].qs || []).map(q => q.id);
+  return new Set(own.concat(bankIds)).size;
+});
+console.log('  分章练习池题量：' + drillPoolSize.join(' / ') + '（合计 ' + drillPoolSize.reduce((a,b)=>a+b,0) + '）');
+if (drillInBank > 0) info('分章练习与模考题库重合 ' + drillInBank + ' 题：本章精选题同时收录在题库中，属设计（练习池＝该域全部题目）');
 
 /* ---------- 5. 双语一致性 ---------- */
 console.log('\n== 中英双语一致性 ==');
