@@ -1,6 +1,6 @@
 # CBPP 备考中心（业务流程管理专家认证）
 
-**在线访问：https://terrffic.github.io/cbpp-prep/** ｜ 内容提交 `0273adc`（Pages 构建 `built`，四个入口 HTML 线上 SHA-256 与入库内容逐一一致；此后的文档提交不改 HTML，以文件哈希为准，见 `reports/F_deploy.md`）
+**在线访问：https://terrffic.github.io/cbpp-prep/** ｜ 内容提交 `8b914e66`（Pages 构建 `built`，四个入口 HTML 线上 SHA-256 与入库内容逐一一致；此后的文档提交不改 HTML，以文件哈希为准，见 `reports/F_deploy.md`）
 
 依据 ABPMP《BPM CBOK®》4.0 的知识域划分与 2025 版《CBPP Examination Handbook》公布的考试蓝图制作的**交互式备考工具**。纯前端、单文件、无需安装：线上直接打开上面的链接，本地双击 `index.html` 即用。
 
@@ -45,7 +45,7 @@
 | `node tools/audit.js` | 结构 / 答案 / 计算复算 / 卷分布 / 中英一致 / 表述风险 | P0 = 0，GATE PASS |
 | `node tools/e2e.js` | jsdom 全流程点击回归（练习、考试、错题分析、存储迁移） | 102 passed / 0 failed |
 | `node tools/coverage.js` | 19 个二级领域覆盖矩阵 + 逐题审查台账 | 全覆盖，台账 323 行 |
-| `node tools/live_check.js` | 对 **Pages 线上字节** 跑启动与数据断言 | 26 passed / 0 failed |
+| `node tools/live_check.js` | 对 **Pages 线上字节** 跑启动与数据断言（含精讲改版、练习题量、错题分析） | 45 passed / 0 failed |
 | `python tools/deploy.py --dry-run` | 本地与远端逐文件差异（无需凭据） | — |
 | `python tools/deploy.py` | 经 REST API 部署并自动核验 | 见 `reports/F_deploy.md` |
 
@@ -84,7 +84,7 @@
 | 命令 | 作用 | 产物 |
 |---|---|---|
 | `node tools/audit.js` | 结构性 + 内容性校验（唯一 ID、4 选项、答案索引、计算题独立复算、卷内重复、卷间重合、中英一致性、风险表述、九域容量…），P0 失败退出码 1 | `reports/audit.json` |
-| `node tools/e2e.js` | jsdom 整页真实交互回归（73 条断言：练习、考试全流程、深链、存储迁移与损坏容错、答案分布、全文表述扫描） | 控制台输出 |
+| `node tools/e2e.js` | jsdom 整页真实交互回归（102 条断言：练习、考试全流程、深链、存储迁移与损坏容错、答案分布、全文表述扫描、精讲改版、错题分析与掌握度） | 控制台输出 |
 | `node tools/coverage.js` | 19 个二级领域覆盖矩阵 + 逐题审查台账 | `reports/ledger.csv`、`reports/coverage.csv`、`reports/coverage.json` |
 | `node tools/stats.js` | 报告用统计（答案分布、模板题族、选项长度失衡、卷间重合） | `reports/stats.json` |
 | `python tools/clean_claims.py` | 幂等清理无依据的应试化表述（必考 / 送分题 / 高频 / 失败率 70%…） | 就地修改 HTML |
