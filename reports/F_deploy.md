@@ -8,17 +8,17 @@
 | 分支 | `main`（Pages 源：`main` / 根目录） |
 | **内容 Commit SHA** | **`8b914e661dca5b04b2b00a0a1f9a08be57677e94`**（导图改版 + 练习扩容 + 错题分析；此后只提交 `reports/`、`README.md`、`tools/`，**四个 HTML 的哈希恒定**，见 §2） |
 | **访问链接** | **https://terrffic.github.io/cbpp-prep/** |
-| Pages 构建 | `status=built`，构建 commit = `8b914e66` ✅ |
+| Pages 构建 | `status=built` ✅（构建 commit = 仓库 `main` 最新提交；**只要 §2 的四个哈希不变，内容就与 `8b914e66` 一致**） |
 | 交付时分支 HEAD | 见 GitHub 仓库页 `main` 最新提交（**内容基线 = `8b914e66`**；此后只提交 `reports/`、`README.md`、`tools/`，**四个 HTML 的哈希恒定**，见 §2） |
 | 远端文件数 | 29（缺失 0 / 不一致 0 / 多余 0） |
 | 线上逐字节校验 | 4/4 入口文件 SHA-256 与入库内容完全一致 |
 | 线上冒烟 | `node tools/live_check.js` → **45 passed / 0 failed** |
 
 > **历史链说明（避免误解）**：远端提交由 REST API 生成，与本地 `.git` 不是同一条历史链（本地提交仅作工作副本记录）。
-> 两者的**内容完全一致**：远端 29 个文件的 blob SHA 与本地 `git hash-object` 逐一相同，HEAD 树哈希也相同（`99098f5e…`）。
+> 两者的**内容完全一致**：远端 29 个文件的 blob SHA 与本地 `git hash-object` 逐一相同，HEAD 树哈希也相同（每次部署后 `deploy.py` 打印的“新树”与本地 `git rev-parse HEAD^{tree}` 完全吻合，可自行复核）。
 > 因此"线上与源码一致"的判定基准是**文件哈希**，不是 commit SHA。若要统一历史，可在网络允许时重新 `git clone` 一份作为工作副本。
 
-内容落地用 3 个提交（一次推送受代理限制，改用 API 分三步落库；之后的提交只改 `reports/`、`README.md`、`tools/`，不动四个 HTML）：
+内容落地提交如下（首次一次推送受代理限制，改用 API 分三步落库；之后只提交 `reports/`、`README.md`、`tools/`，不动四个 HTML）：
 
 | # | SHA | 内容 |
 |---|---|---|
